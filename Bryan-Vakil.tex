@@ -101,10 +101,12 @@ Vancouver, B.C., Canada V6T 1Z2
 \newcommand{\Tot}{\operatorname{Tot}}
 \newcommand{\UL}[1]{\underline{#1}}
 \newcommand{\alg}{\mathsf{alg}}
+\renewcommand{\top}{\mathsf{top}}
 \newcommand{\Gr}{\operatorname{Gr}}
 \newcommand{\LoopTwo}{\Omega^{2}_{d,\alg}}
-
-
+\newcommand{\LoopTwoTop}{\Omega^{2}_{d,\top}}
+\newcommand{\Id}{\operatorname{Id}}
+\newcommand{\codim}{\operatorname{codim}}
 
 \begin{document}
 
@@ -151,7 +153,7 @@ and let
 \[
 \Gr (n,n+N) = \Gr (n,U\oplus W)
 \]
-be the Grassmanian of $n$ dimensional quotients of $U\oplus W$ with
+be the Grassmannian of $n$ dimensional quotients of $U\oplus W$ with
 basepoint given by the projection $U\oplus W\to U$. By pulling back
 the universal quotient, we see that $\LoopTwo (\Gr (n,n+N))$
 parameterizes exact sequences:
@@ -252,9 +254,9 @@ $d$. Let $V = \Hom (A,A)\oplus \Hom (A,U)\oplus \Hom (W,A)$ and let
 $V^{0}\subset V$ be the open set of $(\alpha ,j,\gamma )\in V$
 satisfying
 \begin{enumerate}
-\item $\Ker (\alpha -\lambda \cdot Id_{A})\cap \Ker (j) = 0$ for all
+\item $\Ker (\alpha -\lambda \cdot \Id_{A})\cap \Ker (j) = 0$ for all
 $\lambda$.
-\item  $\Ker (\alpha -\lambda \cdot Id_{A})\subset \im (\gamma )$ for
+\item  $\Ker (\alpha -\lambda \cdot \Id_{A})\subset \im (\gamma )$ for
 all $\lambda$.
 \end{enumerate}
 Then the constructions of the previous subsection induce an
@@ -263,11 +265,11 @@ isomorphism of affine varieties:
 \LoopTwo (\Gr (n,n+N))\cong V^{o}/GL(A) .
 \]
 \end{theorem}
-\begin{remark}
-The Grassmanian on the left is an approximate model for $BGL(n)$ and
+\begin{remark}\label{rem: Gr(n,n+N) is a model for BGL(n) and Vo/GL(A) is a model for BGL(d)}
+The Grassmannian on the left is an approximate model for $BGL(n)$ and
 the quotient on the right is an approximate model for $BGL(d)$. We can
 thus regard our theorem as saying, in a sense that we will make
-preceise in the next subsection, that there is an approximate
+precise in the next subsection, that there is an approximate
 equivalence $\Omega^{2}(BGL(n))\sim BGL(d)$.
 \end{remark}
 
@@ -293,12 +295,11 @@ Let $\PP^{1}\times \PP^{1}$ have coordinates
 $((y_{0}:y_{1}),(x_{0}:x_{1}))$ with $p,q:\PP^{1}\times \PP^{1}\to
 \PP^{1}$ projection onto the first and second factor respectively. Let 
 \[
-\Delta =\{y_{1}x_{0}-y_{0}x_{1} \}\subset \PP^{1}\times \PP^{1}
+\Delta =\{y_{1}x_{0}-y_{0}x_{1} =0 \}\subset \PP^{1}\times \PP^{1}
 \]
 be the diagonal. Then we get an isomorphism
 \[
-E
-q_{*}\left(p^{*}E\otimes \OO_{\Delta} \right)
+E\cong q_{*}\left(p^{*}E\otimes \OO_{\Delta} \right)
 \]
 where we have implicitly identified the two factors of $\PP^{1}$ by
 $x_{i}=y_{i}$.  We then tensor the exact sequence
@@ -340,7 +341,7 @@ are given by
 \[
 \begin{tikzcd}
 A \arrow{r}{\begin{pmatrix} \alpha \\ j  \end{pmatrix}} &A\oplus U,
-\quad & A \arrow{r}{\begin{pmatrix} Id_{A} \\ 0  \end{pmatrix}} &A\oplus U
+\quad & A \arrow{r}{\begin{pmatrix} \Id_{A} \\ 0  \end{pmatrix}} &A\oplus U
 \end{tikzcd}
 \]
 respectively. Then the exact sequence from Lemma~\ref{lem: Stromme}
@@ -355,7 +356,7 @@ reads
 
 The condition that $\UL{A}(-1)$ is a subbundle of $\UL{A}\oplus
 \UL{U}$ requires that for any point $\lambda =\frac{x_{0}}{x_{1}}\in
-\PP^{1}-p_{\infty}$, the vector space map ${\tiny \begin{pmatrix} \alpha -\lambda Id_{A}\\
+\PP^{1}-p_{\infty}$, the vector space map ${\tiny \begin{pmatrix} \alpha -\lambda \Id_{A}\\
 j \end{pmatrix}} : A\to A\oplus U $ is injective. This is equivalent
 to condition (1) of the theorem.
 
@@ -390,8 +391,109 @@ even true? I think it is.}
 \subsection{Topological consequences of the theorem}\label{subsec:
 topological consequences}
 
+In this subsection, we make precise the assertion in Remark~\ref{rem:
+Gr(n,n+N) is a model for BGL(n) and Vo/GL(A) is a model for
+BGL(d)}. We work over $\CC$ and we give our varieties the analytic
+topology. Then since $\PP^{1}$ is homeomorphic to the 2-sphere
+$S^{2}$, there is a natural inclusion
+\[
+\LoopTwo (\Gr (n,n+N))\hookrightarrow \LoopTwoTop  (\Gr (n,n+N))
+\]
+where the space on the right is the usual loop-2 space of continuous
+based maps $f:S^{2}\to \Gr (n,n+N)$.
 
-    
+In \cite{Mann-Milgram-93}, Mann and Milgram study the above inclusion
+and prove that it induces a homotopy equivalence through dimension
+$2d+1$ (and that moreover this bound is sharp). In other words we have
+an isomorphism of homotopy groups for all $k<2d+1$:
+\begin{align*}
+\pi_{k}(\LoopTwo (\Gr (n,n+N))) &\cong \pi_{k}(\LoopTwoTop (\Gr (n,n+N)))\\
+&\cong \pi_{k+2}(\Gr (n,n+N)).
+\end{align*}
+
+Without loss of generality, we now assume that $N\geq n$. We then can
+easily prove that 
+\[
+\pi_{k+2}(\Gr (n,n+N))\cong \pi_{k+1}(U(n)) \text{ for all $k<2n-1$}
+\]
+using the long exact homotopy sequences associated to the standard
+fibrations 
+\begin{align*}
+U(n-1)\hookrightarrow &U(n) \to S^{2n-1}\\
+U(n)\times U(N) \hookrightarrow & U(n+N)  \to \Gr (n,n+N).
+\end{align*}
+
+Combining the above we have
+\begin{equation}\label{eqn: pik(loop2alg)=pik+1(U(n))}
+\pi_{k}(\LoopTwo (\Gr (n,n+N))) \cong \pi_{k+1}(U(n)) \text{  for all
+} k<\min (2n-1,2d+1).
+\end{equation}
+
+
+On the other hand, we may analyze the homotopy groups of the quiver
+variety $V^{o}/GL(A)$ using the long exact homotopy sequence of the
+fibration
+\[
+GL(A)\hookrightarrow V^{o} \to V^{o}/GL(A). 
+\]
+Now $V^{o} = V-Z$ and the inclusion $V^{o} \hookrightarrow V$ induces
+isomorphisms on $\pi_{k}$ for all $k< 2\codim(Z)-1$ (\textbf{citation
+needed!}) and so the long exact sequence
+\[
+\pi_{k}(V^{o})\to \pi_{k}(V^{o}/GL(A)) \to \pi_{k-1}(GL(A)) \to \pi_{k-1}(V^{o})
+\]
+gives isomorphisms
+\begin{equation}\label{eqn: pik(Vo/GL(A)) = pik-1(GL(A))}
+\pi_{k}(V^{o}/GL(A))\cong \pi_{k-1}(GL(A)) \text{  for all $k<2\codim Z
+-1$}.
+\end{equation}
+Then since $GL(A)$ is homotopy equivalent to $U(d)$,
+equations~\eqref{eqn: pik(Vo/GL(A)) = pik-1(GL(A))} and \eqref{eqn:
+pik(loop2alg)=pik+1(U(n))}, along with Theorem~\ref{thm: quiver
+description of loop2 of Gr} yields
+\begin{equation}\label{eqn: main homotopy equivalence with one
+superfluous condition}
+\pi_{k+1}(U(n))\cong \pi_{k-1}(U(d))\text{   for all   } k\leq \min
+(2n-1,2d+1, 2\codim Z - 1).
+\end{equation}
+
+\begin{lemma}
+$\codim Z \geq N$. 
+\end{lemma}
+\begin{proof}
+\emph{(Sketch)} By definition $Z=Z_{1}\cap Z_{2} $ where
+\begin{align*}
+Z_{1}&= \left\{(\alpha ,j,\gamma ): \text{$\Ker j$ contains an
+eigenvector of $\alpha$}.  \right\}\\
+Z_{2}&= \left\{(\alpha ,j,\gamma ): \text{$\Coker \gamma  $ contains an
+eigenvector of $\alpha$}.  \right\}.
+\end{align*}
+The codimension of $Z_{1}\subset V$ is the same as the codimension of
+$\Ker j \subset A$ which is $n$. By duality, the codimension of
+$Z_{2}$ is $N$. The expected codimension of $Z$ is then $n+N$, but we
+can certainly conclude that $\codim Z\geq \max (n,N)=N$.
+\end{proof}
+The Lemma means that $2n-1\leq 2\codim Z-1$ and so \eqref{eqn: main
+homotopy equivalence with one superfluous condition} simplifies to
+give us the main topological consequence of Theorem~\ref{thm: quiver
+description of loop2 of Gr}: 
+\begin{proposition}\label{prop: main homotopy equivalence}
+The isomorphism of varieties in Theorem~\ref{thm: quiver description
+of loop2 of Gr} induces homotopy equivalences:
+\[
+\pi_{k+1}(U(n))\cong \pi_{k-1}((U(d))
+\]
+for all $k\leq \min (2n-1,2d+1)$.
+\end{proposition}
+The above then immediately implies the classical Bott periodicity for
+$U=\lim_{n\to \infty}U(n)$:
+\begin{corollary}
+$\pi_{k+1}(U)\cong \pi_{k-1}(U)$ for all $k$ and moreover,
+$\pi_{k}(U(n))\cong \pi_{k}(U) $ for all $k\leq 2n$.
+\end{corollary}
+
+
+
 
 \bibliography{BV-biblio}
 \bibliographystyle{plain}
