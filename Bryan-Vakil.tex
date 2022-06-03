@@ -99,7 +99,10 @@ Vancouver, B.C., Canada V6T 1Z2
 \newcommand{\Isom}{\operatorname{Isom}}
 \newcommand{\Hilb}{\operatorname{Hilb}}
 \newcommand{\Tot}{\operatorname{Tot}}
-
+\newcommand{\UL}[1]{\underline{#1}}
+\newcommand{\alg}{\mathsf{alg}}
+\newcommand{\Gr}{\operatorname{Gr}}
+\newcommand{\LoopTwo}{\Omega^{2}_{d,\alg}}
 
 
 
@@ -119,11 +122,276 @@ We do something interesting.
 %\pagebreak
 
 
-\section{Introduction}
+\section{A Retelling of Larson-Vakil}
 
-We may end up citing papers such as
-\cite{Boyer-Mann-Hurtubise-Milgram} or even \cite{Bryan-Sanders-2000}
+This section probably won't end up in the paper. The purpose here is
+to use it as the prototype for the way we treat the 8-fold case and to
+fix some ideas and notation.
 
+\subsection{Notation and Definitions}
+
+We fix homogeneous coordinates $(x_{0}:x_{1})$ on $\PP^{1}$ and we let
+$p_{\infty }=(1:0)$. Let $V$ be a vector space. We use the notation
+\[
+\UL{V}(k) = \OO_{\PP^{1}}(k)\otimes V.
+\]
+
+\begin{definition}\label{defn: Omega2alg}
+Let $(X,\bullet )$ be a (quasi-projective) variety with a base point
+$\bullet \in X$. We define the algebraic loop-2 space of $X$ by
+\[
+\LoopTwo (X) = \left\{f:\PP^{1}\to X \quad :\quad
+f(p_{\infty})=\bullet , f_{*}([\PP^{1}])=d\in A_{1}(X) \right\}.
+\]
+\end{definition}
+
+
+Let $U$ and $W$ be vector spaces of dimension $n$ and $N$ respectively
+and let
+\[
+\Gr (n,n+N) = \Gr (n,U\oplus W)
+\]
+be the Grassmanian of $n$ dimensional quotients of $U\oplus W$ with
+basepoint given by the projection $U\oplus W\to U$. By pulling back
+the universal quotient, we see that $\LoopTwo (\Gr (n,n+N))$
+parameterizes exact sequences:
+
+\[
+\begin{tikzcd}
+0\arrow[r]& F \arrow[r]& \UL{U}\oplus \UL{W} \arrow{r}{\theta } &E
+\arrow[r]& 0
+\end{tikzcd}
+\]
+where $E$ is a rank $n$, degree $d$ bundle on $\PP^{1}$ and
+$E|_{p_{\infty}}\cong U$ via the first component of $\theta
+=({\UL{\theta}_U},\UL{\theta}_{W})$ and where the map
+\[
+\UL{\theta }_{{W}}:\UL{W}\to E
+\]
+is zero at $p_{\infty}$ and hence
+factors through a map
+\[
+\UL{\gamma} :\UL{W} \to E(-p_{\infty}).
+\]
+
+Since $E$ is a quotient of a trivial bundle, it is non-negative in the
+following sense:
+\begin{definition}
+A vector bundle $E$ on $\PP^{1}$ is non-negative (respectively
+positive, less than $k$, etc.) if its splitting type $E\cong
+\oplus_{i}\OO (a_{i})$ satisfies $a_{i} \geq 0$ (respectively
+$a_{i}>0$, $a_{i}<k$, etc.) for all $i$. 
+\end{definition}
+
+
+Because $E$ is non-negative, the sheaf map $\UL{\theta}_{U}$ is
+determined by its map on global sections which we denote without the
+underline:
+\[
+\theta_{U}:U \longrightarrow H^{0}(E).
+\]
+Then the exact sequence
+\[
+\begin{tikzcd}
+0\arrow[r]&E(-p_{\infty})\arrow{r}{\cdot \UL{x}_{1}}
+&E\arrow[r]&E|_{p_{\infty}} \arrow[r] &0
+\end{tikzcd}
+\]
+induces a sequence
+\[
+\begin{tikzcd}
+0\arrow[r]&H^{0}(E(-p_{\infty}))\arrow{r}{\cdot {x}_{1}}
+&H^{0}(E)\arrow[r]&U \arrow[r] &0
+\end{tikzcd}
+\]
+which is split by $\theta_{U}:U\to H^{0}(E)$ inducing the isomorphism
+\[
+H^{0}(E) = A\oplus U
+\]
+where 
+\[
+A=H^{0}(E(-p_{\infty}))
+\]
+is a vector space of dimension $d$.
+
+Then the sheaf map
+\[
+\begin{tikzcd}
+ E(-p_{\infty})\arrow{r}{\cdot \UL{x}_{0}} &E
+\end{tikzcd}
+\]
+induces a map in cohomology
+\[
+\begin{tikzcd}
+A\arrow{r}{\cdot x_{0}} &A\oplus U
+\end{tikzcd}
+\]
+whose components we denote by $\alpha$ and $j$:
+\[
+\alpha :A\to A, \quad j: A\to U.
+\]
+Finally, the sheaf map
+\[
+\begin{tikzcd}
+\UL{W}\arrow{r}{\UL{\gamma}} & E(-p_{\infty})
+\end{tikzcd}
+\]
+is determined by its map in cohomology
+\[
+\gamma :W\to A.
+\]
+
+
+\subsection{The main result}
+With the notation of the previous subsection we can now state the main
+geometric result of this section.
+
+\begin{theorem}\label{thm: quiver description of loop2 of Gr}
+Let $U$, $W$, and $A$ be vector spaces of dimension $n$, $N$, and
+$d$. Let $V = \Hom (A,A)\oplus \Hom (A,U)\oplus \Hom (W,A)$ and let
+$V^{0}\subset V$ be the open set of $(\alpha ,j,\gamma )\in V$
+satisfying
+\begin{enumerate}
+\item $\Ker (\alpha -\lambda \cdot Id_{A})\cap \Ker (j) = 0$ for all
+$\lambda$.
+\item  $\Ker (\alpha -\lambda \cdot Id_{A})\subset \im (\gamma )$ for
+all $\lambda$.
+\end{enumerate}
+Then the constructions of the previous subsection induce an
+isomorphism of affine varieties:
+\[
+\LoopTwo (\Gr (n,n+N))\cong V^{o}/GL(A) .
+\]
+\end{theorem}
+\begin{remark}
+The Grassmanian on the left is an approximate model for $BGL(n)$ and
+the quotient on the right is an approximate model for $BGL(d)$. We can
+thus regard our theorem as saying, in a sense that we will make
+preceise in the next subsection, that there is an approximate
+equivalence $\Omega^{2}(BGL(n))\sim BGL(d)$.
+\end{remark}
+
+
+To prove the theorem we begin with the following
+\begin{lemma}\label{lem: Stromme}
+Let $E$ be a non-negative bundle on $\PP^{1}$. Then the following
+sequence is exact:
+\[
+\begin{tikzcd}
+0\arrow{r} & \UL{H^{0}(E(-1))}(-1)
+\arrow{rr}{\UL{x}_{1}x_{0}-\UL{x}_{0}x_{1}}& &
+\UL{H^{0}(E)} \arrow{r} & E\arrow[r] & 0
+\end{tikzcd}
+\]
+where as in the previous section, sheaf maps are denoted with
+underlines and their induced maps on cohomology are denoted without,
+so in particular $\UL{x}_{i}:\OO (-1)\to \OO$ and
+$x_{i}:H^{0}(E(-1))\to H^{0}(E)$ in the above.
+\end{lemma}
+\begin{proof}
+Let $\PP^{1}\times \PP^{1}$ have coordinates
+$((y_{0}:y_{1}),(x_{0}:x_{1}))$ with $p,q:\PP^{1}\times \PP^{1}\to
+\PP^{1}$ projection onto the first and second factor respectively. Let 
+\[
+\Delta =\{y_{1}x_{0}-y_{0}x_{1} \}\subset \PP^{1}\times \PP^{1}
+\]
+be the diagonal. Then we get an isomorphism
+\[
+E
+q_{*}\left(p^{*}E\otimes \OO_{\Delta} \right)
+\]
+where we have implicitly identified the two factors of $\PP^{1}$ by
+$x_{i}=y_{i}$.  We then tensor the exact sequence
+\[
+\begin{tikzcd}
+0\arrow[r] & \OO_{\PP^{1}\times \PP^{1}}(-1,-1)
+\arrow{rr}{y_{1}x_{0}-y_{0}x_{1}}& & \OO_{\PP^{1}\times \PP^{1}}
+\arrow[r]& \OO_{\Delta} \arrow[r]& 0
+\end{tikzcd}
+\]
+by $p^{*}E$ and apply the functor $q_{*}(-)$. Since the non-negativity
+of $E$ implies that $R^{1}q_{*}(p^{*}E(-1,-1))=0$, we get
+\[
+\begin{tikzcd}
+0\arrow[r] &q_{*}(p^{*}E(-1,-1)) \arrow[r] & q_{*}(p^{*}E) \arrow[r] &
+q_{*}(p^{*}(E))\otimes \OO_{\Delta} \arrow[r] & 0 
+\end{tikzcd}
+\]
+which can be written as 
+\[
+\begin{tikzcd}
+0\arrow[r] &\UL{H^{0}(E(-1))}(-1)
+\arrow{rr}{\UL{y_{1}}x_{0}-\UL{y_{0}}x_{1}} && \UL{H^{0}(E)} \arrow[r]
+&E \arrow[r] &0
+\end{tikzcd}
+\]
+which proves the lemma.
+\end{proof}
+
+Now let 
+\[
+\UL{U} \oplus \UL{W} \to E \to 0
+\]
+be a point in $\LoopTwo (\Gr (n,n+N))$ and recall that 
+\[
+x_{0},x_{1}: H^{0}(E(-p_{\infty})) \to H^{0}(E)
+\]
+are given by
+\[
+\begin{tikzcd}
+A \arrow{r}{\begin{pmatrix} \alpha \\ j  \end{pmatrix}} &A\oplus U,
+\quad & A \arrow{r}{\begin{pmatrix} Id_{A} \\ 0  \end{pmatrix}} &A\oplus U
+\end{tikzcd}
+\]
+respectively. Then the exact sequence from Lemma~\ref{lem: Stromme}
+reads
+\[
+\begin{tikzcd}
+0 \arrow[r] &\UL{A}(-1) \arrow{rr}{\begin{pmatrix} \UL{x}_{1}\alpha -\UL{x}_{0}\\
+\UL{x}_{1}j  \end{pmatrix}}&&\UL{A}\oplus \UL{U}\arrow[r]&E
+\arrow[r]& 0.
+\end{tikzcd}
+\]
+
+The condition that $\UL{A}(-1)$ is a subbundle of $\UL{A}\oplus
+\UL{U}$ requires that for any point $\lambda =\frac{x_{0}}{x_{1}}\in
+\PP^{1}-p_{\infty}$, the vector space map ${\tiny \begin{pmatrix} \alpha -\lambda Id_{A}\\
+j \end{pmatrix}} : A\to A\oplus U $ is injective. This is equivalent
+to condition (1) of the theorem.
+
+The condition that $\theta :\UL{U}\oplus \UL{W} \to E$ is surjective
+means that the map 
+\[
+\UL{W} \to Q
+\]
+is surjective where $Q$ is the rank zero sheaf given by the cokernal
+of $\UL{\theta}_{U}$:
+\[
+\begin{tikzcd}
+0\arrow[r]& \UL{U} \arrow{r}{\UL{\theta}_{U}} & E\arrow[r]&Q\arrow[r]&0.
+\end{tikzcd}
+\]
+The cohomology exact sequence of the above canonically identifies
+$A\cong H^{0}(Q)$ and under this identification, the map in cohomology
+induced by $\UL{W}\to Q$ is just $\gamma :W\to A$.
+
+\emph{Sketchy completion of this argument:}  The support of $Q$ is
+given by the eigenvalues of $\alpha$ so $\UL{W}\to Q$ being surjective
+is equivalent to $\gamma$ surjecting onto the eigenspaces of $\alpha$
+which is exactly condition (2) of the theorem. This more or less finishes up the
+proof of the theorem. I guess I haven't said very carefully that the
+point in $\LoopTwo (\Gr (n,n+N))$ is uniquely determined by $(\alpha
+,j,\gamma )$ up to the action of $GL(A)$ although it is implicit in
+the above argument. Also needed: prove that the quotient $V^{o}/GL(A)$
+is an affine variety (it is an affine GIT  quotient). \emph{Is this
+even true? I think it is.}
+
+
+\subsection{Topological consequences of the theorem}\label{subsec:
+topological consequences}
+
+
+    
 
 \bibliography{BV-biblio}
 \bibliographystyle{plain}
