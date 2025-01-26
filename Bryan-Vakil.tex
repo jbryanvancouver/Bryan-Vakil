@@ -1,6 +1,6 @@
 \documentclass{amsart}
 
-\title{Based maps to Lagrangian Grassmanians and Quivers}
+\title{Based maps to Lagrangian Grassmanians, Quivers, and Bott Periodicity}
 \author{Jim Bryan and Ravi Vakil}
 \date{Last compiled:  \today.  Last edited:  December 12, 2024.}
 \address{
@@ -51,6 +51,7 @@ Vancouver, B.C., Canada V6T 1Z2
 \newtheorem{definition}[theorem]{Definition}
 \newtheorem{example}[theorem]{Example}
 \newtheorem{assumption}[theorem]{Assumption}
+\newtheorem{expectation}[theorem]{Expectation}
 
 
 
@@ -72,6 +73,10 @@ Vancouver, B.C., Canada V6T 1Z2
 \newcommand{\evir}{e_{\mathsf{vir}}}
 \newcommand{\reg}{\mathsf{reg}}
 \newcommand{\calE}{\mathcal{E}}
+
+
+
+
 
 
 \newcommand{\PP}{\mathbb{P}}
@@ -105,14 +110,20 @@ Vancouver, B.C., Canada V6T 1Z2
 \newcommand{\Gr}{\operatorname{Gr}}
 \newcommand{\LoopTwo}{\Omega^{2}_{d,\alg}}
 \newcommand{\LoopTwoTop}{\Omega^{2}_{d,\top}}
+\newcommand{\NoDLoopTwo}{\Omega^{2}_{\alg}}
+\newcommand{\NoDLoopTwoTop}{\Omega^{2}_{\top}}
 \newcommand{\Id}{\operatorname{Id}}
 \newcommand{\codim}{\operatorname{codim}}
+\newcommand{\homotopyeq}{\simeq}
+
 
 \begin{document}
 
 \begin{abstract}
-  We study based algebraic maps from $\PP^{1}$ to the Lagrangian Grassmianian.
-  And one more change.
+We give a quiver description of the space of based algebraic maps from
+$\PP^{1}$ to the Lagrangian Grassmanian (and its orthogonal
+counterpart). Combined with a result of Mann-Milgram, we get new proof of some
+of the homotopy equivalences in orthogonal Bott periodicity.
 \end{abstract}
 
 \maketitle 
@@ -124,11 +135,122 @@ Vancouver, B.C., Canada V6T 1Z2
 %\tableofcontents
 %\pagebreak
 
+\section{Introduction}\label{sec: intro}
+
+
+\subsection{Algebraic and Topological double loop spaces and Bott periodicity.}
+
+In this paper, we study the \emph{algebraic double loop space} of
+Lagrangian Grassmannians and the orthogonal counter part. The
+algebraic double loop space is defined as follows.
+
+\begin{definition}\label{defn: Omega2alg(X)}
+Let $(X,*)$ be a variety with a base point $*\in X$. Fix homogeneous
+coordinates $(x_{0}:x_{1})$ on $\PP^{1}$ with point at infinity
+$p_{\infty}=(1:0)$. Let $\LoopTwo(X)$ be the space algebraic based
+maps of degree $d$, that is
+\[
+\LoopTwo (X) = \left\{f:\PP^{1}\to X\text{ such that
+$f(p_{\infty})=*$ and $f_{*}([\PP^{1}])=d\in H_{2}(X,\ZZ )$. } \right\} .
+\]
+\end{definition}
+
+In the analytic topology over $\CC$, $\PP^{1}$ is homeomorphic to
+$S^{2}$ and so there is an inclusion of the algebraic double loop
+space into the usual double loop space studied in topology:
+\[
+i:\LoopTwo (X) \hookrightarrow \LoopTwoTop (X)
+\]
+where $\LoopTwoTop (X)$ is the space of continuous based maps of
+degree $d$ (we will drop the $d$ from the notation when $H_{2}(X)=0$).
+
+In the same spirit as using high degree polynomial functions to
+approximate a continuous function, we may hope that for certain
+varieties $X$, the algebraic loop space approximatees the topological
+loop space in the sense that it captures most of its homotopy theory.
+
+\begin{expectation}
+For certain varieties $X$, $i:\LoopTwo (X) \hookrightarrow \LoopTwoTop
+(X)$ is a \emph{homotopy approximation} meaning that 
+\[
+i_{*}:\pi_{k}(\LoopTwo (X)) \to \pi_{k}( \LoopTwoTop (X))
+\]
+is an isomorphism for all $k<B(d,X)$ and that $B\to \infty $ as $d\to
+\infty$. 
+\end{expectation}
+
+In the 1980's and 1990's the above expectation was shown to hold for
+generalized flag varieties in a series of papers by Kirwan, Segal, and
+Mann-Milgram \cite{???,???,???}
+
+\begin{theorem}\label{thm: Mann-Milgram algebraic loop approximation
+holds for generalized flag varieties}
+Let $G$ be a reductive algebraic group over $\CC$, let $P\subset G$
+be a parabolic subgroup, and let $X=G/P$ be the corresponding
+generalized flag variety. Then the above expectation holds.
+\end{theorem}
+
+The (topological) double loop space $\LoopTwoTop (X)$ plays an
+important role in homotopy theory, for example in Bott periodicity. To
+state the version of Bott periodicity we want, we recall that $U(n)$,
+$Sp(2n)$, and $O(2n)$ are the classical compact Lie groups of unitary,
+symplectic, and orthogonal transformations. We also have the infinite
+dimensional versions of these groups (definied by direct limits of
+inclusions) and their associated classifying spaces and homogeneous
+spaces. For example:
+\begin{align*}
+U&=\lim_{n\to  \infty} U(n),\\
+Sp/U& = \lim_{n\to  \infty} Sp(2n)/U(n),\\
+BO& = \lim_{n\to  \infty} BO(n),\\
+\end{align*}
+and so forth.
+
+One version of Bott periodicity is tehn given as follows.
+
+\begin{theorem}\label{thm: classical Bott periodicity as homotopy equivalences}
+There exist the following homotopy equivalences:
+\begin{align}
+\LoopTwoTop (BU)&\homotopyeq BU \label{eqn: Omega2BU=BU}\\
+\LoopTwoTop (SP/U)&\homotopyeq BO  \label{eqn: Omega2Sp/U=BO}\\
+\NoDLoopTwoTop (BO)&\homotopyeq O/U  \label{eqn: Omega2BO=O/U}\\
+\LoopTwoTop (O/U)&\homotopyeq BSp  \label{eqn: Omega2O/U=BSp}\\
+\NoDLoopTwoTop (BSp)&\homotopyeq Sp/U   \label{eqn: Omega2BSp=Sp/U}
+\end{align}
+\end{theorem}
+
+Equation~\eqref{eqn: Omega2BU=BU} is referred to as \emph{complex Bott
+periodicity} and it implies that the homotopy groups of $U$ are
+2-periodic. Equations~\eqref{eqn: Omega2Sp/U=BO}-\eqref{eqn: Omega2BSp=Sp/U} 
+are referred to as \emph{real Bott periodicity} and they imply that
+the homotopy groups of $O$ are 8-periodic.
+
+\subsection{Summary of main results}
+
+The main results of this paper give explicit descriptions of $\LoopTwo
+(X)$ when $X$ is a Grassmanian, a Lagrangian Grassmanian, or an
+isotropic orthogonal Grassmanian. Our description is in terms of
+moduli spaces of quiver representations. We use our descriptions along
+with Theorem~\ref{thm: Mann-Milgram algebraic loop approximation
+holds for generalized flag varieties} to give new proofs of the
+homotopy euqivalences \eqref{eqn: Omega2BU=BU} , \eqref{eqn:
+Omega2Sp/U=BO} , and \eqref{eqn: Omega2O/U=BSp} and so we may regard
+our theorems as finite dimensional, algebraic refinements of Bott
+periodicity. The study of the remaining equivalences in the Bott
+periodicity theorem from the perspective of this paper will be pursued
+in future work.
+
+To state our results more expllicitly, let 
+
+\vfill
+\pagebreak
+
+
+
 \section{Temporary notation section}
 
 This section is just so we have our notation that we are fixing once and for all.
 
-$x_0$, $x_1$ are projective coordinates on $\proj^1$.
+$x_0$, $x_1$ are projective coordinates on $\PP^1$.
 
 \section{A Retelling of Larson-Vakil}
 
