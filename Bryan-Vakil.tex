@@ -31,7 +31,8 @@ Vancouver, B.C., Canada V6T 1Z2
 \usepackage{mathtools}
 %\usepackage{amstex}
 %\linespread{1.1}
-
+\usepackage{tikz}
+\usetikzlibrary{arrows,positioning}
 
 
 \newtheorem{theorem}{Theorem}[section]
@@ -106,8 +107,11 @@ Vancouver, B.C., Canada V6T 1Z2
 \newcommand{\Tot}{\operatorname{Tot}}
 \newcommand{\UL}[1]{\underline{#1}}
 \newcommand{\alg}{\mathsf{alg}}
+\newcommand{\stable}{\mathsf{s}}
 \renewcommand{\top}{\mathsf{top}}
 \newcommand{\Gr}{\operatorname{Gr}}
+\newcommand{\LGr}{\operatorname{LGr}}
+\newcommand{\OGr}{\operatorname{OGr}}
 \newcommand{\LoopTwo}{\Omega^{2}_{d,\alg}}
 \newcommand{\LoopTwoTop}{\Omega^{2}_{d,\top}}
 \newcommand{\NoDLoopTwo}{\Omega^{2}_{\alg}}
@@ -232,18 +236,184 @@ isotropic orthogonal Grassmanian. Our description is in terms of
 moduli spaces of quiver representations. We use our descriptions along
 with Theorem~\ref{thm: Mann-Milgram algebraic loop approximation
 holds for generalized flag varieties} to give new proofs of the
-homotopy euqivalences \eqref{eqn: Omega2BU=BU} , \eqref{eqn:
-Omega2Sp/U=BO} , and \eqref{eqn: Omega2O/U=BSp} and so we may regard
+homotopy equivalences \eqref{eqn: Omega2BU=BU}, \eqref{eqn:
+Omega2Sp/U=BO}, and \eqref{eqn: Omega2O/U=BSp} and so we may regard
 our theorems as finite dimensional, algebraic refinements of Bott
 periodicity. The study of the remaining equivalences in the Bott
 periodicity theorem from the perspective of this paper will be pursued
 in future work.
 
-To state our results more expllicitly, let 
+To state our results more explicitly, let $\Gr(n,n+N)$ be the
+Grassmanian of $n$ dimensional quotients of a fixed $n+N$ dimensional
+vector space.  Let $\LGr (n,2n)$ (respectively $\OGr (n,2n)$) be the
+Lagrangian (respectively isotropic orthogonal) Grassmanian which
+parameterizes $n$ dimensional isotropic  quotients of a fixed $2n$
+dimensional vector space equipped with a symplectic (respectively
+orthogonal) bilinear form. For $X$ given by $\Gr (n,n+N)$, $\LGr
+(n,2n)$, or $\OGr (n,2n)$, $H_{2}(X)\cong \ZZ$ as so the class of a
+map $f:\PP^{1}\to X$ may be regarded as a positive integer (the
+degree).
+
+
+\begin{theorem}\label{thm: quiver description of Loop2alg(Gr(n,n+N))}
+Let $A$ be a vector space of dimension $d$ and let $U,W$ be vector
+spaces of dimension $n$ and $N$ respectively. Let
+\[
+V=V_{n,N,d} =\Hom (A,A)\oplus \Hom (W,A)\oplus \Hom (A,U).
+\]
+Then $GL(A)$ acts naturally on $V$ and let $V^{\stable}\subset V$ be
+the locus of stable points in the sense of GIT. Then there exists a
+natural isomorphism:
+\[
+\LoopTwo (\Gr (n,n+N))\cong V^{\stable}/GL(A).
+\]
+\end{theorem}
+
+For the Lagrangian and isotropic orthogonal Grassmannians we have the following.
+
+\begin{theorem}\label{thm: quiver description of Loop2Alg(LGr)}
+Let $A$ be a vector space of dimension $d$ equipped with a
+non-degenerate orthogonal form $\phi :A\to A^{\vee}$ (so
+$\phi^{\vee}=\phi$) and let $U$ be a vector space of dimension
+$n$. Let
+\[
+V=V_{n,d}=\left\{(\alpha ,j)\in \Hom (A,A)\oplus \Hom (A,U):
+\alpha^{\vee}\phi =\phi \alpha \right\} 
+\]
+and let 
+\[
+O(A,\phi ) = \left\{g\in GL(A):g^{\vee}\phi g=\phi  \right\}
+\]
+be the group of orthogonal isomorphisms of $A$. Then $O(A,\phi )$ acts
+naturally on $V$ and let $V^{\stable}\subset V$ be the stable
+locus (in the sense of GIT). Then
+\[
+\LoopTwo (LG(n,2n))\cong V^{\stable}/O(A,\phi ). 
+\]
+\end{theorem}
+
+The statement for the isotropic orthogonal Grassmannian is similar:
+
+
+\begin{theorem}\label{thm: quiver description of Loop2Alg(OGr)}
+Let $A$ be a vector space of dimension $d$ equipped with a
+non-degenerate symplectic form $\phi :A\to A^{\vee}$ (so
+$\phi^{\vee}=-\phi$) and let $U$ be a vector space of dimension
+$n$. Let
+\[
+V=V_{n,d}=\left\{(\alpha ,j)\in \Hom (A,A)\oplus \Hom (A,U):
+\alpha^{\vee}\phi =\phi \alpha \right\} 
+\]
+and let 
+\[
+Sp(A,\phi ) = \left\{g\in GL(A):g^{\vee}\phi g=\phi  \right\}
+\]
+be the group of symplectic isomorphisms of $A$. Then $Sp(A,\phi )$ acts
+naturally on $V$ and let $V^{\stable}\subset V$ be the stable
+locus (in the sense of GIT). Then
+\[
+\LoopTwo (OG(n,2n))\cong V^{\stable}/Sp(A,\phi ). 
+\]
+\end{theorem}
+
+The quivers associated to our theorems are given in the following figure:
+
+\begin{center}
+\begin{tikzpicture}
+
+\tikzset{myarrow/.style={-Latex, thick,line width=1pt,shorten >=2pt, shorten <=2pt}}
+
+    % Node positioning
+    \def\yDist{1.0} % Vertical distance between nodes
+    \def\loopRadius{0.6} % Radius of the loop circles
+
+    % Left quiver
+    \node[draw, circle, fill, inner sep=1.5pt, label=above:{\small
+    $A$}] (L1) at (-2,\yDist) {}; 
+    \node[draw, circle, fill, inner sep=1.5pt, label=right:{\small
+    $U$}] (L2) at (-1.5,-\yDist) {}; 
+    \node[draw, circle, fill, inner sep=1.5pt, label=left:{\small
+    $W$}] (L3) at (-2.5,-\yDist) {}; 
+    \draw[myarrow] (L1) -- node[right] {\small $j$} (L2);
+    \draw[myarrow] (L3) -- node[left] {\small $\gamma $} (L1);
+
+    % Loop for left node
+     \draw[-Latex,thick] (-1.83,\yDist) arc (-75:255:\loopRadius) node[midway,
+     above] {\small $\alpha$}; 
+
+    % Right quiver
+    \node[draw, circle, fill, inner sep=1.5pt, label=below right:{\small
+    $(A,\varphi)$}] (R1) at (2,\yDist) {}; 
+    \node[draw, circle, fill, inner sep=1.5pt, label={right:{\small
+    $U$}}] (R2) at (2,-\yDist) {}; 
+    \draw[myarrow] (R1) -- node[right] {\small $j$} (R2);
+
+    % Loop for right node
+     \draw[-Latex,thick] (2.17,\yDist) arc (-75:255:\loopRadius) node[midway,
+     above] {\small $\alpha$}; 
+
+\end{tikzpicture}
+\end{center}
+
+\subsection{Topological Consequences}\label{subsec: topological consequences}
+
+In this section we explain how our quiver descriptions of $\LoopTwo
+(OG(n,2n))$ and $\LoopTwo (LG(n,2n))$  lead to proofs of the Bott
+periodicity equivalences given by eqns~\eqref{eqn: Omega2O/U=BSp} and
+\eqref{eqn: Omega2Sp/U=BO} respectively.
+
+
+\begin{definition}\label{defn: homotopy approximation}
+We say a collection of topological spaces $\{X_{d} \}_{d\in \NN }$ is
+a \emph{homotopy approximation} for a topological space $Y$ if there
+are bounds $B_{d}\in \NN $ and maps $f_{d}:X_{d}\to Y$ which induce
+isomorphisms 
+\[
+(f_{d})_{*}:\pi_{k}(X_{d})\to \pi_{k}(Y)
+\]
+for all $k<B_{d}$ and $\lim_{d\to \infty}B_{d} = \infty$. Moreover we
+assume there are maps $i_{d}:X_{d}\to X_{d+1}$ which commute with the
+$f_{d}$s and that $X_{d}$ have the homotopy type of a CW complex. We
+denote homotopy approximation as follows:
+\[
+\{X_{d} \}\homotopyeq_{d} Y.
+\]
+\end{definition}
+
+The definitions, along with the Whitehead theorem imply that if
+$\{X_{d} \}\homotopyeq_{d} Y$, then $Y\homotopyeq \lim_{d\to
+\infty}X_{d}$.
+
+The two examples of homotopy approximation relavant to the paper are
+the following.
+\subsubsection{Mann-Milgram Homotopy approximation}\label{subsubsec:
+Mann-Milgram homot approx}
+We note that unlike the algebraic double loop spaces, the topological
+double loop spaces of each degree are all homotopic:
+\[
+\LoopTwoTop (X)\homotopyeq \Omega^{2}_{0,\top}(X).
+\]
+Then Theorem \ref{thm: Mann-Milgram algebraic loop approximation
+holds for generalized flag varieties} says that 
+\[
+\{\LoopTwo (X) \}\homotopyeq_{d}  \Omega^{2}_{0,\top}(X).
+\]
+if $X$ is a generalized flag variety, in particular, if $X$ is
+$Gr(n,n+N)$, $LGr(n,2n)$, or $OGr(n,2n)$.
+
+\subsubsection{GIT homotopy approximation}\label{subsubsec: GIT
+homotopy approx}
+
+
 
 \vfill
 \pagebreak
 
+
+On the subsequent pages are old sections that we can either incorporate or not.        
+
+\vfill
+\pagebreak
 
 
 \section{Temporary notation section}
