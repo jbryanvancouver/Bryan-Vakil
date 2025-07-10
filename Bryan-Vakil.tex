@@ -73,6 +73,7 @@ Vancouver, B.C., Canada V6T 1Z2
 \newcommand{\QQ} {{\mathbb Q}}		% rationals
 \newcommand{\FF} {{\mathbb F}}
 \newcommand{\DD} {{\mathbb D}}
+\newcommand{\JJ} {{\mathbb J}}
 \newcommand{\evir}{e_{\mathsf{vir}}}
 \newcommand{\reg}{\mathsf{reg}}
 \newcommand{\calE}{\mathcal{E}}
@@ -454,21 +455,27 @@ parameterizes exact sequences:
 
 \[
 \begin{tikzcd}
-0\arrow[r]& F \arrow[r]& \UL{U}\oplus \UL{W} \arrow{r}{\UL{\theta} } &E
-\arrow[r]& 0
+0\arrow[r]& F \arrow[r]& \UL{U}\oplus \UL{W} \arrow{r}{\UL{f} } &E
+\arrow[r]& 0.
 \end{tikzcd}
 \]
-where $E$ is a rank $n$, degree $d$ bundle on $\PP^{1}$ and
-$E|_{p_{\infty}}\cong U$ via the first component of $\UL{\theta}
-=({\UL{\theta}_U},\UL{\theta}_{W})$ and where the map
+Here $E$ is a rank $n$, degree $d$ bundle on $\PP^{1}$ and
+$E|_{p_{\infty}}\cong U$ via the first component of $\UL{f}$ which we
+call $\UL{\theta}$. The second component of $\UL{f}$ is zero at
+$p_{\infty}$ and hence factors as
 \[
-\UL{\theta }_{{W}}:\UL{W}\to E
+\begin{tikzcd}
+ \UL{W} \arrow[r,"\UL{\gamma }"]& E(-p_{\infty})
+ \arrow[r,"\UL{x}_{1}"] &E. 
+\end{tikzcd}
 \]
-is zero at $p_{\infty}$ and hence
-factors through a map
+and so we may write
 \[
-\UL{\gamma} :\UL{W} \to E(-p_{\infty}).
+\UL{f}
+=({\UL{\theta}},\UL{x}_{1}\UL{\gamma })
 \]
+
+
 
 Since $E$ is a quotient of a trivial bundle, it is non-negative in the
 following sense:
@@ -480,11 +487,11 @@ $a_{i}>0$, $a_{i}<k$, etc.) for all $i$.
 \end{definition}
 
 
-Because $E$ is non-negative, the sheaf map $\UL{\theta}_{U}$ is
+Because $E$ is non-negative, the sheaf map $\UL{\theta}$ is
 determined by its map on global sections which we denote without the
 underline:
 \[
-\theta_{U}:U \longrightarrow H^{0}(E).
+\theta:U \longrightarrow H^{0}(E).
 \]
 Then the exact sequence
 \[
@@ -500,7 +507,7 @@ induces a sequence
 &H^{0}(E)\arrow[r]&U \arrow[r] &0
 \end{tikzcd}
 \]
-which is split by $\theta_{U}:U\to H^{0}(E)$ inducing the isomorphism
+which is split by $\theta:U\to H^{0}(E)$ inducing the isomorphism
 \[
 H^{0}(E) = A\oplus U
 \]
@@ -656,13 +663,24 @@ A \arrow{r}{\begin{pmatrix} \alpha \\ j  \end{pmatrix}} &A\oplus U,
 \]
 respectively. Then the exact sequence from Lemma~\ref{lem: Stromme}
 reads
-\[
-\begin{tikzcd}
-0 \arrow[r] &\UL{A}(-1) \arrow{rr}{\begin{pmatrix} \UL{x}_{1}\alpha -\UL{x}_{0}\\
-\UL{x}_{1}j  \end{pmatrix}}&&\UL{A}\oplus \UL{U}\arrow[r]&E
-\arrow[r]& 0.
+\begin{equation}\label{eqn: A(-1)->A+U->E}
+\begin{tikzcd}[column sep=3em]
+  0
+    \arrow[r]
+  & \UL{A}(-1)
+    \arrow[rr,"{%
+      \begin{pmatrix}
+        \UL{x}_{1}\alpha - \UL{x}_{0} \\[3pt]
+        \UL{x}_{1}j
+      \end{pmatrix}
+    }"]
+  && \UL{A}\oplus \UL{U}
+    \arrow[r,"{(\UL{\beta},\UL{\theta})}"]
+  & E
+    \arrow[r]
+  & 0.
 \end{tikzcd}
-\]
+\end{equation}
 
 The condition that $\UL{A}(-1)$ is a subbundle of $\UL{A}\oplus
 \UL{U}$ requires that for any point $\lambda =\frac{x_{0}}{x_{1}}\in
@@ -670,16 +688,16 @@ The condition that $\UL{A}(-1)$ is a subbundle of $\UL{A}\oplus
 j \end{pmatrix}} : A\to A\oplus U $ is injective. This is equivalent
 to condition (1) of the theorem.
 
-The condition that $\theta :\UL{U}\oplus \UL{W} \to E$ is surjective
+The condition that $\UL{f} :\UL{U}\oplus \UL{W} \to E$ is surjective
 means that the map 
 \[
 \UL{W} \to Q
 \]
 is surjective where $Q$ is the rank zero sheaf given by the cokernal
-of $\UL{\theta}_{U}$:
+of $\UL{\theta}$:
 \[
 \begin{tikzcd}
-0\arrow[r]& \UL{U} \arrow{r}{\UL{\theta}_{U}} & E\arrow[r]&Q\arrow[r]&0.
+0\arrow[r]& \UL{U} \arrow{r}{\UL{\theta}} & E\arrow[r]&Q\arrow[r]&0.
 \end{tikzcd}
 \]
 The cohomology exact sequence of the above canonically identifies
@@ -712,10 +730,10 @@ Grassmanian respectively. These parameterize $n$ dimensional isotropic
 quotients of a $2n$ dimensional complex vector space equipped with an
 orthogonal and a symplectic form respectively. Although we've written
 these spaces as quotients of a compact Lie group by a subgroup, they
-given by quotients of an algebraic group by a parabolic subgroup and
-are therefore projective algebraic varieties. We will handle these two
-cases simultaneously and so it will be convenient to introduce the
-following notations:
+aer also given by quotients of an algebraic group by a parabolic
+subgroup and are therefore projective algebraic varieties. We will
+handle these two cases simultaneously and so it will be convenient to
+introduce the following notations:
 \[
 X_{+} = O(2n)/U(n), \quad X_{-} = Sp(2n)/U(n).
 \]
@@ -736,9 +754,9 @@ Associated to the form $\omega$ is an isomorphism
 J : V\to V^{\vee } 
 \]
 satisfying $J^{\vee} = J$ respectively $J^{\vee}=-J$. The following
-lemma is well known \cite[]{} (find a good citation in the literature)
+lemma is well known
 \begin{lemma}\label{lem: lagrangian quotient condition as a ses}
-The map $f:V\to L$ is a maximal isotropic or Lagrangian quotient if
+A linear map $f:V\to L$ is a maximal isotropic or Lagrangian quotient if
 and only if the following sequence is short exact:
 \[
 \begin{tikzcd}[column sep={6em,between origins}]
@@ -750,6 +768,10 @@ L \arrow[r] &
 \end{tikzcd}
 \]
 \end{lemma}
+\begin{proof}
+ \cite[]{} {\color{red}(find a good citation in the literature)}.
+\end{proof}
+
 
 Let $U$ be an $n$ dimensional vector space and let 
 \[
@@ -806,7 +828,7 @@ E(-p_{\infty}).$ We then have
 J_{\pm}^{-1}\circ \UL{f}^{\vee} = \begin{pmatrix} \UL{\gamma}^{\vee}\UL{x}_{1} \\
 \pm \UL{\theta}^{\vee}  \end{pmatrix}
 \]
-and we may re-express the condition $\UL{d}\circ J_{\pm}^{-1}\circ
+and we may re-express the condition $\UL{f}\circ J_{\pm}^{-1}\circ
 \UL{f}^{\vee}=0$ as
 
 \begin{equation}\label{eqn: theta gammadual x1 = mp x1 gamma thetadual}
@@ -857,7 +879,7 @@ duality isomorphism:
 \begin{lemma}\label{lem: phivee = mp phi}
 The above isomorphism satisfies $\phi^{\vee} = \mp \phi$. 
 \end{lemma}
-\proof
+\begin{proof}
 Grothendieck-Verdier duality \cite[Eq~3.20]{Huybrechts-FMbook} states
 that if $\pi :X\to Y$ is a morphism of smooth schemes and the
 dualizing functor on $D^{b}(\operatorname{Coh}(X))$ is defined by 
@@ -883,13 +905,20 @@ Note that $\Rpistar F^{\bullet}=A$ a vector space considered as a
 complex supported in degree 0.
 
 We will repeatedly use the following general fact from homological
-algebra:\emph{ a short exact sequence with a split middle term is equivalent
+algebra:
+\bigskip
+
+\begin{quote}
+\emph{A short exact sequence with a split middle term is equivalent
 to a quasi-isomorphism of two term complexes}\footnote{A short exact
 sequence with a split middle term is the total complex of a 2x2 double
 complex and since the total complex is acyclic, the spectral sequence
 of the double complex implies the vertical maps induce a
-quasi-isomorphism of the rows.}. So for example, the
-short exact sequence
+quasi-isomorphism of the rows.}.
+\end{quote}
+\bigskip
+
+So for example, the short exact sequence
 
 \[
 \begin{tikzcd}[column sep=6em]
@@ -897,7 +926,7 @@ short exact sequence
 & E^{\vee}
   \arrow[r,"{%
     \begin{pmatrix}
-      \UL{\gamma}^{\vee}\UL{x}_{1} \\[3pt]
+      \UL{\gamma}^{\vee}\UL{x}_{1} \\[2pt]
       \pm\,\UL{\theta}^{\vee}
     \end{pmatrix}
   }"]
@@ -970,11 +999,164 @@ Unpacking the definitions we see that $\phi  = \Rpistar \Phi$ and so
 &=\mp \Rpistar \DD_{\PP^{1}}\Phi \\
 &=\mp \DD_{pt}\Rpistar \Phi \\
 &=\mp \DD_{pt}\phi \\
-&=\mp \phi^{\vee}.
+&=\mp \phi^{\vee}
 \end{align*}
+which completes the proof of the Lemma.
+\end{proof}
+ 
+  
+\begin{lemma}\label{lem: phi.alpha=alphavee.phi} The following
+equation holds:
+\[
+\phi \alpha =\alpha^{\vee}\phi .
+\]
+\end{lemma}
+
+\proof We let
+
+\[
+\UL{\sigma} = \UL{x}_{1}\alpha -\UL{x}_{0}
+\]
+and we twist the exact sequence \eqref{eqn: A(-1)->A+U->E} by $\OO
+(-1)$ to obtain:
+
+\[
+\begin{tikzcd}[column sep=3em]
+  0
+    \arrow[r]
+  & \UL{A}(-2)
+    \arrow[r,"{%
+      \begin{pmatrix}
+        \UL{\sigma } \\
+        \UL{x}_{1}j
+      \end{pmatrix}
+    }"]
+  & (\UL{A}\oplus \UL{U})(-1)
+    \arrow[r,"{(\UL{\beta},\UL{\theta})}"]
+  & E(-1)
+    \arrow[r]
+  & 0.
+\end{tikzcd}
+\]
+
+We now use the same homological algebra trick as in the proof of
+Lemma~\ref{lem: phivee = mp phi} applied to the above to obtain:
+
+\[
+\begin{tikzcd}[column sep=6em,row sep=4em]
+  \UL{A}^{\vee }(-2)
+    \arrow[d,"-\UL{x}_{1}j"]
+    \arrow[r,"\UL{\sigma  }"]
+  & \UL{A}(-1)
+    \arrow[d,"\UL{\beta }"]
+  & A^{\bullet }
+    \arrow[d,"\JJ "]
+  \\
+  \UL{U}(-1)
+    \arrow[r,"\UL{\theta }"]
+  & E(-1)
+  & F^{\bullet}
+\end{tikzcd}
+\]
+
+We compose the derived category isomorphism $\JJ$ with the
+isomorphisms $\Phi$ and $\DD \JJ$ to get an isomorphism
+\[
+\DD \JJ \circ \Phi \circ \JJ :A^{\bullet}\longrightarrow \DD A^{\bullet }
+\]
+which is realized by the following diagram of quasi-isomorphism:
+
+\begin{equation}\label{eqn: big diagram}
+\begin{tikzcd}[column sep=6em,row sep=4em]
+  \UL{A}^{\vee }(-2)
+    \arrow[d,"-\UL{x}_{1}j"]
+    \arrow[r,"\UL{\sigma  }"]
+  & \UL{A}(-1)
+    \arrow[d,"\UL{\beta }"]
+  & A^{\bullet }
+    \arrow[d,"\JJ "]
+  \\
+  \UL{U}(-1)
+    \arrow[r,"\UL{\theta }"]
+  & E(-1)
+  & F^{\bullet}
+    \arrow[d,"\Phi"]\\
+  E^{\vee}(-1)
+    \arrow[d,"\UL{\beta}^{\vee}"]
+    \arrow[u,"\mp \UL{\gamma}^{\vee}\UL{x}_{1}"]
+    \arrow[r,"\UL{\theta }^{\vee}"]
+  & \UL{U}^{\vee }(-1)
+    \arrow[d,"-\UL{x}_{1}j^{\vee}"]
+    \arrow[u,"\UL{x}_{1}\UL{\gamma }"]
+  & \DD F^{\bullet}
+    \arrow[d,"\DD \JJ "]\\
+    \UL{A}^{\vee}(-1) 
+    \arrow[r,"\UL{\sigma  }^{\vee}"]
+  & \UL{A}
+  & \DD A^{\bullet} 
+\end{tikzcd}
+\end{equation}
+
+Recall that 
+\[
+\coker \UL{\theta} = Q
+\]
+is a zero dimensional sheaf supported on
+$\PP^{1}-p_{\infty}=\operatorname{Spec}\CC [z]$ where
+$z=x_{0}/x_{1}$. Considering the sheaf $Q$ as an object in
+$D^{b}(\PP^{1})$ (concentrated in degree 0), we see that 
+\[
+F^{\bullet}\cong Q
+\]
+and consequently via $\JJ$ we also have 
+\[
+A^{\bullet}\cong Q.
+\]
+Let $\UL{\phi}=\DD \JJ \circ \Phi \circ \JJ$ and by the above diagrams
+we see
+\[
+\UL{\phi}: Q\longrightarrow Q^{\vee}
+\]
+is an isomorphism. As the notation suggests, $\Rpistar \UL{\phi}=\phi$
+(since $\Rpistar \JJ =1_{A}$).
+
+Now since $Q$ and $Q^{\vee}$ are sheaves on $\operatorname{Spec}\CC
+[z]$, we may regard the isomorphism $\UL{\phi }$ as a $\CC [z]$-module
+isomorphism.
+
+We note that the undelying vector space of the $\CC [z]$-module $Q$ is
+$A$ and since $\UL{x}_{1}\alpha -\UL{x}_{0}=0$ on $\coker
+\UL{\sigma}=Q$, we see that multiplication by $z=x_{0}/x_{1}$ is given
+by $\alpha :A\to A$. Similarly, the underlying vector space of the
+module $Q^{\vee}$ is $A^{\vee}$ and multiplication by $z$ is given by
+$\alpha^{\vee}:A^{\vee}\to A^{\vee}$.
+
+Since $\UL{\phi}:Q\to Q^{\vee}$ is a module isomorphism, the
+underlying linear map of vector spaces $\phi :A\to A^{\vee}$ commutes
+with multiplication by $z$, namely
+\[
+\phi \alpha =\alpha^{\vee}\phi 
+\]
+which proves the lemma.\qed 
+
+\begin{lemma}\label{lem: phi.gamma = -jvee}
+The following holds
+\[
+\phi \gamma =-j^{\vee}.
+\]
+\end{lemma}
+\proof
+First, we note that the isomorphism $\UL{\phi}:A^{\bullet}\to \DD
+A^{\bullet}$ can be realized as the following map of complexes:
+
+
+
 
 \qed 
-   
+
+  
+
+
 \vfill
 
 
@@ -982,7 +1164,7 @@ Unpacking the definitions we see that $\phi  = \Rpistar \Phi$ and so
 
 \pagebreak
 
-This stuff might eventually get moved :
+~~This stuff might eventually get moved :
 
 \section{Topological consequences of the theorem}\label{sec:
 topological consequences}
