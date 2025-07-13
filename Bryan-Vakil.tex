@@ -1,14 +1,24 @@
 \documentclass{amsart}
 
 \title{Based maps to Lagrangian Grassmanians, Quivers, and Bott Periodicity}
-\author{Jim Bryan and Ravi Vakil}
-\date{Last compiled:  \today.  Last edited: July 4th 2025}
+\date{Last compiled:  \today.  Last edited: July 13th 2025}
+
+
+\author{Jim Bryan}
 \address{
-Department of Mathematics\\
+Dept. of Math\\
 University of British Columbia \\
-Room 121, 1984 Mathematics Road  \\
-Vancouver, B.C., Canada V6T 1Z2  
+Vancouver, British Columbia, Canada
 }
+\email{jbryan@math.ubc.ca}
+
+\author{Ravi Vakil}
+\address{
+Dept. of Math\\
+Stanford University\\
+Palo Alto, California, USA
+}
+\email{rvakil@math.stanford.edu}
 
 
 
@@ -432,7 +442,7 @@ guises ({\color{red}cite Vakil-Larson, handsaw quiver literature}), but we inclu
 it to fix our notation and and our point of view which will be integral to
 subsequent sections. 
 
-\subsection{Notation and Definitions}
+
 
 We fix homogeneous coordinates $(x_{0}:x_{1})$ on $\PP^{1}$ and we let
 $p_{\infty }=(1:0)$. Let $V$ be a vector space. We use the notation
@@ -545,21 +555,20 @@ is determined by its map in cohomology
 \]
 
 
-\subsection{The main result}
-With the notation of the previous subsection we can now state the main
-geometric result of this section which we will show is equivalent to
-Theorem~\ref{thm: quiver description of Loop2alg(Gr(n,n+N))}.
+We wil first prove a version of Theorem~\ref{thm: quiver description
+of Loop2alg(Gr(n,n+N))} which has a more explicit version of the open
+condition. 
 
-\begin{theorem}\label{thm: version of the quiver description of loops
-to the Grassmanian with explicit description of stable locus}
+\begin{proposition}\label{prop: quiver description of Loop2(Gr(n,n+N))
+with explicit stability condition}
 Let $U$, $W$, and $A$ be vector spaces of dimension $n$, $N$, and
 $d$. Let $V_{n,N,d} = \Hom (A,A)\oplus \Hom (A,U)\oplus \Hom (W,A)$ and let
-$V^{o}_{m,N,d}\subset V_{m,N,d}$ be the open set of $(\alpha ,j,\gamma )\in V$
+$V^{o}_{n,N,d}\subset V_{n,N,d}$ be the open set of $(\alpha ,j,\gamma )\in V$
 satisfying
 \begin{enumerate}
 \item $\Ker (\alpha -\lambda \cdot \Id_{A})\cap \Ker (j) = 0$ for all
 $\lambda$.
-\item  $\im (\alpha -\lambda \cdot \Id_{A})+ \im (\gamma )=A$ for
+\item  $\im (\alpha -\lambda \cdot \Id_{A})\oplus  \im (\gamma )=A$ for
 all $\lambda$.
 \end{enumerate}
 Then the constructions of the previous subsection induce an
@@ -567,7 +576,7 @@ isomorphism of affine varieties:
 \[
 \LoopTwo (\Gr (n,n+N))\cong V^{o}_{n,N,d}/GL(A) .
 \]
-\end{theorem}
+\end{proposition}
 
 \begin{comment}
 \begin{remark}\label{rem: Gr(n,n+N) is a model for BGL(n) and Vo/GL(A) is a model for BGL(d)}
@@ -591,7 +600,7 @@ conditions (1) and (2) are dual to each other under this equivalence.
 
 
 
-To prove the theorem we begin with the following
+To prove the proposition we begin with the following
 \begin{lemma}\label{lem: Stromme}
 Let $E$ be a non-negative bundle on $\PP^{1}$. Then the following
 sequence is exact:
@@ -716,6 +725,14 @@ the above argument. Also needed: prove that the quotient $V^{o}/GL(A)$
 is an affine variety (it is an affine GIT  quotient). \emph{Is this
 even true? I think it is.}
 }
+
+To finish the proof of Theorem~\ref{thm: quiver description of
+Loop2alg(Gr(n,n+N))}, it remains to show that $V^{o}_{n,N,d} =
+V^{\stable}_{n,N,d}$ where $V^{\stable}_{n,N,d}$ is the locus of GIT
+stable points for the action of $GL(A)$ on $V_{n,N,d}$. This will be
+done in Section~\ref{sec: open conds and GIT}. 
+
+
 
 \section{Proof of Theorems~\ref{thm: quiver description of
 Loop2Alg(LGr)} and \ref{thm: quiver description of
@@ -853,11 +870,11 @@ the language of the quiver data $(A,\alpha ,j,\gamma )$. This
 translation will involve constructing a non-degenerate bilinear form
 $\phi :A\to A^{\vee}$ such that the closed condition is equivalent to
 the following equations
-\begin{align*}
-\phi^{\vee}&= \mp \phi \\
+\begin{align}\label{eqns: closed conditions}
+\phi^{\vee}&= \mp \phi \nonumber \\ 
 \phi \alpha &=\alpha^{\vee}\phi \\
-\phi \gamma &= - j^{\vee}.
-\end{align*}
+\phi \gamma &= - j^{\vee}. \nonumber 
+\end{align}
 This will allow us to eliminate $\gamma$ from the quiver data and
 reduce the structure group from $GL(A)$ to $GL(A,\phi )$.
 
@@ -1044,7 +1061,7 @@ Lemma~\ref{lem: phivee = mp phi} applied to the above to obtain:
 
 \[
 \begin{tikzcd}[column sep=6em,row sep=4em]
-  \UL{A}^{\vee }(-2)
+  \UL{A}(-2)
     \arrow[d,"-\UL{x}_{1}j"]
     \arrow[r,"\UL{\sigma  }"]
   & \UL{A}(-1)
@@ -1068,7 +1085,7 @@ which is realized by the following diagram of quasi-isomorphism:
 
 \begin{equation}\label{eqn: big diagram}
 \begin{tikzcd}[column sep=6em,row sep=4em]
-  \UL{A}^{\vee }(-2)
+  \UL{A}(-2)
     \arrow[d,"-\UL{x}_{1}j"]
     \arrow[r,"\UL{\sigma  }"]
   & \UL{A}(-1)
@@ -1092,7 +1109,7 @@ which is realized by the following diagram of quasi-isomorphism:
     \arrow[d,"\DD \JJ "]\\
     \UL{A}^{\vee}(-1) 
     \arrow[r,"\UL{\sigma  }^{\vee}"]
-  & \UL{A}
+  & \UL{A}^{\vee }
   & \DD A^{\bullet} 
 \end{tikzcd}
 \end{equation}
@@ -1149,12 +1166,282 @@ The following holds
 First, we note that the isomorphism $\UL{\phi}:A^{\bullet}\to \DD
 A^{\bullet}$ can be realized as the following map of complexes:
 
+\[
+\begin{tikzcd}[column sep=6em,row sep=4em]
+  \UL{A}^{\vee }
+    \arrow[r,"\UL{\sigma}^{\vee}"]
+  & \UL{A}^{\vee}(1)
+  & \DD A^{\bullet }
+  \\
+  \UL{A}(-1)
+    \arrow[r,"\UL{\sigma  }"]
+    \arrow[u,"\phi \UL{x}_{1}"]
+  & \UL{A}
+    \arrow[u,"\phi \UL{x}_{1}"]
+  & A^{\bullet}
+    \arrow[u,"\UL{\phi } "]
+\end{tikzcd}
+\]
+since the induced sheaf isomorphism $\coker \UL{\sigma}\to \coker
+\UL{\sigma}^{\vee}$ agrees with $\UL{\phi}$ on the underlying vector
+spaces $\phi :A\to A^{\vee}$.
 
+Now by adding the cokernels to the complexes in the diagram
+\eqref{eqn: big diagram}, we get a commutative diagram where the rows
+are short exact sequences. Then tensoring this big diagram by $\OO
+(1)$ and adding the bottom the above complex (and cokernel) we get the
+following:
 
+\begin{equation*}
+\begin{tikzcd}[column sep=6em,row sep=4em]
+  \UL{A}^{\vee }(-1)
+    \arrow[d,"-\UL{x}_{1}j"]
+    \arrow[r,"\UL{\sigma  }"]
+  & \UL{A}
+    \arrow[d,"\UL{\beta }"]
+    \arrow[r]
+  & \coker \UL{\sigma }
+    \arrow[d]
+  \\
+  \UL{U}
+    \arrow[r,"\UL{\theta }"]
+  & E
+    \arrow[r]
+  & \coker \UL{\theta }
+  \\
+  E^{\vee}
+    \arrow[d,"\UL{\beta}^{\vee}"]
+    \arrow[u,"\mp \UL{\gamma}^{\vee}\UL{x}_{1}"]
+    \arrow[r,"\UL{\theta }^{\vee}"]
+  & \UL{U}^{\vee }
+    \arrow[r]
+    \arrow[d,"-\UL{x}_{1}j^{\vee}"]
+    \arrow[u,"\UL{x}_{1}\UL{\gamma }"]
+  & \coker \UL{\theta}^{\vee}
+    \arrow[d]
+    \arrow[u]
+  \\
+    \UL{A}^{\vee} 
+    \arrow[r,"\UL{\sigma  }^{\vee}"]
+  & \UL{A}^{\vee}(1)
+    \arrow[r]
+  & \coker \UL{\sigma}^{\vee}
+  \\
+  \UL{A}^{\vee }(-1)
+    \arrow[u,"\phi \UL{x}_{1}"]
+    \arrow[r,"\UL{\sigma  }"]
+  & \UL{A}
+    \arrow[u,"\phi \UL{x}_{1}"]
+    \arrow[r]
+  & \coker \UL{\sigma }
+    \arrow[u]    
+\end{tikzcd}
+\end{equation*}
 
+We now take the long exact sequence in cohomology associated to each
+row to get the following commutative diagram:
+
+\begin{equation*}
+\begin{tikzcd}[column sep=5em,row sep=4em]
+& 0
+\arrow[r]
+\arrow[d]
+& A
+\arrow[r,"1_{A}"]
+\arrow[d,"\begin{pmatrix}1_{A}\\ 0   \end{pmatrix}"]
+& A
+\arrow[r]
+\arrow[d,"1_{A}"]
+& 0
+\arrow[d]
+& 
+\\
+0
+\arrow[r]
+& U
+\arrow[r,"\begin{pmatrix}0\\ 1_{U}   \end{pmatrix} "]
+& A\oplus U
+\arrow[r,"B_{1}"]
+\arrow[ur, phantom, "{\scriptstyle(1)}" description]
+& A
+\arrow[r]
+& 0
+& 
+\\
+0\arrow[r]
+& H^{0}(E^{\vee})
+\arrow[r]
+\arrow[u]
+\arrow[d]
+& U^{\vee }
+\arrow[ur, phantom, "{\scriptstyle(2)}" description]
+\arrow[r,"B_{2}"]
+\arrow[u,"\begin{pmatrix}\gamma \\ 0   \end{pmatrix}"]
+\arrow[d,"\begin{pmatrix}0 \\ -j^{\vee }   \end{pmatrix}"]
+& A^{\vee}
+\arrow[r]
+\arrow[u,"\phi^{-1}"]
+\arrow[d,"1_{A^{\vee}}"]
+& H^{1}(E^{\vee})
+\arrow[r]
+\arrow[u]
+\arrow[d]
+& 0
+\\
+0
+\arrow[r]
+& A^{\vee }
+\arrow[r," \begin{pmatrix} -1_{A^{\vee}}\\ \alpha^{\vee }  \end{pmatrix}"]
+& A^{\vee }\oplus A^{\vee }
+\arrow[ur, phantom, "{\scriptstyle(3)}" description]
+\arrow[r,"B_{3}"]
+& A^{\vee }
+\arrow[r]
+& 0
+&
+\\
+& 0
+\arrow[r]
+\arrow[u]
+& A
+\arrow[ur, phantom, "{\scriptstyle(4)}" description]
+\arrow[r,"1_{A}"]
+\arrow[u," \begin{pmatrix} 0\\ \phi   \end{pmatrix}"]
+& A
+\arrow[r]
+\arrow[u,"\phi "]
+& 0
+\arrow[u]
+&
+\end{tikzcd}
+\end{equation*}
+
+By commutativity of the square (1) and exactness of row 2, we see that
+$B_{1}$ must be $(1_{A},0)$. Similarly, we see from commutativity of
+square (4) and exactness of the 4th row, $B_{3}$ must be
+$(\alpha^{\vee},1_{A^{\vee}})$. Then we can compute $B_{2}$ in two
+different ways: by the composition around the sides and bottom of
+square (3) and by the composition around the sides and top of square
+(2). The result is
+
+\[
+B_{2} = \phi^{-1}\gamma  = -j^{\vee}.
+\]
+and the second equality is equivalent to the desired equality in the lemma.
 \qed 
 
+We are now in a position to complete the proof of Theorems~\ref{thm:
+quiver description of Loop2Alg(LGr)} and \ref{thm: quiver description
+of Loop2Alg(OGr)}. Using Proposition~\ref{prop: Loop2(Xpm) is a closed set in
+Loop(Gr(n,2n)) satisfying condition involving theta and gamma} along
+with the construction of $\phi$ and Equations~\eqref{eqns: closed
+conditions} which were proved in Lemmas~\ref{lem: phivee = mp phi} ,
+\ref{lem: phi.alpha=alphavee.phi} , and \ref{lem: phi.gamma = -jvee},
+we see that 
+\[
+\LoopTwo (\Xpm ) = W^{o}_{\mp,n,d} / GL(A)
+\]
+where $W_{\mp ,n,d}$ is the set of
+\[
+(\alpha ,\gamma ,j,\phi )\in \Hom (A,A)\oplus \Hom
+(U^{\vee},A)\oplus  \Hom (A,U)\times \operatorname{Isom}(A,A^{\vee})
+\]
+where Equations~\eqref{eqns: closed conditions} hold and $W^{o}_{\mp
+,n,d}\subset W_{\mp ,n,d}$ is the open set given by the conditions
+
+\bigskip
+
+\begin{enumerate}
+\item $\Ker (\alpha -\lambda \cdot \Id_{A})\cap \Ker (j) = 0$ for all
+$\lambda$.
+\item  $\im (\alpha -\lambda \cdot \Id_{A})\oplus  \im (\gamma )=A$ for
+all $\lambda$.
+\end{enumerate}
+
+\bigskip
+
+Since $GL(A)$ acts transitively on the space of symplectic/orthogonal
+forms on $A$, we may \emph{fix} a form $\phi$ on $A$ and then quotient
+instead by the stabilizer of $\phi$, namely
+\[
+G(A,\phi ) = \{g\in GL(A)\quad :\quad g^{\vee}\phi g=\phi \}.
+\]
+
+Since $\phi$ is invertible, we may eliminate $\gamma$ using the
+equation $\gamma =-\phi^{-1} j^{\vee}$. Thus we get
+\[
+\LoopTwo (\Xpm ) = V_{\mp ,n,d}^{o}/G(A,\phi )
+\]
+where $(A,\phi )$ is a $d$ dimensional vector space equipped with a
+non-degenerate form $\phi :A\to A^{\vee}$, $\phi^{\vee}=\mp \phi$,
+\[
+V_{\mp ,n,d} = \{(\alpha ,j)\in \Hom (A,A)\oplus \Hom (A,U),\quad \phi
+\alpha =\alpha^{\vee}\phi \}, 
+\]
+and $V^{o}_{\mp, n,d}\subset V_{\mp, n,d}$ is the open set satifying
+
+\bigskip
+
+\begin{enumerate}
+\item $\Ker (\alpha -\lambda \cdot \Id_{A})\cap \Ker (j) = 0$ for all
+$\lambda$.
+\item  $\im (\alpha -\lambda \cdot \Id_{A})\oplus  \im (\phi^{-1}j^{\vee} )=A$ for
+all $\lambda$.
+\end{enumerate}
   
+\bigskip
+
+Condition (2) above is equivalent to condition (1). Indeed, we have
+the following equivalences of conditions
+\begin{align*}
+\im (\alpha -\lambda \cdot \Id_{A})\oplus  \im (\phi^{-1}j^{\vee} )&=A
+\text{ for all } \lambda \iff \\
+\im (\phi \alpha\phi^{-1} -\lambda \cdot \Id_{A^{\vee }})\oplus  \im
+(j^{\vee} )&=A^{\vee }
+\text{ for all } \lambda \iff \\
+\im (\alpha -\lambda \cdot \Id_{A^{\vee }})\oplus  \im
+(j^{\vee} )&=A^{\vee }
+\text{ for all } \lambda \iff \\
+\Ker (\alpha -\lambda \cdot \Id_{A})\cap \Ker (j) &= 0 \text{ for all } \lambda .
+\end{align*}
+The first equivalence uses the isomorphism $\phi$, the second
+equivalence uses the equation $\phi \alpha  = \alpha^{\vee}\phi$, and
+the third and four conditions are equivalent by duality.
+
+Thus we have proved the following
+\begin{proposition}\label{prop: quiver description of Loop2Alg(Xpm)
+with explicit open condition}
+Let $U$ be a vector space of dimension $n$ and let $(A,\phi )$ be a
+$d$ dimensional vector space equipped with a non-degenerate form $\phi
+:A\to A^{\vee}$ satisfying $\phi^{\vee}=\mp \phi$. Let
+\[
+V_{\mp ,n,d} = \{(\alpha ,j)\in \Hom (A,A)\oplus \Hom (A,U):\quad \phi
+\alpha =\alpha^{\vee}\phi \}
+\]
+and let $V^{o}_{\mp ,n,d}\subset V_{\mp ,n,d}$ be the open set given
+by the condition
+\[
+\Ker (\alpha -\lambda \cdot 1_{A})\cap \Ker (j) = 0\text{ for all } \lambda \in \CC .
+\]
+Then there is a natural isomorphism
+\[
+\LoopTwo (\Xpm ) = V^{o}_{\mp ,n,d}/G(A,\phi )
+\]
+where $G(A,\phi ) = \{g\in GL(A): g^{\vee}\phi g = \phi \}$. 
+\end{proposition}
+
+To complete the proof of Theorems \ref{thm: quiver description of
+Loop2Alg(LGr)} and \ref{thm: quiver description of Loop2Alg(OGr)}, it
+remains to show that $V^{o}_{\mp ,n,d} = V^{\stable }_{\mp ,n,d}$
+where $V^{\stable }_{\mp ,n,d}$ is the locus of GIT stable points for
+the action of $G(A,\phi )$ on $V_{\mp ,n,d}$. This will be done in
+Section~\ref{sec: open conds and GIT}. 
+
+
+
+\section{Open conditions and GIT stability}\label{sec: open conds and GIT}
+
+
 
 
 \vfill
@@ -1269,6 +1556,8 @@ $U=\lim_{n\to \infty}U(n)$:
 $\pi_{k+1}(U)\cong \pi_{k-1}(U)$ for all $k$ and moreover,
 $\pi_{k}(U(n))\cong \pi_{k}(U) $ for all $k\leq 2n$.
 \end{corollary}
+
+
 
 
 
