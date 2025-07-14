@@ -1,14 +1,24 @@
 \documentclass{amsart}
 
 \title{Based maps to Lagrangian Grassmanians, Quivers, and Bott Periodicity}
-\author{Jim Bryan and Ravi Vakil}
-\date{Last compiled:  \today.  Last edited:  December 12, 2024.}
+\date{Last compiled:  \today.  Last edited: July 13th 2025}
+
+
+\author{Jim Bryan}
 \address{
-Department of Mathematics\\
+Dept. of Math\\
 University of British Columbia \\
-Room 121, 1984 Mathematics Road  \\
-Vancouver, B.C., Canada V6T 1Z2  
+Vancouver, British Columbia, Canada
 }
+\email{jbryan@math.ubc.ca}
+
+\author{Ravi Vakil}
+\address{
+Dept. of Math\\
+Stanford University\\
+Palo Alto, California, USA
+}
+\email{rvakil@math.stanford.edu}
 
 
 
@@ -29,6 +39,7 @@ Vancouver, B.C., Canada V6T 1Z2
 \usepackage{array}
 \usepackage{tikz-cd}
 \usepackage{mathtools}
+\usepackage{xcolor}
 %\usepackage{amstex}
 %\linespread{1.1}
 \usepackage{tikz}
@@ -71,6 +82,8 @@ Vancouver, B.C., Canada V6T 1Z2
 \newcommand{\ZZ} {{\mathbb Z}}		% integers
 \newcommand{\QQ} {{\mathbb Q}}		% rationals
 \newcommand{\FF} {{\mathbb F}}
+\newcommand{\DD} {{\mathbb D}}
+\newcommand{\JJ} {{\mathbb J}}
 \newcommand{\evir}{e_{\mathsf{vir}}}
 \newcommand{\reg}{\mathsf{reg}}
 \newcommand{\calE}{\mathcal{E}}
@@ -119,6 +132,9 @@ Vancouver, B.C., Canada V6T 1Z2
 \newcommand{\Id}{\operatorname{Id}}
 \newcommand{\codim}{\operatorname{codim}}
 \newcommand{\homotopyeq}{\simeq}
+\newcommand{\Xpm}{X_{\pm}}
+\newcommand{\Rpistar}{R\pi_{*}}
+
 
 
 \begin{document}
@@ -127,17 +143,17 @@ Vancouver, B.C., Canada V6T 1Z2
 We give a quiver description of the space of based algebraic maps from
 $\PP^{1}$ to the Lagrangian Grassmanian (and its orthogonal
 counterpart). Combined with a result of Mann-Milgram, we get new proof of some
-of the homotopy equivalences in orthogonal Bott periodicity.
+of the homotopy equivalences in real Bott periodicity.
 \end{abstract}
 
 \maketitle 
 
-\markboth{Short title 1}  {Short title 2}
+\markboth{Genus Zero Maps to Lagrangian Grassmannians}  {Bryan-Vakil}
 %\renewcommand{\sectionmark}[1]{}
 
 
-%\tableofcontents
-%\pagebreak
+\tableofcontents
+\pagebreak
 
 \section{Introduction}\label{sec: intro}
 
@@ -145,8 +161,8 @@ of the homotopy equivalences in orthogonal Bott periodicity.
 \subsection{Algebraic and Topological double loop spaces and Bott periodicity.}
 
 In this paper, we study the \emph{algebraic double loop space} of
-Lagrangian Grassmannians and the orthogonal counter part. The
-algebraic double loop space is defined as follows.
+Lagrangian Grassmannians and the orthogonal counter part. We define the
+algebraic double loop space as follows.
 
 \begin{definition}\label{defn: Omega2alg(X)}
 Let $(X,*)$ be a variety with a base point $*\in X$. Fix homogeneous
@@ -155,7 +171,7 @@ $p_{\infty}=(1:0)$. Let $\LoopTwo(X)$ be the space algebraic based
 maps of degree $d$, that is
 \[
 \LoopTwo (X) = \left\{f:\PP^{1}\to X\text{ such that
-$f(p_{\infty})=*$ and $f_{*}([\PP^{1}])=d\in H_{2}(X,\ZZ )$. } \right\} .
+$f(p_{\infty})=*$ and $f_{*}([\PP^{1}])=d\in H_{2}(X,\ZZ )$ } \right\} .
 \]
 \end{definition}
 
@@ -170,12 +186,16 @@ degree $d$ (we will drop the $d$ from the notation when $H_{2}(X)=0$).
 
 In the same spirit as using high degree polynomial functions to
 approximate a continuous function, we may hope that for certain
-varieties $X$, the algebraic loop space approximatees the topological
+varieties $X$, the algebraic loop space approximates the topological
 loop space in the sense that it captures most of its homotopy theory.
 
 \begin{expectation}
-For certain varieties $X$, $i:\LoopTwo (X) \hookrightarrow \LoopTwoTop
-(X)$ is a \emph{homotopy approximation} meaning that 
+For certain varieties $X$, 
+\[
+i:\LoopTwo (X) \hookrightarrow \LoopTwoTop
+(X)
+\]
+is a \emph{homotopy approximation} meaning that 
 \[
 i_{*}:\pi_{k}(\LoopTwo (X)) \to \pi_{k}( \LoopTwoTop (X))
 \]
@@ -184,8 +204,9 @@ is an isomorphism for all $k<B(d,X)$ and that $B\to \infty $ as $d\to
 \end{expectation}
 
 In the 1980's and 1990's the above expectation was shown to hold for
-generalized flag varieties in a series of papers by Kirwan, Segal, and
-Mann-Milgram \cite{???,???,???}
+generalized flag varieties in a series of papers by Segal, Kirwan,
+Mann-Milgram, and Boyer-Mann-Hurtubise-Milgram,
+\cite{Segal-1979,Kirwan-1986,Mann-Milgram-93,Boyer-Mann-Hurtubise-Milgram}.
 
 \begin{theorem}\label{thm: Mann-Milgram algebraic loop approximation
 holds for generalized flag varieties}
@@ -211,7 +232,7 @@ and so forth.
 
 One version of Bott periodicity is then given as follows.
 
-\begin{theorem}\label{thm: classical Bott periodicity as homotopy equivalences}
+\begin{theorem}[{\color{red}some reasonable citation}]\label{thm: classical Bott periodicity as homotopy equivalences}
 There exist the following homotopy equivalences:
 \begin{align}
 \LoopTwoTop (BU)&\homotopyeq BU \label{eqn: Omega2BU=BU}\\
@@ -231,7 +252,7 @@ the homotopy groups of $O$ are 8-periodic.
 \subsection{Summary of main results}
 
 The main results of this paper give explicit descriptions of $\LoopTwo
-(X)$ when $X$ is a Grassmanian, a Lagrangian Grassmanian, or an
+(X)$ when $X$ is a Grassmanian, a Lagrangian Grassmanian, or a maximal
 isotropic orthogonal Grassmanian. Our description is in terms of
 moduli spaces of quiver representations. We use our descriptions along
 with Theorem~\ref{thm: Mann-Milgram algebraic loop approximation
@@ -288,7 +309,7 @@ be the group of orthogonal isomorphisms of $A$. Then $O(A,\phi )$ acts
 naturally on $V$ and let $V^{\stable}\subset V$ be the stable
 locus (in the sense of GIT). Then
 \[
-\LoopTwo (LG(n,2n))\cong V^{\stable}/O(A,\phi ). 
+\LoopTwo (\LGr(n,2n))\cong V^{\stable}/O(A,\phi ). 
 \]
 \end{theorem}
 
@@ -312,7 +333,7 @@ be the group of symplectic isomorphisms of $A$. Then $Sp(A,\phi )$ acts
 naturally on $V$ and let $V^{\stable}\subset V$ be the stable
 locus (in the sense of GIT). Then
 \[
-\LoopTwo (OG(n,2n))\cong V^{\stable}/Sp(A,\phi ). 
+\LoopTwo (\OGr(n,2n))\cong V^{\stable}/Sp(A,\phi ). 
 \]
 \end{theorem}
 
@@ -358,7 +379,7 @@ The quivers associated to our theorems are given in the following figure:
 \subsection{Topological Consequences}\label{subsec: topological consequences}
 
 In this section we explain how our quiver descriptions of $\LoopTwo
-(OG(n,2n))$ and $\LoopTwo (LG(n,2n))$  lead to proofs of the Bott
+(\OGr(n,2n))$ and $\LoopTwo (\LGr(n,2n))$  lead to proofs of the Bott
 periodicity equivalences given by eqns~\eqref{eqn: Omega2O/U=BSp} and
 \eqref{eqn: Omega2Sp/U=BO} respectively.
 
@@ -399,51 +420,37 @@ holds for generalized flag varieties} says that
 \{\LoopTwo (X) \}\homotopyeq_{d}  \Omega^{2}_{0,\top}(X).
 \]
 if $X$ is a generalized flag variety, in particular, if $X$ is
-$Gr(n,n+N)$, $LGr(n,2n)$, or $OGr(n,2n)$.
+$Gr(n,n+N)$, $\LGr(n,2n)$, or $\OGr(n,2n)$.
 
 \subsubsection{GIT homotopy approximation}\label{subsubsec: GIT
 homotopy approx}
 
+Formulate the general idea that GIT quotients of vector spaces are homotopy
+approximate to BG
+
+\subsubsection{Applications to Bott periodicity}\label{subsubsec:
+applications to Bott perioditicy}
+
+details of the proof of Bott periodicity here. 
 
 
-\vfill
-\pagebreak
+\section{Proof of Theorem~\ref{thm: quiver description of
+Loop2alg(Gr(n,n+N))}}\label{sec: proof of Gr(n,n+N) thm}
+
+The material in this section has previously appeared in other various
+guises ({\color{red}cite Vakil-Larson, handsaw quiver literature}), but we include
+it to fix our notation and and our point of view which will be integral to
+subsequent sections. 
 
 
-On the subsequent pages are old sections that we can either incorporate or not.        
-
-\vfill
-\pagebreak
-
-
-\section{Temporary notation section}
-
-This section is just so we have our notation that we are fixing once and for all.
-
-$x_0$, $x_1$ are projective coordinates on $\PP^1$.
-
-\section{A Retelling of Larson-Vakil}
-
-This section probably won't end up in the paper. The purpose here is
-to use it as the prototype for the way we treat the 8-fold case and to
-fix some ideas and notation.
-
-\subsection{Notation and Definitions}
 
 We fix homogeneous coordinates $(x_{0}:x_{1})$ on $\PP^{1}$ and we let
 $p_{\infty }=(1:0)$. Let $V$ be a vector space. We use the notation
 \[
-\UL{V}(k) = \OO_{\PP^{1}}(k)\otimes V.
+\UL{V}(k) = \OO_{\PP^{1}}(k)\otimes V
 \]
-
-\begin{definition}\label{defn: Omega2alg}
-Let $(X,\bullet )$ be a (quasi-projective) variety with a base point
-$\bullet \in X$. We define the algebraic loop-2 space of $X$ by
-\[
-\LoopTwo (X) = \left\{f:\PP^{1}\to X \quad :\quad
-f(p_{\infty})=\bullet , f_{*}([\PP^{1}])=d\in A_{1}(X) \right\}.
-\]
-\end{definition}
+and in general, we use underlines to denote sheaves and maps of
+sheaves and we drop the underline to denote the induced map on cohomology.
 
 
 Let $U$ and $W$ be vector spaces of dimension $n$ and $N$ respectively
@@ -458,21 +465,27 @@ parameterizes exact sequences:
 
 \[
 \begin{tikzcd}
-0\arrow[r]& F \arrow[r]& \UL{U}\oplus \UL{W} \arrow{r}{\theta } &E
-\arrow[r]& 0
+0\arrow[r]& F \arrow[r]& \UL{U}\oplus \UL{W} \arrow{r}{\UL{f} } &E
+\arrow[r]& 0.
 \end{tikzcd}
 \]
-where $E$ is a rank $n$, degree $d$ bundle on $\PP^{1}$ and
-$E|_{p_{\infty}}\cong U$ via the first component of $\theta
-=({\UL{\theta}_U},\UL{\theta}_{W})$ and where the map
+Here $E$ is a rank $n$, degree $d$ bundle on $\PP^{1}$ and
+$E|_{p_{\infty}}\cong U$ via the first component of $\UL{f}$ which we
+call $\UL{\theta}$. The second component of $\UL{f}$ is zero at
+$p_{\infty}$ and hence factors as
 \[
-\UL{\theta }_{{W}}:\UL{W}\to E
+\begin{tikzcd}
+ \UL{W} \arrow[r,"\UL{\gamma }"]& E(-p_{\infty})
+ \arrow[r,"\UL{x}_{1}"] &E. 
+\end{tikzcd}
 \]
-is zero at $p_{\infty}$ and hence
-factors through a map
+and so we may write
 \[
-\UL{\gamma} :\UL{W} \to E(-p_{\infty}).
+\UL{f}
+=({\UL{\theta}},\UL{x}_{1}\UL{\gamma })
 \]
+
+
 
 Since $E$ is a quotient of a trivial bundle, it is non-negative in the
 following sense:
@@ -484,11 +497,11 @@ $a_{i}>0$, $a_{i}<k$, etc.) for all $i$.
 \end{definition}
 
 
-Because $E$ is non-negative, the sheaf map $\UL{\theta}_{U}$ is
+Because $E$ is non-negative, the sheaf map $\UL{\theta}$ is
 determined by its map on global sections which we denote without the
 underline:
 \[
-\theta_{U}:U \longrightarrow H^{0}(E).
+\theta:U \longrightarrow H^{0}(E).
 \]
 Then the exact sequence
 \[
@@ -504,7 +517,7 @@ induces a sequence
 &H^{0}(E)\arrow[r]&U \arrow[r] &0
 \end{tikzcd}
 \]
-which is split by $\theta_{U}:U\to H^{0}(E)$ inducing the isomorphism
+which is split by $\theta:U\to H^{0}(E)$ inducing the isomorphism
 \[
 H^{0}(E) = A\oplus U
 \]
@@ -542,27 +555,30 @@ is determined by its map in cohomology
 \]
 
 
-\subsection{The main result}
-With the notation of the previous subsection we can now state the main
-geometric result of this section.
+We wil first prove a version of Theorem~\ref{thm: quiver description
+of Loop2alg(Gr(n,n+N))} which has a more explicit version of the open
+condition. 
 
-\begin{theorem}\label{thm: quiver description of loop2 of Gr}
+\begin{proposition}\label{prop: quiver description of Loop2(Gr(n,n+N))
+with explicit stability condition}
 Let $U$, $W$, and $A$ be vector spaces of dimension $n$, $N$, and
-$d$. Let $V = \Hom (A,A)\oplus \Hom (A,U)\oplus \Hom (W,A)$ and let
-$V^{0}\subset V$ be the open set of $(\alpha ,j,\gamma )\in V$
+$d$. Let $V_{n,N,d} = \Hom (A,A)\oplus \Hom (A,U)\oplus \Hom (W,A)$ and let
+$V^{o}_{n,N,d}\subset V_{n,N,d}$ be the open set of $(\alpha ,j,\gamma )\in V$
 satisfying
 \begin{enumerate}
 \item $\Ker (\alpha -\lambda \cdot \Id_{A})\cap \Ker (j) = 0$ for all
 $\lambda$.
-\item  $\im (\alpha -\lambda \cdot \Id_{A})+ \im (\gamma )=A$ for
+\item  $\im (\alpha -\lambda \cdot \Id_{A})\oplus  \im (\gamma )=A$ for
 all $\lambda$.
 \end{enumerate}
 Then the constructions of the previous subsection induce an
 isomorphism of affine varieties:
 \[
-\LoopTwo (\Gr (n,n+N))\cong V^{o}/GL(A) .
+\LoopTwo (\Gr (n,n+N))\cong V^{o}_{n,N,d}/GL(A) .
 \]
-\end{theorem}
+\end{proposition}
+
+\begin{comment}
 \begin{remark}\label{rem: Gr(n,n+N) is a model for BGL(n) and Vo/GL(A) is a model for BGL(d)}
 The Grassmannian on the left is an approximate model for $BGL(n)$ and
 the quotient on the right is an approximate model for $BGL(d)$. We can
@@ -570,6 +586,8 @@ thus regard our theorem as saying, in a sense that we will make
 precise in the next subsection, that there is an approximate
 equivalence $\Omega^{2}(BGL(n))\sim BGL(d)$.
 \end{remark}
+\end{comment}
+
 
 \begin{remark}\label{rem: duality induced by Gr(n,n+N)=Gr(N,n+N)}
 The isomorphism $\Gr (n,U\oplus W)\cong \Gr (N,U^{\vee}\oplus
@@ -582,7 +600,7 @@ conditions (1) and (2) are dual to each other under this equivalence.
 
 
 
-To prove the theorem we begin with the following
+To prove the proposition we begin with the following
 \begin{lemma}\label{lem: Stromme}
 Let $E$ be a non-negative bundle on $\PP^{1}$. Then the following
 sequence is exact:
@@ -654,13 +672,24 @@ A \arrow{r}{\begin{pmatrix} \alpha \\ j  \end{pmatrix}} &A\oplus U,
 \]
 respectively. Then the exact sequence from Lemma~\ref{lem: Stromme}
 reads
-\[
-\begin{tikzcd}
-0 \arrow[r] &\UL{A}(-1) \arrow{rr}{\begin{pmatrix} \UL{x}_{1}\alpha -\UL{x}_{0}\\
-\UL{x}_{1}j  \end{pmatrix}}&&\UL{A}\oplus \UL{U}\arrow[r]&E
-\arrow[r]& 0.
+\begin{equation}\label{eqn: A(-1)->A+U->E}
+\begin{tikzcd}[column sep=3em]
+  0
+    \arrow[r]
+  & \UL{A}(-1)
+    \arrow[rr,"{%
+      \begin{pmatrix}
+        \UL{x}_{1}\alpha - \UL{x}_{0} \\[3pt]
+        \UL{x}_{1}j
+      \end{pmatrix}
+    }"]
+  && \UL{A}\oplus \UL{U}
+    \arrow[r,"{(\UL{\beta},\UL{\theta})}"]
+  & E
+    \arrow[r]
+  & 0.
 \end{tikzcd}
-\]
+\end{equation}
 
 The condition that $\UL{A}(-1)$ is a subbundle of $\UL{A}\oplus
 \UL{U}$ requires that for any point $\lambda =\frac{x_{0}}{x_{1}}\in
@@ -668,22 +697,23 @@ The condition that $\UL{A}(-1)$ is a subbundle of $\UL{A}\oplus
 j \end{pmatrix}} : A\to A\oplus U $ is injective. This is equivalent
 to condition (1) of the theorem.
 
-The condition that $\theta :\UL{U}\oplus \UL{W} \to E$ is surjective
+The condition that $\UL{f} :\UL{U}\oplus \UL{W} \to E$ is surjective
 means that the map 
 \[
 \UL{W} \to Q
 \]
 is surjective where $Q$ is the rank zero sheaf given by the cokernal
-of $\UL{\theta}_{U}$:
+of $\UL{\theta}$:
 \[
 \begin{tikzcd}
-0\arrow[r]& \UL{U} \arrow{r}{\UL{\theta}_{U}} & E\arrow[r]&Q\arrow[r]&0.
+0\arrow[r]& \UL{U} \arrow{r}{\UL{\theta}} & E\arrow[r]&Q\arrow[r]&0.
 \end{tikzcd}
 \]
 The cohomology exact sequence of the above canonically identifies
 $A\cong H^{0}(Q)$ and under this identification, the map in cohomology
 induced by $\UL{W}\to Q$ is just $\gamma :W\to A$.
 
+{\color{red}
 \emph{Sketchy completion of this argument:}  The support of $Q$ is
 given by the eigenvalues of $\alpha$ so $\UL{W}\to Q$ being surjective
 is equivalent to $\gamma$ surjecting onto the eigenspaces of $\alpha$
@@ -694,9 +724,736 @@ point in $\LoopTwo (\Gr (n,n+N))$ is uniquely determined by $(\alpha
 the above argument. Also needed: prove that the quotient $V^{o}/GL(A)$
 is an affine variety (it is an affine GIT  quotient). \emph{Is this
 even true? I think it is.}
+}
+
+To finish the proof of Theorem~\ref{thm: quiver description of
+Loop2alg(Gr(n,n+N))}, it remains to show that $V^{o}_{n,N,d} =
+V^{\stable}_{n,N,d}$ where $V^{\stable}_{n,N,d}$ is the locus of GIT
+stable points for the action of $GL(A)$ on $V_{n,N,d}$. This will be
+done in Section~\ref{sec: open conds and GIT}. 
 
 
-\subsection{Topological consequences of the theorem}\label{subsec:
+
+\section{Proof of Theorems~\ref{thm: quiver description of
+Loop2Alg(LGr)} and \ref{thm: quiver description of
+Loop2Alg(OGr)}}\label{sec: proofs of the Omega2(LG/OG) theorems}
+
+Let 
+\[
+ \OGr (n,2n) = O(2n)/U(n), \quad \LGr (n,2n) = Sp(2n)/U(n)
+\]
+be the Maximal Isotropic Orthogonal Grassmannian and the Lagrangian
+Grassmanian respectively. These parameterize $n$ dimensional isotropic
+quotients of a $2n$ dimensional complex vector space equipped with an
+orthogonal and a symplectic form respectively. Although we've written
+these spaces as quotients of a compact Lie group by a subgroup, they
+aer also given by quotients of an algebraic group by a parabolic
+subgroup and are therefore projective algebraic varieties. We will
+handle these two cases simultaneously and so it will be convenient to
+introduce the following notations:
+\[
+X_{+} = O(2n)/U(n), \quad X_{-} = Sp(2n)/U(n).
+\]
+
+If $V$ is a $2n$ dimensional vector space equipped with a
+non-degenerate orthogonal respectively symplectic form $\omega$, then a
+quotient
+\[
+\begin{tikzcd}
+V \arrow[r,  two heads, "f"] & L
+\end{tikzcd}
+\]
+is by definition \emph{maximal isotropic} respectively \emph{Lagrangian} if $L$ is
+$n$ dimensional and $\omega |_{\Ker f} = 0$. 
+
+Associated to the form $\omega$ is an isomorphism
+\[
+J : V\to V^{\vee } 
+\]
+satisfying $J^{\vee} = J$ respectively $J^{\vee}=-J$. The following
+lemma is well known
+\begin{lemma}\label{lem: lagrangian quotient condition as a ses}
+A linear map $f:V\to L$ is a maximal isotropic or Lagrangian quotient if
+and only if the following sequence is short exact:
+\[
+\begin{tikzcd}[column sep={6em,between origins}]
+0 \arrow[r] &
+L^{\vee } \arrow[r, "J^{-1}\circ f^{\vee}"] &
+V \arrow[r, "f"] &
+L \arrow[r] &
+0
+\end{tikzcd}
+\]
+\end{lemma}
+\begin{proof}
+ \cite[]{} {\color{red}(find a good citation in the literature)}.
+\end{proof}
+
+
+Let $U$ be an $n$ dimensional vector space and let 
+\[
+J_{\pm}: U\oplus U^{\vee} \to U^{\vee}\oplus U
+\]
+where 
+\[
+J_{\pm} = \begin{pmatrix}
+        0 & \pm 1_{U^{\vee }}\\
+        1_{U} & 0
+      \end{pmatrix}.
+\]
+Then $J_{\pm}$ induces an orthogonal/symplectic form on $U\oplus
+U^{\vee}$ and so by the lemma, $\Xpm$ parameterizes short exact
+sequences of the form
+\[
+\begin{tikzcd}[column sep={6em,between origins}]
+0 \arrow[r] &
+L^{\vee } \arrow[r, "J_{\pm }^{-1}\circ f^{\vee}"] &
+U\oplus U^{\vee } \arrow[r, "f"] &
+L \arrow[r] &
+0.
+\end{tikzcd}
+\]
+
+The space $\Xpm$ has a natural base point given by the sequence
+\[
+0\to U^{\vee}\to U\oplus U^{\vee} \to U\to 0
+\]
+where the maps are the natural inclusions and projections.
+
+With the above discussion, we see that the algebraic double loop space
+$\LoopTwo(\Xpm )$ parameterizes short exact sequences of
+bundles on $\PP^{1}$ of the form
+\begin{equation}\label{eqn: Evee-->U+Uvee-->E}
+\begin{tikzcd}[column sep={6em,between origins}]
+0 \arrow[r] &
+E^{\vee } \arrow[r, "J_{\pm }^{-1}\circ \UL{f}^{\vee}"] &
+\UL{U}\oplus \UL{U}^{\vee } \arrow[r, "\UL{f}"] &
+E \arrow[r] &
+0
+\end{tikzcd}
+\end{equation}
+where the bundle $E$ has rank $n$ and degree $d$ and the map $\UL{f}$,
+restricted to $p_{\infty} = (1:0)$ is 0 on the $U^{\vee}$ factor. In
+keeping with the notation of Section~\ref{sec: proof of Gr(n,n+N) thm}
+we may then write
+\[
+\UL{f} = (\UL{\theta},\UL{x}_{1}\UL{\gamma})
+\]
+where $\UL{\theta}:\UL{U}\to E$ and $\UL{\gamma}:\UL{U}^{\vee}\to
+E(-p_{\infty}).$ We then have
+\[
+J_{\pm}^{-1}\circ \UL{f}^{\vee} = \begin{pmatrix} \UL{\gamma}^{\vee}\UL{x}_{1} \\
+\pm \UL{\theta}^{\vee}  \end{pmatrix}
+\]
+and we may re-express the condition $\UL{f}\circ J_{\pm}^{-1}\circ
+\UL{f}^{\vee}=0$ as
+
+\begin{equation}\label{eqn: theta gammadual x1 = mp x1 gamma thetadual}
+\UL{\theta}\, \UL{\gamma}^{\vee}\, \UL{x}_{1} =  \mp \UL{x}_{1}\, 
+\UL{\gamma}\,  \UL{\theta}^{\vee }.
+\end{equation}
+
+The above discussion has then proved the following intermediate result:
+
+\begin{proposition}\label{prop: Loop2(Xpm) is a closed set in
+Loop(Gr(n,2n)) satisfying condition involving theta and gamma}
+$\LoopTwo (\Xpm )$ is the closed subset of $\LoopTwo \Gr(2n,n)\cong
+V^{o}_{n,n,d}/GL(A)$ given by Equation~\eqref{eqn: theta gammadual x1
+= mp x1 gamma thetadual}. 
+\end{proposition}
+
+Our strategy to prove theorems \ref{thm: quiver description of
+Loop2Alg(LGr)} and \ref{thm: quiver description of Loop2Alg(OGr)} is
+to translate the sheaf theoretic condition given by
+Equation~\eqref{eqn: theta gammadual x1 = mp x1 gamma thetadual} into
+the language of the quiver data $(A,\alpha ,j,\gamma )$. This
+translation will involve constructing a non-degenerate bilinear form
+$\phi :A\to A^{\vee}$ such that the closed condition is equivalent to
+the following equations
+\begin{align}\label{eqns: closed conditions}
+\phi^{\vee}&= \mp \phi \nonumber \\ 
+\phi \alpha &=\alpha^{\vee}\phi \\
+\phi \gamma &= - j^{\vee}. \nonumber 
+\end{align}
+This will allow us to eliminate $\gamma$ from the quiver data and
+reduce the structure group from $GL(A)$ to $GL(A,\phi )$.
+
+We begin by defining $\phi :A\to A^{\vee}$. Recall that $A =
+H^{0}(E(-p_{\infty}))$. Tensoring the sequence \eqref{eqn:
+Evee-->U+Uvee-->E} by $\OO (-p_{\infty})$ we get
+\[
+0\to E^{\vee}(-1)\to (\UL{U}\oplus \UL{U}^{\vee})(-1)\to E(-1)\to 0.
+\]
+Since $\OO (-1)$ has no non-trivial cohomology, the long exact
+sequence associated to the above short exact sequence consists of a
+single isomorphism $H^{0}(E(-1))\to H^{1}(E^{\vee}(-1))$. We define
+$\phi$ to be the composition of this isomorphism with the Serre
+duality isomorphism: 
+\[
+\phi : A = H^{0}(E(-1))\to H^{1}(E^{\vee}(-1)) \to H^{0}(E(-1))^{\vee}=A^{\vee}.
+\]
+
+\begin{lemma}\label{lem: phivee = mp phi}
+The above isomorphism satisfies $\phi^{\vee} = \mp \phi$. 
+\end{lemma}
+\begin{proof}
+Grothendieck-Verdier duality \cite[Eq~3.20]{Huybrechts-FMbook} states
+that if $\pi :X\to Y$ is a morphism of smooth schemes and the
+dualizing functor on $D^{b}(\operatorname{Coh}(X))$ is defined by 
+\[
+\DD_{X}(F^{\bullet}) = (F^{\bullet})^{\vee} \otimes \omega_{X}[\dim X ]
+\]
+then
+\[
+\Rpistar \circ \DD_{X} \homotopyeq  \DD_{Y}\circ \Rpistar .
+\]
+
+We let $Y=pt$ and $X=\PP^{1}$ and let 
+\[
+F^{\bullet} = [\UL{U}(-1)\stackrel{\UL{\theta}}{\longrightarrow } E(-1)]
+\]
+where this two term complex is supported in degrees -1 and 0. Then
+\[
+\DD_{\PP^{1}}F^{\bullet} = [E^{\vee}(-1)\stackrel{\UL{\theta}^{\vee
+}}{\longrightarrow } \UL{U}^{\vee}(-1)] .
+\]
+
+Note that $\Rpistar F^{\bullet}=A$ a vector space considered as a
+complex supported in degree 0.
+
+We will repeatedly use the following general fact from homological
+algebra:
+\bigskip
+
+\begin{quote}
+\emph{A short exact sequence with a split middle term is equivalent
+to a quasi-isomorphism of two term complexes}\footnote{A short exact
+sequence with a split middle term is the total complex of a 2x2 double
+complex and since the total complex is acyclic, the spectral sequence
+of the double complex implies the vertical maps induce a
+quasi-isomorphism of the rows.}.
+\end{quote}
+\bigskip
+
+So for example, the short exact sequence
+
+\[
+\begin{tikzcd}[column sep=6em]
+0 \arrow[r]
+& E^{\vee}
+  \arrow[r,"{%
+    \begin{pmatrix}
+      \UL{\gamma}^{\vee}\UL{x}_{1} \\[2pt]
+      \pm\,\UL{\theta}^{\vee}
+    \end{pmatrix}
+  }"]
+& \UL{U}\oplus \UL{U}^{\vee}
+  \arrow[r,"{(\:\UL{\theta}\,,\,\UL{x}_{1}\UL{\gamma}\:)}"]
+& E \arrow[r]
+& 0
+\end{tikzcd}
+\]
+
+is equivalent to the following quasi-isomorphism of two-term complexes:
+
+
+\[
+\begin{tikzcd}[column sep=6em,row sep=4em]
+  \UL{U}(-1)
+    \arrow[r,"\UL{\theta }"]
+  & E(-1)
+  & F^{\bullet}
+    \arrow[d,bend left=25,"\Phi=\Psi^{-1}   "]\\
+  E^{\vee}(-1)
+    \arrow[u,"\mp \UL{\gamma}^{\vee}\UL{x}_{1}"]
+    \arrow[r,"\UL{\theta }^{\vee}"]
+  & \UL{U}^{\vee }(-1)
+    \arrow[u,"\UL{x}_{1}\UL{\gamma }"]
+  & \DD F^{\bullet}
+    \arrow[u,"\Psi  "]
+\end{tikzcd}
+\]
+
+The map of complexes on the left above is a quasi-isomorphism and
+hence induces an isomorphism $\Psi :\DD F^{\bullet}\to F^{\bullet}$
+in the derived category whose inverse we denote $\Phi$.
+
+We remark that going from a short exact sequence to a map of two term
+complexes introduces a sign which in the above is manifested by the
+$\mp$ appearing on the left vertical arrow (as oppose to the $\mp$
+appearing on the $\UL{\theta}^{\vee}$ in the sequence). This crucial
+sign change is the origin of the form $\phi$ having the opposite sign
+as $J_{\pm}$.
+
+We apply $\DD (-)$ to the complex to get
+
+\[
+\begin{tikzcd}[column sep=6em,row sep=4em]
+  \UL{U}^{\vee }(-1)
+    \arrow[d,"\mp\UL{x}_{1} \UL{\gamma}"]
+  & E^{\vee}(-1)
+    \arrow[d,"\UL{\gamma }^{\vee } \UL{x}_{1}"]
+    \arrow[l,"\UL{\theta }^{\vee}"]
+  & \DD F^{\bullet}
+    \arrow[d,"\DD \Psi  "]
+  \\
+  E(-1)
+  & \UL{U}(-1)
+    \arrow[l,"\UL{\theta }"]
+  & F^{\bullet}
+\end{tikzcd}
+\]
+Rotating the diagram on the left by 180 degrees we see that $\DD \Psi
+=\mp \Psi$ and consequently we have $\DD \Phi =\mp \Phi$. Applying
+$\Rpistar $ to $\Phi$ we get
+\[
+\Rpistar \Phi : \Rpistar F^{\bullet} = A \to \Rpistar
+\DD_{\PP^{1}}F^{\bullet}=\DD_{pt}\Rpistar F^{\bullet} = A^{\vee}.
+\]
+Unpacking the definitions we see that $\phi  = \Rpistar \Phi$ and so
+\begin{align*}
+\phi &=\Rpistar \Phi \\
+&=\mp \Rpistar \DD_{\PP^{1}}\Phi \\
+&=\mp \DD_{pt}\Rpistar \Phi \\
+&=\mp \DD_{pt}\phi \\
+&=\mp \phi^{\vee}
+\end{align*}
+which completes the proof of the Lemma.
+\end{proof}
+ 
+  
+\begin{lemma}\label{lem: phi.alpha=alphavee.phi} The following
+equation holds:
+\[
+\phi \alpha =\alpha^{\vee}\phi .
+\]
+\end{lemma}
+
+\proof We let
+
+\[
+\UL{\sigma} = \UL{x}_{1}\alpha -\UL{x}_{0}
+\]
+and we twist the exact sequence \eqref{eqn: A(-1)->A+U->E} by $\OO
+(-1)$ to obtain:
+
+\[
+\begin{tikzcd}[column sep=3em]
+  0
+    \arrow[r]
+  & \UL{A}(-2)
+    \arrow[r,"{%
+      \begin{pmatrix}
+        \UL{\sigma } \\
+        \UL{x}_{1}j
+      \end{pmatrix}
+    }"]
+  & (\UL{A}\oplus \UL{U})(-1)
+    \arrow[r,"{(\UL{\beta},\UL{\theta})}"]
+  & E(-1)
+    \arrow[r]
+  & 0.
+\end{tikzcd}
+\]
+
+We now use the same homological algebra trick as in the proof of
+Lemma~\ref{lem: phivee = mp phi} applied to the above to obtain:
+
+\[
+\begin{tikzcd}[column sep=6em,row sep=4em]
+  \UL{A}(-2)
+    \arrow[d,"-\UL{x}_{1}j"]
+    \arrow[r,"\UL{\sigma  }"]
+  & \UL{A}(-1)
+    \arrow[d,"\UL{\beta }"]
+  & A^{\bullet }
+    \arrow[d,"\JJ "]
+  \\
+  \UL{U}(-1)
+    \arrow[r,"\UL{\theta }"]
+  & E(-1)
+  & F^{\bullet}
+\end{tikzcd}
+\]
+
+We compose the derived category isomorphism $\JJ$ with the
+isomorphisms $\Phi$ and $\DD \JJ$ to get an isomorphism
+\[
+\DD \JJ \circ \Phi \circ \JJ :A^{\bullet}\longrightarrow \DD A^{\bullet }
+\]
+which is realized by the following diagram of quasi-isomorphism:
+
+\begin{equation}\label{eqn: big diagram}
+\begin{tikzcd}[column sep=6em,row sep=4em]
+  \UL{A}(-2)
+    \arrow[d,"-\UL{x}_{1}j"]
+    \arrow[r,"\UL{\sigma  }"]
+  & \UL{A}(-1)
+    \arrow[d,"\UL{\beta }"]
+  & A^{\bullet }
+    \arrow[d,"\JJ "]
+  \\
+  \UL{U}(-1)
+    \arrow[r,"\UL{\theta }"]
+  & E(-1)
+  & F^{\bullet}
+    \arrow[d,"\Phi"]\\
+  E^{\vee}(-1)
+    \arrow[d,"\UL{\beta}^{\vee}"]
+    \arrow[u,"\mp \UL{\gamma}^{\vee}\UL{x}_{1}"]
+    \arrow[r,"\UL{\theta }^{\vee}"]
+  & \UL{U}^{\vee }(-1)
+    \arrow[d,"-\UL{x}_{1}j^{\vee}"]
+    \arrow[u,"\UL{x}_{1}\UL{\gamma }"]
+  & \DD F^{\bullet}
+    \arrow[d,"\DD \JJ "]\\
+    \UL{A}^{\vee}(-1) 
+    \arrow[r,"\UL{\sigma  }^{\vee}"]
+  & \UL{A}^{\vee }
+  & \DD A^{\bullet} 
+\end{tikzcd}
+\end{equation}
+
+Recall that 
+\[
+\coker \UL{\theta} = Q
+\]
+is a zero dimensional sheaf supported on
+$\PP^{1}-p_{\infty}=\operatorname{Spec}\CC [z]$ where
+$z=x_{0}/x_{1}$. Considering the sheaf $Q$ as an object in
+$D^{b}(\PP^{1})$ (concentrated in degree 0), we see that 
+\[
+F^{\bullet}\cong Q
+\]
+and consequently via $\JJ$ we also have 
+\[
+A^{\bullet}\cong Q.
+\]
+Let $\UL{\phi}=\DD \JJ \circ \Phi \circ \JJ$ and by the above diagrams
+we see
+\[
+\UL{\phi}: Q\longrightarrow Q^{\vee}
+\]
+is an isomorphism. As the notation suggests, $\Rpistar \UL{\phi}=\phi$
+(since $\Rpistar \JJ =1_{A}$).
+
+Now since $Q$ and $Q^{\vee}$ are sheaves on $\operatorname{Spec}\CC
+[z]$, we may regard the isomorphism $\UL{\phi }$ as a $\CC [z]$-module
+isomorphism.
+
+We note that the undelying vector space of the $\CC [z]$-module $Q$ is
+$A$ and since $\UL{x}_{1}\alpha -\UL{x}_{0}=0$ on $\coker
+\UL{\sigma}=Q$, we see that multiplication by $z=x_{0}/x_{1}$ is given
+by $\alpha :A\to A$. Similarly, the underlying vector space of the
+module $Q^{\vee}$ is $A^{\vee}$ and multiplication by $z$ is given by
+$\alpha^{\vee}:A^{\vee}\to A^{\vee}$.
+
+Since $\UL{\phi}:Q\to Q^{\vee}$ is a module isomorphism, the
+underlying linear map of vector spaces $\phi :A\to A^{\vee}$ commutes
+with multiplication by $z$, namely
+\[
+\phi \alpha =\alpha^{\vee}\phi 
+\]
+which proves the lemma.\qed 
+
+\begin{lemma}\label{lem: phi.gamma = -jvee}
+The following holds
+\[
+\phi \gamma =-j^{\vee}.
+\]
+\end{lemma}
+\proof
+First, we note that the isomorphism $\UL{\phi}:A^{\bullet}\to \DD
+A^{\bullet}$ can be realized as the following map of complexes:
+
+\[
+\begin{tikzcd}[column sep=6em,row sep=4em]
+  \UL{A}^{\vee }
+    \arrow[r,"\UL{\sigma}^{\vee}"]
+  & \UL{A}^{\vee}(1)
+  & \DD A^{\bullet }
+  \\
+  \UL{A}(-1)
+    \arrow[r,"\UL{\sigma  }"]
+    \arrow[u,"\phi \UL{x}_{1}"]
+  & \UL{A}
+    \arrow[u,"\phi \UL{x}_{1}"]
+  & A^{\bullet}
+    \arrow[u,"\UL{\phi } "]
+\end{tikzcd}
+\]
+since the induced sheaf isomorphism $\coker \UL{\sigma}\to \coker
+\UL{\sigma}^{\vee}$ agrees with $\UL{\phi}$ on the underlying vector
+spaces $\phi :A\to A^{\vee}$.
+
+Now by adding the cokernels to the complexes in the diagram
+\eqref{eqn: big diagram}, we get a commutative diagram where the rows
+are short exact sequences. Then tensoring this big diagram by $\OO
+(1)$ and adding the bottom the above complex (and cokernel) we get the
+following:
+
+\begin{equation*}
+\begin{tikzcd}[column sep=6em,row sep=4em]
+  \UL{A}^{\vee }(-1)
+    \arrow[d,"-\UL{x}_{1}j"]
+    \arrow[r,"\UL{\sigma  }"]
+  & \UL{A}
+    \arrow[d,"\UL{\beta }"]
+    \arrow[r]
+  & \coker \UL{\sigma }
+    \arrow[d]
+  \\
+  \UL{U}
+    \arrow[r,"\UL{\theta }"]
+  & E
+    \arrow[r]
+  & \coker \UL{\theta }
+  \\
+  E^{\vee}
+    \arrow[d,"\UL{\beta}^{\vee}"]
+    \arrow[u,"\mp \UL{\gamma}^{\vee}\UL{x}_{1}"]
+    \arrow[r,"\UL{\theta }^{\vee}"]
+  & \UL{U}^{\vee }
+    \arrow[r]
+    \arrow[d,"-\UL{x}_{1}j^{\vee}"]
+    \arrow[u,"\UL{x}_{1}\UL{\gamma }"]
+  & \coker \UL{\theta}^{\vee}
+    \arrow[d]
+    \arrow[u]
+  \\
+    \UL{A}^{\vee} 
+    \arrow[r,"\UL{\sigma  }^{\vee}"]
+  & \UL{A}^{\vee}(1)
+    \arrow[r]
+  & \coker \UL{\sigma}^{\vee}
+  \\
+  \UL{A}^{\vee }(-1)
+    \arrow[u,"\phi \UL{x}_{1}"]
+    \arrow[r,"\UL{\sigma  }"]
+  & \UL{A}
+    \arrow[u,"\phi \UL{x}_{1}"]
+    \arrow[r]
+  & \coker \UL{\sigma }
+    \arrow[u]    
+\end{tikzcd}
+\end{equation*}
+
+We now take the long exact sequence in cohomology associated to each
+row to get the following commutative diagram:
+
+\begin{equation*}
+\begin{tikzcd}[column sep=5em,row sep=4em]
+& 0
+\arrow[r]
+\arrow[d]
+& A
+\arrow[r,"1_{A}"]
+\arrow[d,"\begin{pmatrix}1_{A}\\ 0   \end{pmatrix}"]
+& A
+\arrow[r]
+\arrow[d,"1_{A}"]
+& 0
+\arrow[d]
+& 
+\\
+0
+\arrow[r]
+& U
+\arrow[r,"\begin{pmatrix}0\\ 1_{U}   \end{pmatrix} "]
+& A\oplus U
+\arrow[r,"B_{1}"]
+\arrow[ur, phantom, "{\scriptstyle(1)}" description]
+& A
+\arrow[r]
+& 0
+& 
+\\
+0\arrow[r]
+& H^{0}(E^{\vee})
+\arrow[r]
+\arrow[u]
+\arrow[d]
+& U^{\vee }
+\arrow[ur, phantom, "{\scriptstyle(2)}" description]
+\arrow[r,"B_{2}"]
+\arrow[u,"\begin{pmatrix}\gamma \\ 0   \end{pmatrix}"]
+\arrow[d,"\begin{pmatrix}0 \\ -j^{\vee }   \end{pmatrix}"]
+& A^{\vee}
+\arrow[r]
+\arrow[u,"\phi^{-1}"]
+\arrow[d,"1_{A^{\vee}}"]
+& H^{1}(E^{\vee})
+\arrow[r]
+\arrow[u]
+\arrow[d]
+& 0
+\\
+0
+\arrow[r]
+& A^{\vee }
+\arrow[r," \begin{pmatrix} -1_{A^{\vee}}\\ \alpha^{\vee }  \end{pmatrix}"]
+& A^{\vee }\oplus A^{\vee }
+\arrow[ur, phantom, "{\scriptstyle(3)}" description]
+\arrow[r,"B_{3}"]
+& A^{\vee }
+\arrow[r]
+& 0
+&
+\\
+& 0
+\arrow[r]
+\arrow[u]
+& A
+\arrow[ur, phantom, "{\scriptstyle(4)}" description]
+\arrow[r,"1_{A}"]
+\arrow[u," \begin{pmatrix} 0\\ \phi   \end{pmatrix}"]
+& A
+\arrow[r]
+\arrow[u,"\phi "]
+& 0
+\arrow[u]
+&
+\end{tikzcd}
+\end{equation*}
+
+By commutativity of the square (1) and exactness of row 2, we see that
+$B_{1}$ must be $(1_{A},0)$. Similarly, we see from commutativity of
+square (4) and exactness of the 4th row, $B_{3}$ must be
+$(\alpha^{\vee},1_{A^{\vee}})$. Then we can compute $B_{2}$ in two
+different ways: by the composition around the sides and bottom of
+square (3) and by the composition around the sides and top of square
+(2). The result is
+
+\[
+B_{2} = \phi^{-1}\gamma  = -j^{\vee}.
+\]
+and the second equality is equivalent to the desired equality in the lemma.
+\qed 
+
+We are now in a position to complete the proof of Theorems~\ref{thm:
+quiver description of Loop2Alg(LGr)} and \ref{thm: quiver description
+of Loop2Alg(OGr)}. Using Proposition~\ref{prop: Loop2(Xpm) is a closed set in
+Loop(Gr(n,2n)) satisfying condition involving theta and gamma} along
+with the construction of $\phi$ and Equations~\eqref{eqns: closed
+conditions} which were proved in Lemmas~\ref{lem: phivee = mp phi} ,
+\ref{lem: phi.alpha=alphavee.phi} , and \ref{lem: phi.gamma = -jvee},
+we see that 
+\[
+\LoopTwo (\Xpm ) = W^{o}_{\mp,n,d} / GL(A)
+\]
+where $W_{\mp ,n,d}$ is the set of
+\[
+(\alpha ,\gamma ,j,\phi )\in \Hom (A,A)\oplus \Hom
+(U^{\vee},A)\oplus  \Hom (A,U)\times \operatorname{Isom}(A,A^{\vee})
+\]
+where Equations~\eqref{eqns: closed conditions} hold and $W^{o}_{\mp
+,n,d}\subset W_{\mp ,n,d}$ is the open set given by the conditions
+
+\bigskip
+
+\begin{enumerate}
+\item $\Ker (\alpha -\lambda \cdot \Id_{A})\cap \Ker (j) = 0$ for all
+$\lambda$.
+\item  $\im (\alpha -\lambda \cdot \Id_{A})\oplus  \im (\gamma )=A$ for
+all $\lambda$.
+\end{enumerate}
+
+\bigskip
+
+Since $GL(A)$ acts transitively on the space of symplectic/orthogonal
+forms on $A$, we may \emph{fix} a form $\phi$ on $A$ and then quotient
+instead by the stabilizer of $\phi$, namely
+\[
+G(A,\phi ) = \{g\in GL(A)\quad :\quad g^{\vee}\phi g=\phi \}.
+\]
+
+Since $\phi$ is invertible, we may eliminate $\gamma$ using the
+equation $\gamma =-\phi^{-1} j^{\vee}$. Thus we get
+\[
+\LoopTwo (\Xpm ) = V_{\mp ,n,d}^{o}/G(A,\phi )
+\]
+where $(A,\phi )$ is a $d$ dimensional vector space equipped with a
+non-degenerate form $\phi :A\to A^{\vee}$, $\phi^{\vee}=\mp \phi$,
+\[
+V_{\mp ,n,d} = \{(\alpha ,j)\in \Hom (A,A)\oplus \Hom (A,U),\quad \phi
+\alpha =\alpha^{\vee}\phi \}, 
+\]
+and $V^{o}_{\mp, n,d}\subset V_{\mp, n,d}$ is the open set satifying
+
+\bigskip
+
+\begin{enumerate}
+\item $\Ker (\alpha -\lambda \cdot \Id_{A})\cap \Ker (j) = 0$ for all
+$\lambda$.
+\item  $\im (\alpha -\lambda \cdot \Id_{A})\oplus  \im (\phi^{-1}j^{\vee} )=A$ for
+all $\lambda$.
+\end{enumerate}
+  
+\bigskip
+
+Condition (2) above is equivalent to condition (1). Indeed, we have
+the following equivalences of conditions
+\begin{align*}
+\im (\alpha -\lambda \cdot \Id_{A})\oplus  \im (\phi^{-1}j^{\vee} )&=A
+\text{ for all } \lambda \iff \\
+\im (\phi \alpha\phi^{-1} -\lambda \cdot \Id_{A^{\vee }})\oplus  \im
+(j^{\vee} )&=A^{\vee }
+\text{ for all } \lambda \iff \\
+\im (\alpha -\lambda \cdot \Id_{A^{\vee }})\oplus  \im
+(j^{\vee} )&=A^{\vee }
+\text{ for all } \lambda \iff \\
+\Ker (\alpha -\lambda \cdot \Id_{A})\cap \Ker (j) &= 0 \text{ for all } \lambda .
+\end{align*}
+The first equivalence uses the isomorphism $\phi$, the second
+equivalence uses the equation $\phi \alpha  = \alpha^{\vee}\phi$, and
+the third and four conditions are equivalent by duality.
+
+Thus we have proved the following
+\begin{proposition}\label{prop: quiver description of Loop2Alg(Xpm)
+with explicit open condition}
+Let $U$ be a vector space of dimension $n$ and let $(A,\phi )$ be a
+$d$ dimensional vector space equipped with a non-degenerate form $\phi
+:A\to A^{\vee}$ satisfying $\phi^{\vee}=\mp \phi$. Let
+\[
+V_{\mp ,n,d} = \{(\alpha ,j)\in \Hom (A,A)\oplus \Hom (A,U):\quad \phi
+\alpha =\alpha^{\vee}\phi \}
+\]
+and let $V^{o}_{\mp ,n,d}\subset V_{\mp ,n,d}$ be the open set given
+by the condition
+\[
+\Ker (\alpha -\lambda \cdot 1_{A})\cap \Ker (j) = 0\text{ for all } \lambda \in \CC .
+\]
+Then there is a natural isomorphism
+\[
+\LoopTwo (\Xpm ) = V^{o}_{\mp ,n,d}/G(A,\phi )
+\]
+where $G(A,\phi ) = \{g\in GL(A): g^{\vee}\phi g = \phi \}$. 
+\end{proposition}
+
+To complete the proof of Theorems \ref{thm: quiver description of
+Loop2Alg(LGr)} and \ref{thm: quiver description of Loop2Alg(OGr)}, it
+remains to show that $V^{o}_{\mp ,n,d} = V^{\stable }_{\mp ,n,d}$
+where $V^{\stable }_{\mp ,n,d}$ is the locus of GIT stable points for
+the action of $G(A,\phi )$ on $V_{\mp ,n,d}$. This will be done in
+Section~\ref{sec: open conds and GIT}. 
+
+
+
+\section{Open conditions and GIT stability}\label{sec: open conds and GIT}
+
+
+
+
+\vfill
+
+
+
+
+\pagebreak
+
+~~This stuff might eventually get moved :
+
+\section{Topological consequences of the theorem}\label{sec:
 topological consequences}
 
 In this subsection, we make precise the assertion in Remark~\ref{rem:
@@ -799,6 +1556,8 @@ $U=\lim_{n\to \infty}U(n)$:
 $\pi_{k+1}(U)\cong \pi_{k-1}(U)$ for all $k$ and moreover,
 $\pi_{k}(U(n))\cong \pi_{k}(U) $ for all $k\leq 2n$.
 \end{corollary}
+
+
 
 
 
