@@ -1,0 +1,624 @@
+%%%%%% RVpreamble.tex
+%%  version April 18, 2022
+
+% table of contents for pre-amble
+% prepreamble
+% margins
+% picture stuff  [ready to delete]
+% point commands
+% fonts
+% symbols
+% operatornames
+% editing commands
+
+
+%two arrows pointing to the right:
+% $\xymatrix{ A \ar@< 2pt>[r]^\phi\ar@<-2pt>[r]_\psi & B}$
+%bowed arrows
+%$$
+%\xymatrix{U \times \R^n \ar[d]_{\pi} \\
+%U\ar@/_/[u]_{f_1, \dots, f_n} 
+% }$$
+%$$
+%\xymatrix{
+%Z \ar[dr] \ar[drr]^0 \ar@{.>}[d]_{\exists !} \\  A \ar[r]^i \ar@/_1pc/[rr]_0  &
+% B \ar[r]^f & C \\ 
+%}$$
+
+%\begin{figure}[ht] \begin{center}
+%\includegraphics[scale=0.3]{figures/fig82.jpeg}
+%\end{center} \caption{} \label{} \end{figure}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% prepreamble
+
+\documentclass[12pt,letterpaper]{amsart} % LatexMasterTemplate May 2020 on overleaf
+\usepackage{palatino, euler, epic,eepic, amssymb, xypic, floatflt, microtype}
+\usepackage{verbatim,color}
+\usepackage[linktocpage,hidelinks]{hyperref}
+
+
+
+% June 9 09:  removed latexsym, amscd, and added palatino, microtype
+
+\usepackage{tikz-cd}
+
+\input xy
+\xyoption{all}
+% AK and TT say:  if your fonts are screwed up, remove the "renewcommand".
+\renewcommand{\familydefault}{ppl}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% margins
+
+% from Allen K and Terry T's notices article
+\setlength{\oddsidemargin}{0cm} \setlength{\evensidemargin}{0cm}
+\setlength{\marginparwidth}{0in}
+\setlength{\marginparsep}{0in}
+\setlength{\marginparpush}{0in}
+\setlength{\topmargin}{0in}
+\setlength{\headheight}{0pt}
+\setlength{\headsep}{0pt}
+\setlength{\footskip}{.3in}
+\setlength{\textheight}{9.2in}
+\setlength{\textwidth}{6.5in}
+\setlength{\parskip}{4pt}
+
+\linespread{1.15} % following Ian Morrison
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% picture stuff
+ 
+% \newlength{\baseunit}               % the basic unit length
+% \newlength{\templengthhoriz}        % width of the picture
+% \newlength{\templengthvert}         % depth of the picture
+% \newlength{\temprule}               % with between left margin and picture
+% \newcount{\numlines}                % depth of picture (in number of lines)
+% \setlength{\baseunit}{0.05ex}
+  
+%  \newcommand{\getfig}[2] {
+%           \setlength{\unitlength}{#2\baseunit}
+%            \input #1.tex }
+                         % A macro to input the picture.  Use
+                         % \getfig{name}{scale}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% point commands (and  theorem-related commands)
+
+
+\newcommand{\bpf}{\noindent {\em Proof.  }}
+\newcommand{\epf}{\qed \vspace{+10pt}}
+
+\newcommand{\point}{\vspace{3mm}\par \noindent \refstepcounter{subsection}{\thesubsection.} }
+\newcommand{\tpoint}[1]{\vspace{3mm}\par \noindent \refstepcounter{subsection}{\thesubsection.} 
+  {\bf #1. ---} }
+\newcommand{\epoint}[1]{\vspace{3mm}\par \noindent \refstepcounter{subsection}{\thesubsection.} 
+  {\em #1.} }
+\newcommand{\bpoint}[1]{\vspace{3mm}\par \noindent \refstepcounter{subsection}{\thesubsection.} 
+  {\bf #1.} }
+
+%Exercise
+\newtheorem{eexercise}{Eexercise}[section]
+%\newcounter{exercise}
+\renewcommand{\theeexercise}{\thesection.\Alph{eexercise}}
+\newcommand{\exercise}[1]{\vspace{3mm}\par\refstepcounter{eexercise}\noindent{\bf
+    \theeexercise.}   {\sc #1.} }
+\newcommand{\exercisedone}{ \vspace{2mm}}
+
+
+% I haven't really used this.
+\newcommand{\theorem}{\noindent {\bf \addtocounter{subsubsection}{1} \arabic{section}.\arabic{subsubsection}  Theorem.} }
+
+% I tend not to use these, and instead use tpoint above.
+\newtheorem{tm}{Theorem}[subsection]\newtheorem{pr}[tm]{Proposition}\newtheorem{lm}[tm]{Lemma}\newtheorem{co}[tm]{Corollary}\newtheorem{df}[tm]{Definition}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% fonts
+
+% miscellaneous
+
+\newcommand{\uR}{\underline{\R}}
+\newcommand{\M}{M}
+\newcommand{\vv}{\vec{v}}
+
+%\newcommand{\ut}[1]{\underset{\widetilde{ }}{#1}}
+
+% tilde
+\newcommand{\tK}{\tilde{K}}
+\newcommand{\tA}{\tilde{A}}
+\newcommand{\tX}{\tilde{X}}
+\newcommand{\tY}{\tilde{Y}}
+\newcommand{\tZ}{\tilde{Z}}
+\newcommand{\tC}{\tilde{C}}
+\newcommand{\tS}{\tilde{S}}
+
+%  overline
+
+\newcommand{\cmbar}{\overline{\cm}}
+\newcommand{\Fpbar}{\overline{\F}_p}
+\newcommand{\oz}{\overline{z}}
+\newcommand{\ow}{\overline{w}}
+
+
+\newcommand{\Qbar}{\overline{\mathbb{Q}}}
+\newcommand{\Ebar}{\overline{E}}
+\newcommand{\kbar}{\overline{k}}
+\newcommand{\wbar}{\overline{w}}
+
+% bb
+\newcommand{\proj}{\mathbb P}
+
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\G}{\mathbb{G}}
+\renewcommand{\H}{\mathbb{H}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\E}{\mathbb{E}}
+\renewcommand{\L}{\mathbb{L}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\W}{\mathbb{W}}
+\newcommand{\bbS}{\mathbb{S}}
+\newcommand{\R}{\mathbb{R}}
+\def\CC{\mathbb{C}}
+\def\DD{\mathbb{D}}
+\def\EE{\mathbb{E}}
+\def\FF{\mathbb{F}}
+\def\GG{\mathbb{G}}
+\def\HH{\mathbb{H}}
+\def\II{\mathbb{I}}
+\def\JJ{\mathbb{J}}
+\def\KK{\mathbb{K}}
+\def\LL{\mathbb{L}}
+\def\MM{\mathbb{M}}
+\def\NN{\mathbb{N}}
+\def\OO{\mathbb{O}}
+\def\PP{\mathbb{P}}
+\def\QQ{\mathbb{Q}}
+\def\RR{\mathbb{R}}
+\def\SS{\mathbb{S}}
+\def\TT{\mathbb{T}}
+\def\UU{\mathbb{U}}
+\def\VV{\mathbb{V}}
+\def\WW{\mathbb{W}}
+\def\XX{\mathbb{X}}
+\def\YY{\mathbb{Y}}
+\def\ZZ{\mathbb{Z}}
+
+% scr and mathcal
+\newcommand{\cA}{{\mathscr{A}}}
+\newcommand{\cB}{{\mathscr{B}}}
+\newcommand{\cC}{{\mathscr{C}}}
+\newcommand{\cE}{{\mathscr{E}}}
+\newcommand{\cF}{{\mathscr{F}}}
+\newcommand{\cG}{{\mathscr{G}}}
+\newcommand{\cI}{{\mathscr{I}}}
+\newcommand{\cJ}{{\mathscr{J}}}
+\newcommand{\cK}{{\mathscr{K}}}
+\newcommand{\cLL}{{\mathscr{L}}}
+\renewcommand{\cL}{{\mathscr{L}}}
+\newcommand{\cm}{{\mathscr{M}}}
+\newcommand{\cM}{{\mathscr{M}}}
+\newcommand{\cP}{{\mathscr{P}}}
+\newcommand{\cQ}{{\mathscr{Q}}}
+\newcommand{\cS}{{\mathscr{S}}}
+\newcommand{\cT}{{\mathscr{T}}}
+\newcommand{\cu}{{\mathscr{U}}}
+\newcommand{\cV}{{\mathscr{V}}}
+\newcommand{\cW}{{\mathscr{W}}}
+\newcommand{\cX}{{\mathscr{X}}}
+\newcommand{\cY}{{\mathscr{Y}}}
+\newcommand{\ct}{{\mathscr{T}}}
+\newcommand{\oh}{{\mathscr{O}}}
+
+\def\calF{\mathcal{F}}
+\def\calG{\mathcal{G}}
+\def\calH{\mathcal{H}}
+\def\calI{\mathcal{I}}
+\def\calJ{\mathcal{J}}
+\def\calK{\mathcal{K}}
+%\newcommand{\calL}{{\mathscr{L}}}
+\def\calL{\mathcal{L}}
+\def\calM{\mathcal{M}}
+\def\calN{\mathcal{N}}
+\def\calO{\mathcal{O}}
+\def\calP{\mathcal{P}}
+\def\calQ{\mathcal{Q}}
+\def\calR{\mathcal{R}}
+\def\calS{\mathcal{S}}
+\def\calT{\mathcal{T}}
+\def\calU{\mathcal{U}}
+\def\calV{\mathcal{V}}
+\def\calW{\mathcal{W}}
+\def\calX{\mathcal{X}}
+\def\calY{\mathcal{Y}}
+\def\calZ{\mathcal{Z}}
+
+% bf
+\def\bU{\mathbf{U}}
+\def\bV{\mathbf{V}}
+\def\bW{\mathbf{W}}
+\def\bX{\mathbf{X}}
+\def\bY{\mathbf{Y}}
+\def\bZ{\mathbf{Z}}
+\newcommand{\D}{\mathbf{D}}
+
+\def\bJ{\mathbf{J}}
+\def\bK{\mathbf{K}}
+\def\bL{\mathbf{L}}
+\def\bM{\mathbf{M}}
+\def\bN{\mathbf{N}}
+\def\bO{\mathbf{O}}
+\def\bP{\mathbf{P}}
+\def\bQ{\mathbf{Q}}
+\def\bR{\mathbf{R}}
+\def\bS{\mathbf{S}}
+\def\bT{\mathbf{T}}
+\def\bU{\mathbf{U}}
+\def\bV{\mathbf{V}}
+\def\bW{\mathbf{W}}
+\def\bX{\mathbf{X}}
+\def\bY{\mathbf{Y}}
+\def\bZ{\mathbf{Z}}
+
+
+% frak
+
+\newcommand{\fm}{\mathfrak{m}}
+\newcommand{\fr}{\mathfrak{r}}
+\newcommand{\fM}{{\mathfrak{M}}}
+\newcommand{\fU}{{\mathfrak{U}}}
+
+\newcommand\frA{\mathfrak{A}}
+\newcommand\frB{\mathfrak{B}}
+\newcommand\frg{\mathfrak{g}}
+\newcommand\frt{\mathfrak{t}}
+\newcommand\frb{\mathfrak{b}}
+\newcommand\frh{\mathfrak{h}}
+\newcommand\frn{\mathfrak{n}}
+\newcommand\frN{\mathfrak{N}}
+\newcommand\frl{\mathfrak{l}}
+\newcommand\frp{\mathfrak{p}}
+\newcommand\frq{\mathfrak{q}}
+\newcommand\frr{\mathfrak{r}}
+\def\frm{\mathfrak{m}}
+
+
+
+%%%%%%%% tilde %%%%%%%%%
+
+
+\newcommand\tilW{\widetilde{W}}
+\newcommand\tilA{\widetilde{A}}
+\newcommand\tilB{\widetilde{B}}
+\newcommand\tilC{\widetilde{C}}
+\newcommand\tilD{\widetilde{D}}
+\newcommand\tilE{\widetilde{E}}
+\newcommand\tilF{\widetilde{F}}
+\newcommand\tilG{\widetilde{G}}
+
+%%%%%%%% hat %%%%%%%%%
+
+\def\hatG{\widehat{G}}
+\newcommand\hA{\widehat{A}}
+\newcommand\hLam{\widehat{\Lambda}}
+\newcommand\hZ{\widehat{\ZZ}}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% symbols
+
+
+% greek 
+
+\newcommand{\al}{\alpha}
+\newcommand{\ka}{\kappa}
+
+\newcommand{\om}{\omega}
+\newcommand{\be}{\beta}
+\newcommand{\ga}{\gamma}
+\newcommand{\Ga}{\Gamma}
+\newcommand{\de}{\delta}
+\newcommand{\De}{\Delta}
+\newcommand{\si}{\sigma}
+\newcommand{\la}{\lambda}
+
+% other
+
+\newcommand{\dis}{\bullet}
+\newcommand{\virt}{\rm{virt}}
+\newcommand{\Kvar}{K_{(\rm{Var})}}
+\newcommand{\fixed}{\rm{fixed}}
+\newcommand{\Add}{\rm{Add}}
+\renewcommand{\top}{\rm{top}}
+\newcommand{\red}{\rm{red}}
+
+\newcommand{\coloneq}{:=}
+
+
+
+\newcommand{\propernormal}{%
+  \mathrel{\ooalign{$\lneq$\cr\raise.22ex\hbox{$\lhd$}\cr}}}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% operatornames
+
+\newcommand{\opn}[1]{\operatorname{#1}}
+
+%\newcommand{\spam}{\operatorname{span}}
+
+% category theory
+\newcommand{\cat}[1]{{\text{\underline{\bf #1}}}}
+\newcommand{\colim}{\operatorname{colim}}
+\newcommand{\Ext}{\operatorname{Ext}}
+\newcommand{\Mor}{\operatorname{Mor}}
+\newcommand{\Isom}{\operatorname{Isom}}
+\newcommand{\same}{{\overset {\displaystyle \sim} \longleftrightarrow}}
+\newcommand{\sametwo}{\xrightarrow{\sim}}
+
+% group and ring theory
+\newcommand\Stab{\operatorname{Stab}}
+\newcommand{\Orb}{\operatorname{Orb}}
+\newcommand{\Sym}{\operatorname{Sym}}
+\newcommand{\Aut}{\operatorname{Aut}}
+\newcommand{\rank}{\operatorname{rank}}
+\renewcommand{\span}{\operatorname{span}}
+\newcommand{\coker}{\operatorname{coker}}
+\newcommand{\val}{\operatorname{val}}
+\newcommand{\chr}{\operatorname{char}}
+\newcommand{\Gal}{\operatorname{Gal}}
+\newcommand{\Ad}{\operatorname{Ad}}
+\newcommand{\uGal}{\underline{\Gal}}
+\newcommand{\Hom}{\operatorname{Hom}}
+\newcommand{\Fn}{\operatorname{Maps}}
+\newcommand{\Maps}{\operatorname{Maps}}
+
+
+% algebraic geometry
+\newcommand{\codim}{\operatorname{codim}}
+\newcommand{\Div}{\operatorname{Div}}
+\newcommand{\Hilb}{\operatorname{Hilb}}
+\newcommand{\Pic}{\operatorname{Pic}}
+\newcommand{\Spec}{\operatorname{Spec}}
+\newcommand{\Cl}{\operatorname{Cl}}
+\newcommand{\res}{\operatorname{res}}
+\renewcommand{\div}{\operatorname{div}}
+\newcommand{\Trop}{\operatorname{Trop}}
+\newcommand{\Jac}{\operatorname{Jac}}
+
+\newcommand{\aff}{\rm{aff}}
+
+\newcommand{\Gr}{\rm{Gr}}
+\newcommand{\LGr}{\rm{LGr}}
+\newcommand{\SAG}{\rm{SpAfGr}}
+\newcommand{\LSG}{\rm{LgStGr}}
+
+% define \jalpha so that it can be used in math mode
+\newcommand{\jalpha}{\mathord{j\mkern-7mu\alpha}}
+%\newcommand{\jalpha}{  \overset{\alpha}{j}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% editing commands
+
+
+%\newcommand{\remind}[1]{{\bf[#1]}}
+\newcommand{\remind}[1]{{\bf[{\large TODO:  } #1]}}
+\newcommand{\lremind}[1]{{\bf[label:  #1]}}
+%\newcommand{\notation}[1]{\footnote{\scriptsize #1}}
+\newcommand{\notation}[1]{}
+%\renewcommand{\remind}[1]{{}}
+\renewcommand{\lremind}[1]{{}}
+
+\newcommand{\ravi}[1]{{\bf [#1 --- Ravi]}}
+\newcommand{\hidden}[1]{\footnote{Hidden:  #1}}
+%\renewcommand{\hidden}[1]{}
+
+\newcommand{\cut}[1]{}
+%\newcommand{\cut}[1]{#1}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% formatting commands
+
+\newcommand{\leftbox}[1]{      \begin{flushleft}\fbox{ \parbox{25em}{
+#1        }}\end{flushleft}
+}\newcommand{\centerbox}[1]{      \begin{center}\fbox{ \parbox{25em}{
+#1        }}\end{center}
+}
+\newcommand{\rightbox}[1]{      \begin{flushright}\fbox{ \parbox{25em}{
+#1        }}\end{flushright}
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% end of preamble
+
+\begin{document}
+\pagestyle{plain}
+\title{\Large{$\Omega^2(BSp)$ notes}}
+\author{Ravi Vakil for Jim Bryan}
+%\address{Dept. of Mathematics, Stanford University, Stanford CA~94305--2125}
+%\email{rvakil@stanford.edu}
+%\date{March 23 2021}
+\date{\today .   {\em Last edited:}
+  July 13, 2025. (keep current date here)  }
+%\subjclass{Primary 14F30, Secondary 14F20. }
+%\begin{abstract}
+% \end{abstract}
+\maketitle
+\tableofcontents
+
+
+{\parskip=12pt % closing bracket is just before the bibliography 
+
+
+These are Ravi's notes, for Jim, but also to set some notation.
+
+\epoint{The space $V$}
+
+We start with a vector space $\boxed{V}$ with an alternating form. 
+(I expect everything I type here to work fine for $O$ in place of $Sp$  with change of signs, but I stick to the symplectic case for concreteness and to avoid confusion.) 
+Choosing a splitting $V = L \oplus L^*$ is called a polarization or Lagrangian splitting. Jim says it is a "Weinstein normal form".
+
+More generally, we can work over an arbitrary base, and all statements will behave well with respect to base change.
+So most generally, we work over $\Spec \Z$, and $V$ is a free sheaf on $\Spec \Z$ of rank $2n$, etc.  I will continue to use vector space language for simplicity.
+
+
+\section{Background on the symplectic affine Grassmannian}
+
+
+\epoint{The loop space of $V$}
+
+The loop space of $V$ is
+$$H = V((z)) \coloneq V[[z]] \oplus z^{-1} V[ z^{-1}].$$
+
+
+We define
+$H^+ = V[[z]]$ and $H^- = z^{-1} V[ z^{-1}]$.
+$H$ has a residue pairing:  
+$$\langle f(z), g(z) \rangle \coloneq \operatorname{Res}_{z=0}  \omega(f(-z), g(z)) \; dz.$$
+This residue pairing is skew-symmetric and nondegenerate.
+$H$ is thought of as some sort of infinite-dimensional symplectic Hilbert space.
+
+
+{\em Question:} what's the reason for the sign in pairing?  
+I think in our pairing (see later on), there is no sign.
+
+
+\epoint{The Lagrangian Sato Grassmannian} 
+
+The Lagrangian Sato Grassmannian parametrizes "Lagrangians" of the loop space that are close to $H^+$.
+It is contained in the index zero component of the (usual --- not symplectic) Sato Grassmannian (not defined here).
+The Lagrangian Sato Grassmannian  is often denoted $\LGr_\infty$ (or $LGr(H)$).  I will use temporary notation $\LSG$ to remind us of its meaning. (This is a macro which can be easily changed.)
+
+
+The $N$th truncation is denoted $\LSG^{(N)} = \LSG^{(N)}(H)$, and is isomorphic to $$LG(N \dim V, 2N \dim V).$$
+We can show that $\LSG_\infty$ is the limit of $LGr(nN, 2nN)$ in our naive homotopy category.   Thus its homotopy type is $LGr(\infty, 2 \infty) = U/O = \Omega(Sp)$.
+
+Remark:
+This will likely be relevant for us, because we will be "increasing $V$" which will be changing the symplectic affine Grassmannian, but the ambient Lagrangian Sato Grassmannian (even for finite $V$) will be what we want.  
+
+\epoint{The symplectic affine Grassmannian}
+
+The symplectic affine Grassmannian is the $z$-stable locus inside the Lagrangian Sato Grassmannian.
+The symplectic affine Grassmannian is  unfortunately 
+often denoted  $Gr$ or $Gr_{Sp_{2n}}$ or $Gr_{Sp}$. I will use temporary notation $\SAG$ to remind us.  This is a temporary macro which can be easily changed.
+
+Fact:  $\SAG_{Sp(V)}$ is homotopic to $\Omega(Sp(V))$.
+
+Vague argument (that I've not thought through):    $L Sp(V)$ parametrizes maps from loops to $Sp(V)$ --- smooth maps from $S^1$.  $L^+(V)$ is the subset where the map extends holomorphically to the disk.  Then show that $L/L^+ \cong LGr$, by describing a transitive action of $L$, and identifying the stabilizer as $L^+$.  But $L^+$ is contractible.  (Presumably I should look at \cite{ps} for more. It might be in a later paper of  Nadler, perhaps \cite{nadler}, see one of the references of \cite{zhu}.)   (There is an argument of this sort in the algebraic category, involving algebraic loops; and also in the continuous category.)
+
+\epoint{Truncations of the symplectic affine Grassmannian}
+The $N$th truncation of the symplectic affine Grassmannian is 
+called $\SAG_{Sp}^{(N)} = \Gr^{(N)}$.  (Caution:  I am worried that the terminology  $\Gr$  gets used both for the affine and the Sato case.)
+
+\epoint{Singularities of the truncation}
+Apparently $\SAG^{(N)}$  is singular in codimension $\dim V$, with possible reference  \cite{mov}. 
+
+
+\section{Moduli of vector bundles}
+
+Now let $\Omega^2_{alg}(BSp(2n))$  be the moduli space of vector bundles on $\proj^1$, framed at $\infty$ by $V$, with its form.
+
+Let $\Omega^2_{alg}(BSp(2n))^{[N]}$ parametrize those bundles $\cF$ such that $\cF(N)$ is globally generated. For example, 
+$\Omega^2_{alg}(BSp(2n))^{[N]}$ is empty if $N<0$.
+
+\epoint{Basic facts about this space}
+The space 
+$\Omega^2_{alg}(BSp(2n))$ 
+is an Artin stack.  
+
+ The space 
+$\Omega^2_{alg}(BSp(2n))$ is an $Sp(2n)$ bundle over the "unframed" moduli space, which is also thus an Artin stack.  This latter space is smooth, because the automorphisms/deformation/obstructions of a principle bundle $E$ is given by the cohomology of the adjoint bundle $ad(E)$, so automorphisms are $H^0(ad(E))$, deformations are $H^1(ad(E))$, and obstructions are $H^2(ad(E))$, which in this case are zero.  (The adjoint bundle is the "twisted Lie algebra bundle", as I think Jim was telling me.)
+
+
+
+The space 
+$\Omega^2_{alg}(BSp(2n))$  is the union of an increasing sequence of open substacks
+$\Omega^2_{alg}(BSp(2n))^{[N]}$.
+
+Each $\Omega^2_{alg}(BSp(2n))^{[N]}$ is quasicompact and finite type.  
+
+$\Omega^2_{alg}(BSp(2n))^{[0]}$ is a reduced point.
+
+The space of  bundles trivialized in a formalized neighborhood of $p_\infty$ is apparently, as an ind-scheme, the affine symplectic Grassmannian $\SAG{Sp(2n)}$.
+
+\epoint{Sketch of why these things are true}
+These are all well-known facts, but we will also end reproving them, so we can have confidence in these statements.  Here is the architecture of our argument.
+
+First:
+$\Omega^2_{alg}(BSp(2n))$ and $\Omega^2_{alg}(BSp(2n))^{[N]}$
+are stacks in the usual (smooth etc.) topology (not yet obviously algebraic stacks).  
+
+(ii) 
+We construct a finite type affine scheme (explicitly, with generators and relations), that will parametrize the same things as  $\Omega^2_{alg}(BSp(2n))^{[N]}$, with in addition a Zariski-splitting.  This is an affine bundle  over $\Omega^2_{alg}(BSp(2n))^{[N]}$.  Thus $\Omega^2_{alg}(BSp(2n))^{[N]}$ is an algebraic stack (i.e., an Artin stack).
+
+We  have open embeddings of these truncations, and their union is  the entire space, so $\Omega^2_{alg}(BSp(2n))$ is an algebraic stack.
+
+
+
+
+$\Omega^2_{alg}(B Sp(V))$ parametrizes the following.
+
+\begin{itemize}
+\item $\boxed{\cF}$ is a rank $2n$ vector bundle on $\proj^1$.  (Caution:  earlier the bundle on $\proj^1$ was considered to be rank $n$.)
+\item  We have an identification $\cF|_{p_{\infty}} \overset \sim \longrightarrow V$
+\item $\boxed{\phi_\cF}: \cF \overset \sim \longrightarrow \cF^\vee$ satisfying 
+$\phi^\vee_\cF = -\phi_\cF$, and $\phi_{\cF}|_{p_\infty} = \phi_V$ (where $\phi_V$ comes
+from the alternating form).    Or equivalently:  $\boxed{\psi_{\cF}}: \cF\otimes \cF \rightarrow \oh$,
+with appropriate hypotheses.
+\end{itemize}
+
+
+\epoint{Comparison to topology}
+I think we quote Cohen-Lupercio-Segal or someone else to show that smooth maps to $BSp(V)$ are homotopic to holomorphic maps to $BSp(V)$.
+Then by GAGA (some justification needed) this is the same as algebraic maps to $BSp(V)$.
+
+\point $\boxed{\Omega^2_{d,alg}(B Sp(V))}$ parametrizes the same, with the additional requirement that $\cF(d p_\infty)$ is
+generated by global sections.  (Equivalently, when you write $\cF$ as a direct sum of line bundles, the summands
+are all of degree between $-d$ and $d$ inclusive.  This interpretation is {\em not helpful}.)
+
+We define $\boxed{\cE} = \cF (d p_{\infty})$ for convenience.  This bundle is rank $2n$ and 
+
+We then have $\boxed{\phi_{\cE}} : \cE \rightarrow \cE^\vee(2d)$, and $\boxed{\psi_{\cE}} = \psi_{\cF}(2d) : \cE \otimes \cE \rightarrow \oh(2d p_{\infty})$.
+
+\tpoint{Claim}
+{\em We have an induced isomorphism $\cE|_{p_{\infty}} \overset \sim \longrightarrow V$.}
+
+(Proof omitted.)
+
+\epoint{Zariski-framing}
+
+Define $\boxed{A}  \coloneq H^0(\cE(-p_\infty))$, which has dimension $2dn$.  
+
+We now consider the Zariski-framed moduli space, which doesn't yet have a name.
+
+The data of the Zariski-framed bundle $\cE$ is the data of $A$, plus $\al: A \rightarrow A$, and $j:A \rightarrow U$,
+along with an {\em open condition} on $j$ and $\al$.  I've lost track, but I think the condition is codimension $2n$.
+
+
+For future use, define $\jalpha$ (need better name) by...
+
+
+}  %end parskip at the start of the file
+
+
+\begin{thebibliography}{[HPLqjm]}
+
+
+\bibitem[MOV]{mov} A. Malkin, V. Ostrik, and M. Vybornov, {\em  The minimal degeneration singularities in the affine Grassmannians}, Duke Math. J., 126(2):233–249,
+2005.
+
+\bibitem[Na]{nadler} David Nadler, {\em Matsuki correspondence for the affine Grassmannian}, Duke Math. J. 124 (2004), no.\ 3,
+421–457.
+
+\bibitem[PS]{ps} 
+Andrew Pressley and Graeme Segal, Loop groups, Oxford Mathematical Monographs, The Clarendon Press, Oxford University Press, New York, 1986. 
+
+\bibitem[Z]{zhu} Xinwen Zhu, {\em An introduction to affine Grassmannians and the geometric Satake equivalence}, IAS/Park City Mathematics Series (expanded lecture notes from the 2015 PCMI Summer School), April 4, 2016.  \verb+https://arxiv.org/abs/1603.05593+
+\end{thebibliography}
+
+\end{document}
