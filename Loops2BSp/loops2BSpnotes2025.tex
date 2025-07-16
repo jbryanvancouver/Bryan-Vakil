@@ -455,11 +455,15 @@
 {\parskip=12pt % closing bracket is just before the bibliography 
 
 
-These are Ravi's notes, for Jim, but also to set some notation.
+  These are Ravi's notes, for Jim, but also to set some notation.
+
+  $\boxed{x} = x_0/x_1$.  $\boxed{p_{\infty}} = \infty = [1,0] = V(x_1)$.
+
+  I think $y=x_1/x_0$.
 
 \epoint{The space $V$}
 
-We start with a vector space $\boxed{V}$ with an alternating form. 
+We start with a vector space $\boxed{U=V}$ with an alternating form. 
 (I expect everything I type here to work fine for $O$ in place of $Sp$  with change of signs, but I stick to the symplectic case for concreteness and to avoid confusion.) 
 Choosing a splitting $V = L \oplus L^*$ is called a polarization or Lagrangian splitting. Jim says it is a "Weinstein normal form".
 
@@ -583,7 +587,10 @@ are all of degree between $-d$ and $d$ inclusive.  This interpretation is {\em n
 
 We define $\boxed{\cE} = \cF (d p_{\infty})$ for convenience.  This bundle is rank $2n$ and 
 
-We then have $\boxed{\phi_{\cE}} : \cE \rightarrow \cE^\vee(2d)$, and $\boxed{\psi_{\cE}} = \psi_{\cF}(2d) : \cE \otimes \cE \rightarrow \oh(2d p_{\infty})$.
+We then have $\boxed{\phi_{\cE}} : \cE \rightarrow \cE^\vee(2d)$, and \begin{equation}
+  \boxed{\psi_{\cE}} = \psi_{\cF}(2d) : \cE \otimes \cE \rightarrow \oh(2d p_{\infty}).
+  \label{eq:p20}
+  \end{equation}
 
 \tpoint{Claim}
 {\em We have an induced isomorphism $\cE|_{p_{\infty}} \overset \sim \longrightarrow V$.}
@@ -592,11 +599,12 @@ We then have $\boxed{\phi_{\cE}} : \cE \rightarrow \cE^\vee(2d)$, and $\boxed{\p
 
 \epoint{Zariski-framing}
 
-Define $\boxed{A}  \coloneq H^0(\cE(-p_\infty))$, which has dimension $2dn$.  
+Define $\boxed{A}  \coloneq H^0(\cE(-p_\infty))$.   $\cE$ has rank $2n$ and degree $2nd$.
+Thus $\dim A = 2n(d-1) + 2n = 2nd$.
 
-We now consider the Zariski-framed moduli space, which doesn't yet have a name.
+\point We now consider the Zariski-framed moduli space, which doesn't yet have a name. I temporarily dub it $\boxed{X(d)}$.  $\dim X(d)  = (\dim A)(\dim U)= (2dn)(2n)=4dn^2$. \label{s:dimXd}
 
-The data of the Zariski-framed bundle $\cE$ is the data of $A$, plus $\al: A \rightarrow A$, and $j:A \rightarrow U$,
+\point The data of the Zariski-framed bundle $\cE$ is the data of $A$, plus $\al: A \rightarrow A$, and $j:A \rightarrow U$,
 along with an {\em open condition} on $j$ and $\al$.
 
 The following matrix (where we are treating elements of $A$ and $U$  as column vectors) is required
@@ -617,6 +625,70 @@ For each $x \in \C$, the locus where the matrix is not full rank is codimension 
 Thus as $x$ varies, the locus where the matrix is not full rank is codimension $2n$.
 (That's not quite rigorous.)
 
+
+\epoint{Relationships between $(\al, j)$ and the  pairing $(\psi_\cE/\phi_\cE)$}
+
+We unpack \eqref{eq:p20}.  We have
+$$
+\boxed{\psi_{A \oplus U}} : \underbrace{(A \oplus U)}_{\text{dim}=(2d+1)(2n)} \otimes (A \oplus U) \rightarrow \C[x_0, x_1]_{2d}$$
+where the subscript means ``homogeneous of degree $2d$'', or equivalently,
+$$
+\boxed{\phi_{A \oplus U}} : A \oplus U \rightarrow (A^\vee \oplus U^\vee)[x_0, x_1]_{2d}$$
+satisfying $\phi_{A \oplus U} = - \phi^\vee_{A \oplus U}$,
+satisfying three conditions:
+\begin{enumerate}
+\item[(V)] ``vanishes on $(x-\al, -j)$ (on either factor)'' (closed condition) and
+  \item[(ND)]  ``nondegenerate on the quotient for all $x \in \C$''  (open condition)
+  \item[(BP)] $[x_0^{2d}] \phi_{A \oplus U} ( (a_1, u_1), (a_2, u_2)) = \psi_U(u_1, u_2)$ (base point condition, hence nondegeneracy at $x =\infty$) 
+\end{enumerate}
+
+The following is then tautological.
+
+\tpoint{Claim} {\em This precisely parametrizes our space. Hence our space is a quasiaffine variety.}
+
+
+We unpack this.  We write the components of $\phi$ out explicitly as follows.
+
+Define
+$$\xymatrix{\boxed{T_A}: A \rightarrow A^\vee[x_0, x_1]_{2d} &
+T_A = T_{A,0}x_0^{2d} + \cdots + T_{A,2d} x_1^{2d} & \text{so } T_{A,i}^\vee = - T_{A,i} & T_{A,0}=0 \\
+  \boxed{T_U}: U \rightarrow U^\vee[x_0, x_1]_{2d} & T_U = T_{U,0}x_0^{2d} + \cdots + T_{U,2d} x_1^{2d} & \text{so } T_{U,i}^\vee = - T_{U,i} & T_{U,0}=\phi_U  \\
+  \boxed{T_{AU}}: A \rightarrow U^\vee[x_0, x_1]_{2d} & T_{AU} = T_{AU,0}x_0^{2d} + \cdots + T_{AU,2d} x_1^{2d} &  & T_{AU,0}=0
+}$$
+
+The final column gives the third condition (BP).
+
+Condition (V) translates to
+$$
+\phi_{A \oplus U}(  (x_0-x_1 \al) a, ja) =0 \in A^\vee \oplus U^\vee$$
+for any $x \in \C$, $a \in A$.  
+
+The $A^\vee$ component of this gives:
+$$
+0 = \sum x_0^{2d-1-i} x_i \left( T_{A,i} (x_0a -x_1 \al(a)) +  T_{AU,i}^\vee  (-j(a) x_1) \right)
+$$
+The $U^\vee$ component of this gives:
+$$0 = \sum x_0^{2d-1-i} x_i \left( T_{AU,i} (x_0a -x_1 \al(a)) +  T_{U,i}^\vee  (-j(a) x_1) \right)
+$$
+
+We thus have two sequences of conditions from these. 
+$$
+0 = T_{A, i+1} - T_{A,i} \circ \al - T_{AU,i}^\vee \circ j : A \rightarrow A^\vee$$
+and
+$$
+0 = T_{AU, i+1}   - T_{AU,i} \circ \al - T_{U,i} \circ j: A \rightarrow U^\vee$$
+They can be considered to include the case $i=-1$, which are the previously-stated relations $T_{A,0}=0$ and $T_{AU,0}=0$.
+
+Thus the closed condition (V) means that if we choose $T_{U,i}$ freely for $i=1, \dots, 2d$,
+then everything else is determined.
+
+\epoint{Checking dimensions}
+$T_{U,i}:U \rightarrow U^\vee$ must satisfy $T_{U,i} = - T_{U, i}^\vee$, so the dimension
+of choices of one of them is $1 + \cdots+ (2n-1) = (2n-1)(2n)/2= n(2n-1)$.
+Thus the total number of choices is for all of them is $2dn(2n-1)=4dn^2-2dn$.
+This does not agree with \S \ref{s:dimXd}, which gives $4dn^2$!
+
+\section{For future use}
 
 For future use, define $\jalpha: A \rightarrow t U[[t]]$ by
 $$\jalpha(a) = ja t + j \al a t^2 + j \al^2 a t^3 + \cdots$$
@@ -641,9 +713,10 @@ $A$ is just the subset.
 
 $j$ is just $[t] \jalpha$.
 
-Question:  how do we get $\alpha a$?
-Put differently, if I tell you $j a$, \dots, $j \al^{2d-1} a$, can you tell me
-$j \al^{2d} a$?
+We can almost get $\al$, but not quite. We can recover it from the image in
+$tU \oplus \cdots t^{2d+2}U$:  simply truncate the first and slide left.
+
+
 
 
   
