@@ -444,7 +444,7 @@
 %\email{rvakil@stanford.edu}
 %\date{March 23 2021}
 \date{\today .   {\em Last edited:}
-  July 13, 2025. (keep current date here)  }
+ Wednesday, July 16, 2025. (keep current date here)  }
 %\subjclass{Primary 14F30, Secondary 14F20. }
 %\begin{abstract}
 % \end{abstract}
@@ -473,13 +473,13 @@ So most generally, we work over $\Spec \Z$, and $V$ is a free sheaf on $\Spec \Z
 \epoint{The loop space of $V$}
 
 The loop space of $V$ is
-$$H = V((z)) \coloneq V[[z]] \oplus z^{-1} V[ z^{-1}].$$
+$$\boxed{H} = \boxed{V((z))} \coloneq V[[z]] \oplus z^{-1} V[ z^{-1}].$$
 
 
 We define
-$H^+ = V[[z]]$ and $H^- = z^{-1} V[ z^{-1}]$.
+$\boxed{H^+} = V[[z]]$ and $\boxed{H^-} = z^{-1} V[ z^{-1}]$.
 $H$ has a residue pairing:  
-$$\langle f(z), g(z) \rangle \coloneq \operatorname{Res}_{z=0}  \omega(f(-z), g(z)) \; dz.$$
+$$\boxed{\langle f(z), g(z) \rangle} \coloneq \operatorname{Res}_{z=0}  \omega(f(-z), g(z)) \; dz.$$
 This residue pairing is skew-symmetric and nondegenerate.
 $H$ is thought of as some sort of infinite-dimensional symplectic Hilbert space.
 
@@ -492,10 +492,10 @@ I think in our pairing (see later on), there is no sign.
 
 The Lagrangian Sato Grassmannian parametrizes "Lagrangians" of the loop space that are close to $H^+$.
 It is contained in the index zero component of the (usual --- not symplectic) Sato Grassmannian (not defined here).
-The Lagrangian Sato Grassmannian  is often denoted $\LGr_\infty$ (or $LGr(H)$).  I will use temporary notation $\LSG$ to remind us of its meaning. (This is a macro which can be easily changed.)
+The Lagrangian Sato Grassmannian  is often denoted $\LGr_\infty$ (or $LGr(H)$).  I will use temporary notation $\boxed{\LSG}$ to remind us of its meaning. (This is a macro which can be easily changed.)
 
 
-The $N$th truncation is denoted $\LSG^{(N)} = \LSG^{(N)}(H)$, and is isomorphic to $$LG(N \dim V, 2N \dim V).$$
+The $N$th truncation is denoted $\boxed{\LSG^{(N)}} = \LSG^{(N)}(H)$, and is isomorphic to $$LG(N \dim V, 2N \dim V).$$
 We can show that $\LSG_\infty$ is the limit of $LGr(nN, 2nN)$ in our naive homotopy category.   Thus its homotopy type is $LGr(\infty, 2 \infty) = U/O = \Omega(Sp)$.
 
 Remark:
@@ -505,25 +505,25 @@ This will likely be relevant for us, because we will be "increasing $V$" which w
 
 The symplectic affine Grassmannian is the $z$-stable locus inside the Lagrangian Sato Grassmannian.
 The symplectic affine Grassmannian is  unfortunately 
-often denoted  $Gr$ or $Gr_{Sp_{2n}}$ or $Gr_{Sp}$. I will use temporary notation $\SAG$ to remind us.  This is a temporary macro which can be easily changed.
+often denoted  $Gr$ or $Gr_{Sp_{2n}}$ or $Gr_{Sp}$. I will use temporary notation $\boxed{\SAG}$ to remind us.  This is a temporary macro which can be easily changed.
 
 Fact:  $\SAG_{Sp(V)}$ is homotopic to $\Omega(Sp(V))$.
 
-Vague argument (that I've not thought through):    $L Sp(V)$ parametrizes maps from loops to $Sp(V)$ --- smooth maps from $S^1$.  $L^+(V)$ is the subset where the map extends holomorphically to the disk.  Then show that $L/L^+ \cong LGr$, by describing a transitive action of $L$, and identifying the stabilizer as $L^+$.  But $L^+$ is contractible.  (Presumably I should look at \cite{ps} for more. It might be in a later paper of  Nadler, perhaps \cite{nadler}, see one of the references of \cite{zhu}.)   (There is an argument of this sort in the algebraic category, involving algebraic loops; and also in the continuous category.)
+Vague argument (that I've not thought through):    $L Sp(V)$ parametrizes maps from loops to $Sp(V)$ --- smooth maps from $S^1$.  $\boxed{L^+} =L^+(V)$ is the subset where the map extends holomorphically to the disk.  Then show that $L/L^+ \cong LGr$, by describing a transitive action of $L$, and identifying the stabilizer as $L^+$.  But $L^+$ is contractible.  (Presumably I should look at \cite{ps} for more. It might be in a later paper of  Nadler, perhaps \cite{nadler}, see one of the references of \cite{zhu}.)   (There is an argument of this sort in the algebraic category, involving algebraic loops; and also in the continuous category.)
 
 \epoint{Truncations of the symplectic affine Grassmannian}
 The $N$th truncation of the symplectic affine Grassmannian is 
-called $\SAG_{Sp}^{(N)} = \Gr^{(N)}$.  (Caution:  I am worried that the terminology  $\Gr$  gets used both for the affine and the Sato case.)
+called $\boxed{\SAG_{Sp}^{(N)}} = \Gr^{(N)}$.  (Caution:  I am worried that the terminology  $\Gr$  gets used both for the affine and the Sato case.)
 
 \epoint{Singularities of the truncation}
 Apparently $\SAG^{(N)}$  is singular in codimension $\dim V$, with possible reference  \cite{mov}. 
 
 
-\section{Moduli of vector bundles}
+\section{Moduli of vector bundles with symplectic structure}
 
-Now let $\Omega^2_{alg}(BSp(2n))$  be the moduli space of vector bundles on $\proj^1$, framed at $\infty$ by $V$, with its form.
+Now let $\boxed{\Omega^2_{alg}(BSp(2n))}$  be the moduli space of vector bundles on $\proj^1$, framed at $p_\infty$ by $V$, with its form.
 
-Let $\Omega^2_{alg}(BSp(2n))^{[N]}$ parametrize those bundles $\cF$ such that $\cF(N)$ is globally generated. For example, 
+Let $\boxed{\Omega^2_{alg}(BSp(2n))^{[N]}}$ parametrize those bundles $\cF$ such that $\cF(N)$ is globally generated. For example, 
 $\Omega^2_{alg}(BSp(2n))^{[N]}$ is empty if $N<0$.
 
 \epoint{Basic facts about this space}
@@ -597,10 +597,56 @@ Define $\boxed{A}  \coloneq H^0(\cE(-p_\infty))$, which has dimension $2dn$.
 We now consider the Zariski-framed moduli space, which doesn't yet have a name.
 
 The data of the Zariski-framed bundle $\cE$ is the data of $A$, plus $\al: A \rightarrow A$, and $j:A \rightarrow U$,
-along with an {\em open condition} on $j$ and $\al$.  I've lost track, but I think the condition is codimension $2n$.
+along with an {\em open condition} on $j$ and $\al$.
+
+The following matrix (where we are treating elements of $A$ and $U$  as column vectors) is required
+to be full rank for all $x \in \C$.
+
+\begin{tabular}{|ccc|c}
+  \hline
+  & & & \\
+  & $x \rm{Id}-\al$ & & $A$ \\
+  & & & \\
+\hline
+& $j$ & & $U$ \\
+\hline
+& $A^\vee$ & &  \\
+\end{tabular}
+
+For each $x \in \C$, the locus where the matrix is not full rank is codimension $2n+1$.
+Thus as $x$ varies, the locus where the matrix is not full rank is codimension $2n$.
+(That's not quite rigorous.)
 
 
-For future use, define $\jalpha$ (need better name) by...
+For future use, define $\jalpha: A \rightarrow t U[[t]]$ by
+$$\jalpha(a) = ja t + j \al a t^2 + j \al^2 a t^3 + \cdots$$
+This is the generating function for $j \al^{k-1} a$.
+
+\tpoint{Claim}   {\em $\jalpha \pmod t^{2d+1}$ is an injection $A \hookrightarrow tU \oplus \cdots \oplus t^{2d} U$.
+}
+
+\epoint{Sketch of proof}
+
+Consider $0 \rightarrow \cE(-2d-1) \rightarrow \cE(-1) \rightarrow \cE(-1)/\cE(-2d-1) \rightarrow 0.$
+Now $\cE$ is the direct sum of line bundles with degrees at most $2d$,
+so $H^0(\cE(-2d-1)=0$ from which
+$$
+H^0(\cE(-1)) \rightarrow H^0(\cE(-1)/ \cE(-2d-1))$$ is an  injection. \epf
+
+Now $A$ has rank $2dn$, and  the right side has rank $4dn$.
+
+\epoint{Recovering $(A, j, \al)$ from this subset of $t U \oplus \cdots \oplus t^{2d} U \oplus t^{2d+1} U$}
+
+$A$ is just the subset.
+
+$j$ is just $[t] \jalpha$.
+
+Question:  how do we get $\alpha a$?
+Put differently, if I tell you $j a$, \dots, $j \al^{2d-1} a$, can you tell me
+$j \al^{2d} a$?
+
+
+  
 
 
 }  %end parskip at the start of the file
