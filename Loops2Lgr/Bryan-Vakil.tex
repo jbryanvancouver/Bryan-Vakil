@@ -121,6 +121,7 @@ Palo Alto, California, USA
 \newcommand{\UL}[1]{\underline{#1}}
 \newcommand{\alg}{\mathsf{alg}}
 \newcommand{\stable}{\mathsf{s}}
+\newcommand{\costable}{\mathsf{cs}}
 \renewcommand{\top}{\mathsf{top}}
 \newcommand{\Gr}{\operatorname{Gr}}
 \newcommand{\LGr}{\operatorname{LGr}}
@@ -185,7 +186,7 @@ where $\LoopTwoTop (X)$ is the space of continuous based maps of
 degree $d$ (we will drop the $d$ from the notation when $H_{2}(X)=0$).
 
 In the same spirit as using high degree polynomial functions to
-approximate a continuous function, we may hope that for certain
+approximate a continuous functions, we may hope that for certain
 varieties $X$, the algebraic loop space approximates the topological
 loop space in the sense that it captures most of its homotopy theory.
 
@@ -282,11 +283,17 @@ spaces of dimension $n$ and $N$ respectively. Let
 \[
 V=V_{n,N,d} =\Hom (A,A)\oplus \Hom (W,A)\oplus \Hom (A,U).
 \]
-Then $GL(A)$ acts naturally on $V$ and let $V^{\stable}\subset V$ be
-the locus of stable points in the sense of Geometric Invariant Theory
-(GIT). Then there exists a natural isomorphism:
+Then $GL(A)$ acts naturally on $V$ and let $V^{\stable,\costable
+}\subset V$ be the locus of points which are stable and
+co-stable\footnote{In this context, a point $(\alpha ,\gamma ,j)\in
+\Hom (A,A)\oplus \Hom (W,A)\oplus \Hom (A,U)$ is \emph{co-stable} if
+$(\alpha^{\vee} ,\gamma^{\vee} ,j^{\vee})\in \Hom
+(A^{\vee},A^{\vee})\oplus \Hom (A^{\vee},W^{\vee})\oplus \Hom
+(U^{\vee},A^{\vee})$ is stable for the action of $GL(A^{\vee})$.} in
+the sense of Geometric Invariant Theory (GIT).  Then there exists a
+natural isomorphism:
 \[
-\LoopTwo (\Gr (n,n+N))\cong V^{\stable}/GL(A).
+\LoopTwo (\Gr (n,n+N))\cong V^{\stable,\costable}/GL(A).
 \]
 \end{theorem}
 
@@ -555,7 +562,7 @@ is determined by its map in cohomology
 \]
 
 
-We wil first prove a version of Theorem~\ref{thm: quiver description
+We will first prove a version of Theorem~\ref{thm: quiver description
 of Loop2alg(Gr(n,n+N))} which has a more explicit version of the open
 condition. 
 
@@ -567,9 +574,9 @@ $V^{o}_{n,N,d}\subset V_{n,N,d}$ be the open set of $(\alpha ,j,\gamma )\in V$
 satisfying
 \begin{enumerate}
 \item $\Ker (\alpha -\lambda \cdot \Id_{A})\cap \Ker (j) = 0$ for all
-$\lambda$.
+$\lambda\in \CC $.
 \item  $\im (\alpha -\lambda \cdot \Id_{A})\oplus  \im (\gamma )=A$ for
-all $\lambda$.
+all $\lambda\in \CC $.
 \end{enumerate}
 Then the constructions of the previous subsection induce an
 isomorphism of affine varieties:
@@ -600,7 +607,8 @@ conditions (1) and (2) are dual to each other under this equivalence.
 
 
 
-To prove the proposition we begin with the following
+To prove the proposition we begin with the following {\color{red} more
+citations, use the word Stromme} 
 \begin{lemma}\label{lem: Stromme}
 Let $E$ be a non-negative bundle on $\PP^{1}$. Then the following
 sequence is exact:
@@ -695,7 +703,8 @@ The condition that $\UL{A}(-1)$ is a subbundle of $\UL{A}\oplus
 \UL{U}$ requires that for any point $\lambda =\frac{x_{0}}{x_{1}}\in
 \PP^{1}-p_{\infty}$, the vector space map ${\tiny \begin{pmatrix} \alpha -\lambda \Id_{A}\\
 j \end{pmatrix}} : A\to A\oplus U $ is injective. This is equivalent
-to condition (1) of the theorem.
+to condition (1) of Proposition~\ref{prop: quiver description of
+Loop2(Gr(n,n+N)) with explicit stability condition}.
 
 The condition that $\UL{f} :\UL{U}\oplus \UL{W} \to E$ is surjective
 means that the map 
@@ -711,26 +720,51 @@ of $\UL{\theta}$:
 \]
 The cohomology exact sequence of the above canonically identifies
 $A\cong H^{0}(Q)$ and under this identification, the map in cohomology
-induced by $\UL{W}\to Q$ is just $\gamma :W\to A$.
+induced by $\UL{W}\to Q$ is just $\gamma :W\to A$. The support of $Q$
+is given by the eigenvalues of $\alpha$ so $\UL{W}\to Q$ being
+surjective is equivalent to $\gamma$ surjecting onto the eigenspaces
+of $\alpha$ which is exactly condition (2) of Proposition~\ref{prop:
+quiver description of Loop2(Gr(n,n+N)) with explicit stability
+condition}.
 
-{\color{red}
-\emph{Sketchy completion of this argument:}  The support of $Q$ is
-given by the eigenvalues of $\alpha$ so $\UL{W}\to Q$ being surjective
-is equivalent to $\gamma$ surjecting onto the eigenspaces of $\alpha$
-which is exactly condition (2) of the theorem. This more or less finishes up the
-proof of the theorem. I guess I haven't said very carefully that the
-point in $\LoopTwo (\Gr (n,n+N))$ is uniquely determined by $(\alpha
-,j,\gamma )$ up to the action of $GL(A)$ although it is implicit in
-the above argument. Also needed: prove that the quotient $V^{o}/GL(A)$
-is an affine variety (it is an affine GIT  quotient). \emph{Is this
-even true? I think it is.}
-}
+{\color{red} The following might arguably use more details?}  
+We've shown that a point
+\[
+\begin{tikzcd}[column sep={8em,between origins}]
+\UL{U}\oplus \UL{W} \arrow{r}{(\UL{\theta },\UL{x}_{1}\UL{\gamma})} &E 
+\end{tikzcd}
+\]
+in $\LoopTwo (\Gr (n,n+N))$ corresponds to a point in
+$V^{o}/GL(A)$. Conversely, given quiver data $(\alpha ,\gamma ,j)\in
+V^{o}/GL(A)$ we may reconstruct $E$ as the cokernel of the map
+$\begin{pmatrix}\UL{x}_{1}\alpha -\UL{x}_{0}\\
+\UL{x_{1}}j   \end{pmatrix} $ occuring in the exact
+sequence~\eqref{eqn: A(-1)->A+U->E} and this also reconstructs
+$\UL{\theta}$. Then the map $\UL{\gamma}$ is reconstructed from its
+given map on sections $\gamma$.
+
+
 
 To finish the proof of Theorem~\ref{thm: quiver description of
 Loop2alg(Gr(n,n+N))}, it remains to show that $V^{o}_{n,N,d} =
-V^{\stable}_{n,N,d}$ where $V^{\stable}_{n,N,d}$ is the locus of GIT
-stable points for the action of $GL(A)$ on $V_{n,N,d}$. This will be
-done in Section~\ref{sec: open conds and GIT}. 
+V^{\stable,\costable}_{n,N,d}$.  Here $V^{\stable}_{n,N,d}$ is the
+locus of points $(\alpha ,\gamma ,j)$ which are stable for the action
+of $GL(A)$ on $V_{n,N,d}$, $V^{\costable}$ is the locus of points
+$(\alpha ,\gamma ,j)$ so that $(\alpha^{\vee},\gamma^{\vee},j^{\vee})$
+is stable for the action of $GL(A^{\vee})$ on $V^{\vee}_{n,N,d}$, and
+$V^{\stable,\costable}_{n,N,d} = V^{\stable}_{n,N,d}\cap
+V^{\costable}_{n,N,d}$. Using the Jordan decomposition of $\alpha$, it
+is easy to see that condition (2) is equivalent to the condition that
+there does not exist a non-trivial proper subspace $A'\subset A$ which
+is invariant under $\alpha$ and contained in the image of
+$\gamma$. This is known to be equivalent to GIT stability for quivers
+of this kind \cite[Def.~2.2]{Nakajima-Handsaw}. As we observed in
+Remark~\ref{rem: duality induced by Gr(n,n+N)=Gr(N,n+N)}, condition
+(1) is dual to condition (2) and thus condition (1) is equivalent to
+co-stability. 
+
+
+
 
 
 
@@ -747,7 +781,7 @@ Grassmanian respectively. These parameterize $n$ dimensional isotropic
 quotients of a $2n$ dimensional complex vector space equipped with an
 orthogonal and a symplectic form respectively. Although we've written
 these spaces as quotients of a compact Lie group by a subgroup, they
-aer also given by quotients of an algebraic group by a parabolic
+are also given by quotients of an algebraic group by a parabolic
 subgroup and are therefore projective algebraic varieties. We will
 handle these two cases simultaneously and so it will be convenient to
 introduce the following notations:
@@ -857,7 +891,7 @@ The above discussion has then proved the following intermediate result:
 
 \begin{proposition}\label{prop: Loop2(Xpm) is a closed set in
 Loop(Gr(n,2n)) satisfying condition involving theta and gamma}
-$\LoopTwo (\Xpm )$ is the closed subset of $\LoopTwo \Gr(2n,n)\cong
+$\LoopTwo (\Xpm )$ is the closed subset of $\LoopTwo (\Gr(2n,n))\cong
 V^{o}_{n,n,d}/GL(A)$ given by Equation~\eqref{eqn: theta gammadual x1
 = mp x1 gamma thetadual}. 
 \end{proposition}
@@ -926,11 +960,11 @@ algebra:
 \bigskip
 
 \begin{quote}
-\emph{A short exact sequence with a split middle term is equivalent
-to a quasi-isomorphism of two term complexes}\footnote{A short exact
-sequence with a split middle term is the total complex of a 2x2 double
-complex and since the total complex is acyclic, the spectral sequence
-of the double complex implies the vertical maps induce a
+\emph{A short exact sequence with a split middle term is equivalent to
+a quasi-isomorphism of a pair of two term complexes}\footnote{A short
+exact sequence with a split middle term is the total complex of a 2x2
+double complex and since the total complex is acyclic, the spectral
+sequence of the double complex implies the vertical maps induce a
 quasi-isomorphism of the rows.}.
 \end{quote}
 \bigskip
@@ -980,7 +1014,7 @@ in the derived category whose inverse we denote $\Phi$.
 
 We remark that going from a short exact sequence to a map of two term
 complexes introduces a sign which in the above is manifested by the
-$\mp$ appearing on the left vertical arrow (as oppose to the $\mp$
+$\mp$ appearing on the left vertical arrow (as oppose to the $\pm$
 appearing on the $\UL{\theta}^{\vee}$ in the sequence). This crucial
 sign change is the origin of the form $\phi$ having the opposite sign
 as $J_{\pm}$.
@@ -1364,7 +1398,7 @@ Since $GL(A)$ acts transitively on the space of symplectic/orthogonal
 forms on $A$, we may \emph{fix} a form $\phi$ on $A$ and then quotient
 instead by the stabilizer of $\phi$, namely
 \[
-G(A,\phi ) = \{g\in GL(A)\quad :\quad g^{\vee}\phi g=\phi \}.
+G(A,\phi ) = \{g\in GL(A)\,:\, g^{\vee}\phi g=\phi \}.
 \]
 
 Since $\phi$ is invertible, we may eliminate $\gamma$ using the
@@ -1434,12 +1468,10 @@ To complete the proof of Theorems \ref{thm: quiver description of
 Loop2Alg(LGr)} and \ref{thm: quiver description of Loop2Alg(OGr)}, it
 remains to show that $V^{o}_{\mp ,n,d} = V^{\stable }_{\mp ,n,d}$
 where $V^{\stable }_{\mp ,n,d}$ is the locus of GIT stable points for
-the action of $G(A,\phi )$ on $V_{\mp ,n,d}$. This will be done in
-Section~\ref{sec: open conds and GIT}. 
+the action of $G(A,\phi )$ on $V_{\mp ,n,d}$.
 
 
 
-\section{Open conditions and GIT stability}\label{sec: open conds and GIT}
 
 
 
@@ -1562,7 +1594,7 @@ $\pi_{k}(U(n))\cong \pi_{k}(U) $ for all $k\leq 2n$.
 
 
 
-\bibliography{BV-biblio}
+\bibliography{../BV-biblio}
 \bibliographystyle{plain}
 
 \end{document}
