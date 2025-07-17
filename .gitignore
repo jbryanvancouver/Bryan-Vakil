@@ -8,6 +8,8 @@ auto-save-list
 tramp
 .\#*
 
+.DS_Store
+
 #  *.bib
 *.blg
 *.bbl
