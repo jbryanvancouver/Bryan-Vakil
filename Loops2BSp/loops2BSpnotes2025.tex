@@ -403,6 +403,8 @@
 %\newcommand{\jalpha}{  \overset{\alpha}{j}}
 \newcommand{\vjalpha}{\vec{\jalpha}}
 
+\newcommand{\Id}{\rm{Id}}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % editing commands
 
@@ -528,11 +530,21 @@ Vague argument (that I've not thought through):    $L Sp(V)$ parametrizes maps f
 The $N$th truncation of the symplectic affine Grassmannian is 
 called $\boxed{\SAG_{Sp}^{(N)}} = \Gr^{(N)}$.  (Caution:  I am worried that the terminology  $\Gr$  gets used both for the affine and the Sato case.)
 
+Here are some interesting facts from \cite{zhu}.
+I'm not sure, but I think \begin{equation}\label{eq:dimsag}
+  \dim \SAG^{(N)} = \boxed{\boxed{N (2n-1)}}.
+\end{equation}
+(The orthogonal case would be $\boxed{\boxed{N(2n-2)}}$.)
+This perhaps could be unwound from \cite[S 2.3]{zhu}.  (Perhaps investigate
+S. Kumar, Kac–Moody Groups, their Flag Varieties and Representation Theory, around \S 10.2.)
+Also from 
+\cite[Thm.~2.1.21]{zhu}:  singularities are normal, Cohen-Macaulay, Gorenstein, and rational singularities.   He refers to Faltings \cite[ref.\ 24]{zhu}, Pappas-Rapoport \cite[ref.\ 60]{zhu}, Beilinson-Drinfeld \cite[ref.\ 11]{zhu}, and Zhu \cite[ref.\ 80]{zhu}.
+
 \epoint{Singularities of the truncation}
 Apparently $\SAG^{(N)}$  is singular in codimension $\dim V$, with possible reference  \cite{mov}. 
 
 
-\section{Introduction to Moduli of vector bundles with symplectic structure:  $A$, $j$, $\alpha$, $X(d)$}
+\section{Introduction to moduli of vector bundles with symplectic structure:  $A$, $j$, $\alpha$, $X(d)$}
 
 Now let $\boxed{\Omega^2_{alg}(BSp(2n))}$  be the moduli space of vector bundles on $\proj^1$, framed at $p_\infty$ by $V$, with its form.
 
@@ -630,6 +642,7 @@ to be full rank for all $x \in \C$.
 & $j$ &  \\
 \hline
 \end{tabular}
+
 This matrix has $\dim A + \dim U$ rows and $\dim A^\vee$ columns.  Better:  the top block's rows are parametrized by $A$; the bottom block's rows are parametrized by $U$; and the colums are parametrized by $\A^\vee$.  I might write this as:
 
 
@@ -693,7 +706,7 @@ $tU \oplus \cdots t^{2d+2}U$:  simply truncate the first and slide left.
 The key missing piece (that we fill in later):  how can we get $j \alpha^{2d} a$ if we know $j \alpha^s a$ for $0 \leq s < 2d$?
 
 
-\section{Mixing in the iner product}
+\section{Mixing in the inner product}
 
 \bpoint{Relationships between $(\al, j)$ and the  pairing $(\psi_\cE/\phi_\cE)$}
 
@@ -757,7 +770,7 @@ and
 The  case $i=-1$ is the previously-stated relations $T_{A,0}=0$ and $T_{AU,0}=0$.
 
 Thus the closed condition (V) means that if we choose $T_{U,i}$ freely for $i=1, \dots, 2d$,
-then the $T_{AU,*}$ and $T_{A,*}$ are determined inductively from the cases $i=0$ through $2d-1$.
+then the $T_{AU,i}$ and $T_{A,i}$ are determined inductively from the cases $i=0$ through $2d-1$.
 The two remaining conditions when $i=2d$ give us relations.
 
 \epoint{Checking dimensions so far}
@@ -781,7 +794,7 @@ we have
 $T_{AU} - T_{AU} \al z + T_U jz = 0$ from which $T_{AU} (1-\al z) = - T_U jz$ from which
 $T_{AU} = -T_U jz / (1-\al z) = - T_U \jalpha$. \epf
 
-\tpoint{Claim} {\em $T_A = = T_{AU}^\vee \jalpha = \jalpha^\vee T_U \jalpha$.}
+\tpoint{Claim} {\em $T_A = T_{AU}^\vee \jalpha = \jalpha^\vee T_U \jalpha$.}
 
 \bpf From \eqref{eq:TArecursion}
 $$
@@ -846,34 +859,29 @@ $$
 \tpoint{Corollary} \label{c:second}
 {\em This can be rewritten as:
   $$
- \vjalpha^\vee \begin{pmatrix} 0  &  0 & \hdots & 0  & 0 & T_{U,0} \\
-    0 & 0 & \hdots & 0 & T_{U,0} & T_{U,1} \\
-   \vdots  & \vdots  &  \ddots & \vdots  &  \vdots & \vdots \\
-    0 & T_{U,0} & \hdots & T_{U,2d-4} & T_{U,2d-3} & T_{U,2d-2} \\
-    T_{U,0} & T_{U,1}  & \hdots & T_{U,2d-3} & T_{U,2d-2} & T_{U,2d-1}
-  \end{pmatrix}   \vjalpha =0 \in \Hom(A,A)
+ \vjalpha^\vee
+ \begin{pmatrix}
+T_{U,2d-1} & T_{U,2d-2} &  T_{U,2d-3} &  \hdots & T_{U,1} & T_{U,0} \\
+ T_{U,2d-2} &  T_{U,2d-3} & T_{U,2d-4} &  \hdots & T_{U,0} & 0 \\
+   \vdots  & \vdots  &   \vdots  & \ddots & \vdots & \vdots \\
+   T_{U,1} & T_{U,0} & 0 & \hdots & 0 & 0 \\
+   T_{U,0} & 0 & 0 & \hdots & 0 & 0 
+  \end{pmatrix}
+ \vjalpha =0 \in \Hom(A,A^\vee)
 $$
 }
 
 Note that this \boxed{$T$-matrix} is invertible and alternating, and thus gives a symplectic structure to $U^{\oplus 2d}$.
 
-Equation \eqref{eq:second} imposes is roughly $(\dim A)^2/2$ linear conditions:
-$1+\cdots + (2nd-1) = (2nd-1)nd=2n^2d^2-nd$.
-
-  
-\epoint{Dimension check is off}
-The number of additional variables is way less than the number of conditions.
-There is a lot of redundancy here, and I don't see where it is.
-
 
 \tpoint{Theorem}  {\em Recall that we given $d$, $U$, and $T_U: U \rightarrow U^\vee$ (invertible, signed).
   $X(d)$ is paramatrized by precisely the following information.
- We need $T_{U,1}$, \dots, $T_{U,2d}: U \rightarrow U^\vee$ with $T_{U,i}^\vee = - T_{U,i}$ (and define $T_{U,0}=T_U$). Then $X(d)$ consists of half-dimensional subspaces $\boxed{A'}$ of $U^{\oplus 2d}$ such that (i) each vector $\vec{V} \in A'$ satisfies is a ''null vector with respect to the $T$-matrix'' 
+ We need $T_{U,1}$, \dots, $T_{U,2d}: U \rightarrow U^\vee$ with $T_{U,i}^\vee = - T_{U,i}$ (and define $T_{U,0}=T_U$). Then $X(d)$ consists of the space parametrizing half-dimensional subspaces $\boxed{A'}$ of $U^{\oplus 2d}$ such that (i) each vector $\vec{V} \in A'$ satisfies is `` maximal isotropic with respect to the $T$-matrix'' 
  (see Corollary~\ref{c:second}), such that furthermore
 (ii)  under the linear map $\al' : U^{2d} \rightarrow U^{2d}$ defined by  $$\boxed{\al'}: (u_0, u_1, \dots, u_{2d-2}, u_{2d-1}) \mapsto
- (u_1, u_2, \dots, u_{2d-2},
+ (u_1, u_2, \dots, u_{2d-1},
  -T^{-1}_{U,0} T_{U,1} u_{2d-1}  - \cdots  -T^{-1}_{U,0} T_{U,2d} u_0 )$$
- $A'$ maps to $A'$.  (iii) then we have an open condition, given by the induced $j$ and $\alpha$.
+ $A'$ maps to $A'$.  (iii) then we have an open condition, given by the induced $j$ and $\alpha$ (ensuring that we build a vector bundle). (iv)  We have an open condition (ND) on nondegeneracy of the inner product we've built on that vector bundle.
 }
 
 Note that $\al'$ is given by the matrix
@@ -884,7 +892,7 @@ $$ -T^{-1}_{U,0}
 \vdots & \vdots & \vdots & \ddots & \vdots & \vdots \\
   0 & 0 &  0 & \hdots &       1 &  0 \\
   0 & 0 &  0 & \hdots &       0 &  1 \\
- T_{U,2d} & T_{U,2d-1} & T_{U,2d-2} & \hdots & T_{U,2d-2} & T_{U,2d-1} 
+ T_{U,2d} & T_{U,2d-1} & T_{U,2d-2} & \hdots & T_{U,2} & T_{U,1} 
   \end{pmatrix}
 $$
 
@@ -892,32 +900,108 @@ $$
 We have shown how to get from $X(d)$ to the above data.  We now do the reverse.
 We recover $A$ as $A'$.  We recover $\alpha$ as $\alpha'$.  \epf
 
-\bpoint{Warning} In characteristic not equal to 2, condition (i) says
-that $A'$ is maximal isotropic, from
-$2 \langle v,w \rangle = \langle v+w,v+w \rangle - \langle v,v \rangle
-- \langle w,w \rangle$, but I will worry about characteristic 2 later.
+
+\tpoint{Proposition} {\em The open condition (iii) on
+  $j$ and $\alpha$  is vacuous.}
+
+I separated this from the main theorem because I fear I am making
+a mistake.  But it looks to me like we are describing a projective
+morphism from $X(d)$ to an affine space parametring the $T_{U,i}$'s.
+
+\bpf
+The open condition is that $\ker(\al -x \Id) \cap \ker(j) =0$
+for all $x \in \C$.  Here we are interpreting $\al$ as a map $A \rightarrow A$,
+and $j$ as a map $A \rightarrow U$.
+
+Suppose $(u_0, \dots, u_{2d-1}) \in \ker(\al -x \Id) \cap \ker(j)$.
+Then $u_0=0$ (the $\ker(j)$ condition).
+
+$${\al-x\Id}: (u_0, u_1, \dots, u_{2d-2}, u_{2d-1}) \mapsto$$
+$$ \quad \quad \quad
+ (u_1-xu_0, u_2-xu_1, \dots, u_{2d-1} - x u_{2d-2},
+ -T^{-1}_{U,0} T_{U,1} u_{2d-1}  - \cdots  -T^{-1}_{U,0} T_{U,2d} u_0 -xu_{2d-1})$$
+
+ I think this is automatic!  Solving successively, we get $u_1=0$, then $u_2=0$, and so forth.
+
+ \epf
 
 
+\tpoint{Proposition} {\em The condition (iv) is vacuous.}
+
+\bpf  The locus where the form is degenerate should be interpreted as the vanishing of a section of a particular (determinant) line bundle.  But this line bundle is the trivial bundle, and the section is nonzero at $p_\infty$. \epf
+
+ \bpoint{Affine Grassmannian}
+ The fiber over $T_{U,i}=0$ is literally $N$th truncation of the symplectic affine Grassmannian.
+
+\bpoint{Aside:  Torus action}
+
+The space has a torus action, which we can presumably interpret in terms
+of actions only on the Zariski-lifting sections, although I haven't checked (yet).
+
+The action is as follows.  $T_{U,i} \mapsto t^i T_{U,i}$.
+For the half-dimensional subspaces,
+we map $\tau: (u_0, \dots, u_{2d-1}) \mapsto (t^0 u_0, \dots, t^{2d-1} u_{2d-1})$.
+
+We verify that (i) continues to hold, by expanding 
+$$
+\begin{pmatrix}
+  u_0 & t u_1 & \cdots & t^{2d-1} u_{2d-1} \end{pmatrix}
+ \begin{pmatrix}
+t^{2d-1} T_{U,2d-1} & t^{2d-2}T_{U,2d-2} &  t^{2d-3} T_{U,2d-3} &  \hdots & t T_{U,1} & T_{U,0} \\
+t^{2d-2}  T_{U,2d-2} &  t^{2d-3}T_{U,2d-3} & t^{2d-4}T_{U,2d-4} &  \hdots & T_{U,0} & 0 \\
+   \vdots  & \vdots  &   \vdots  & \ddots & \vdots & \vdots \\
+  t T_{U,1} & T_{U,0} & 0 & \hdots & 0 & 0 \\
+   T_{U,0} & 0 & 0 & \hdots & 0 & 0 
+  \end{pmatrix}
+\begin{pmatrix}
+  u'_0 \\ t u'_1 \\ \cdots \\ t^{2d-1} u'_{2d-1} \end{pmatrix}
+$$
+When we expand this out, by inspecting \eqref{eq:second}, we see that we get $t^{2d-1}$
+times what we had before, so we still get $0$.
+
+We see that (ii) holds too; put informally,  $\al' \circ \tau = t \tau \circ \al$.
+
+\epoint{Limit of the torus action} Sending $t \rightarrow 0$ the
+resulting points in the closed condition
+seem to be the symplectic affine Grassmannian.
+More precisely:  if we take the limits of conditions (i) and (ii) (the closed conditions),
+we describe the symplectic affine Grassmannian.  Caution:  we haven't shown that the flat limit of this family of varieties (satisfying (i) and (ii)) is the symplectic affine Grassmannian; the actual limit might be smaller.
+
+\bpoint{Dimension check}
+I'm expecting to see $\dim X(d) = (\dim A) (\dim U) = (2dn)(2n) = 4dn^2$, computed in another way.
+
+
+From \eqref{eq:dimsag} the truncated symplectic affine Grassmannian
+is, I think, $d(2n-1)$.  This should be a  family over the space
+of choices of $T_{U,i}$ ($i=1, \dots, 2d$), with generic fiber dimension
+at least that of the fiber over zero.
+The dimension of choice of each $T_{U,i}$ is, I think, $(2n)(2n+1)/2$; this is something
+I find confusing (and we get the {\em same} answer in the orthogonal case).
+This underlying affine
+space then  has dimension $(2d)(2n+1)n = 4dn^2+2dn$.  Thus the map from $X(d)$ to this affine space is not surjective.  The fibers over zero is 
+ the truncated symplectic affine
+ Grassmannian, so the fiber over $0$ is of dimension $2dn-d$.
+
+(I would expect that the only global functions on $X(d)$ would be those coming from the $T_{U,i}$.)
+
+\bpoint{Example $d=1$, $n=1$}
+
+Even this case is complicated.  $\dim X(d)$ is supposed to be $4$,
+mapped to $\A^6$ (parametrizing $T_{U,1}$ and $T_{U,2}$). The fiber
+over $0$ is the SAG, which is $1$-dimensional.
+ 
 \section{To do next}
-
-Four things to do.
-
-\bpoint{Torus action}
-I will write in a torus action.
-The limit as $t \rightarrow 0$ will be the symplectic affine Grassmannian,
-and I bet it will leave the open subset.
-
-\bpoint{$j$ and $\alpha$ open condition}
-write this down in terms of the language of the theorem.
 
 \bpoint{Behavior under increase of  $d$}
 
+When $d$ increases, we are keeping $U$, but increasing $A$ by $2n=\dim U$.
+we are multiplying the sections by $x_0$ (so this involves the choice of a
+second point in our genus $0$ curve).  We get a map $\boxed{A_d} \rightarrow \boxed{A_{d+1}}$,
+where the space iamhere
+
 \bpoint{Behavior under increase of $n$}
 
-
-
-
-
+\bpoint{Describe the map to the Lagrangian Grassmannian}
 
 }  %end parskip at the start of the file
 
