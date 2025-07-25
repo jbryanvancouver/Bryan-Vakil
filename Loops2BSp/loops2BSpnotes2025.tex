@@ -446,7 +446,7 @@
 %\address{Dept. of Mathematics, Stanford University, Stanford CA~94305--2125}
 %\email{rvakil@stanford.edu}
 \date{\today .   {\em Last edited:}
- Satuday, July 19, 2025. (keep current date here)  }
+ Thursady, July 24, 2025. (keep current date here)  }
 %\date{March 23 2021}
 %\subjclass{Primary 14F30, Secondary 14F20. }
 %\begin{abstract}
@@ -874,7 +874,7 @@ $$
 Note that this \boxed{$T$-matrix} is invertible and alternating, and thus gives a symplectic structure to $U^{\oplus 2d}$.
 
 
-\tpoint{Theorem}  {\em Recall that we given $d$, $U$, and $T_U: U \rightarrow U^\vee$ (invertible, signed).
+\tpoint{Theorem}  \label{t:preliminaryform}{\em Recall that we given $d$, $U$, and $T_U: U \rightarrow U^\vee$ (invertible, signed).
   $X(d)$ is paramatrized by precisely the following information.
  We need $T_{U,1}$, \dots, $T_{U,2d}: U \rightarrow U^\vee$ with $T_{U,i}^\vee = - T_{U,i}$ (and define $T_{U,0}=T_U$). Then $X(d)$ consists of the space parametrizing half-dimensional subspaces $\boxed{A'}$ of $U^{\oplus 2d}$ such that (i) each vector $\vec{V} \in A'$ satisfies is `` maximal isotropic with respect to the $T$-matrix'' 
  (see Corollary~\ref{c:second}), such that furthermore
@@ -906,7 +906,7 @@ We recover $A$ as $A'$.  We recover $\alpha$ as $\alpha'$.  \epf
 
 I separated this from the main theorem because I fear I am making
 a mistake.  But it looks to me like we are describing a projective
-morphism from $X(d)$ to an affine space parametring the $T_{U,i}$'s.
+morphism from $X(d)$ to an affine space parametrizing the $T_{U,i}$'s.
 
 \bpf
 The open condition is that $\ker(\al -x \Id) \cap \ker(j) =0$
@@ -925,10 +925,33 @@ $$ \quad \quad \quad
 
  \epf
 
-
 \tpoint{Proposition} {\em The condition (iv) is vacuous.}
 
 \bpf  The locus where the form is degenerate should be interpreted as the vanishing of a section of a particular (determinant) line bundle.  But this line bundle is the trivial bundle, and the section is nonzero at $p_\infty$. \epf
+
+We now write Theorem~\ref{t:preliminaryform} in its new form.
+
+\tpoint{Theorem}  \label{t:preliminaryform}{\em Recall that we given $d$, $U$, and $T_U: U \rightarrow U^\vee$ (invertible, signed).
+  $X(d)$ is paramatrized by precisely the following information.
+ We need $T_{U,1}$, \dots, $T_{U,2d}: U \rightarrow U^\vee$ with $T_{U,i}^\vee = - T_{U,i}$ (and define $T_{U,0}=T_U$). Then $X(d)$ consists of the space parametrizing half-dimensional subspaces $\boxed{A'}$ of $U^{\oplus 2d}$ such that (i) each vector $\vec{V} \in A'$ satisfies is `` maximal isotropic with respect to the $T$-matrix'' 
+ (see Corollary~\ref{c:second}), such that furthermore
+(ii)  under the linear map $\al' : U^{2d} \rightarrow U^{2d}$ defined by  $$\boxed{\al'}: (u_0, u_1, \dots, u_{2d-2}, u_{2d-1}) \mapsto
+ (u_1, u_2, \dots, u_{2d-1},
+ -T^{-1}_{U,0} T_{U,1} u_{2d-1}  - \cdots  -T^{-1}_{U,0} T_{U,2d} u_0 ),$$
+ i.e., given by the matrix 
+$$ -T^{-1}_{U,0}
+\begin{pmatrix}
+  0 & 1  & 0 & \hdots &       0 &  0 \\
+  0 & 0 &  1 & \hdots &       0 &  0 \\
+\vdots & \vdots & \vdots & \ddots & \vdots & \vdots \\
+  0 & 0 &  0 & \hdots &       1 &  0 \\
+  0 & 0 &  0 & \hdots &       0 &  1 \\
+ T_{U,2d} & T_{U,2d-1} & T_{U,2d-2} & \hdots & T_{U,2} & T_{U,1} 
+  \end{pmatrix},
+$$
+ $A'$ maps to $A'$.  
+}
+
 
  \bpoint{Affine Grassmannian}
  The fiber over $T_{U,i}=0$ is literally $N$th truncation of the symplectic affine Grassmannian.
@@ -990,16 +1013,31 @@ Even this case is complicated.  $\dim X(d)$ is supposed to be $4$,
 mapped to $\A^6$ (parametrizing $T_{U,1}$ and $T_{U,2}$). The fiber
 over $0$ is the SAG, which is $1$-dimensional.
  
-\section{To do next}
 
-\bpoint{Behavior under increase of  $d$}
+\bpoint{Behavior under increase of  $d$ and $n$}
 
 When $d$ increases, we are keeping $U$, but increasing $A$ by $2n=\dim U$.
 we are multiplying the sections by $x_0$ (so this involves the choice of a
 second point in our genus $0$ curve).  We get a map $\boxed{A_d} \rightarrow \boxed{A_{d+1}}$,
 
+Here is how to increase $d+1$.
+$d'=d+1$.  $T'_{U,2d'-1}=T'_{U,2d'}=0$, and $T'_{U,i}= T_{U,i}$ otherwise (if $0 \leq i \leq 2d$).
 
-\bpoint{Behavior under increase of $n$}
+To get the corresponding $A'$ from $A$, as a subset of $U^\oplus{2d'}$.
+Start with your subset of $U^\oplus{2d'}$.  Add $0$ to the front, and $U$ to the end.
+
+$X(d) \rightarrow X(d+1)$ is of course increasingly connected, as can be seen from its incarnation as an open embedding.
+
+Here is how to increase $n$ by $1$.  You increase $U$ by a 2-dimensional vector space (with form), call it $U_1$, so $U_{n+1} = U_{n} \oplus U_1$.   Given $A_n \subset U_n^{2d}$, we get
+$A_{n+1} \subset U_n^{2d} \oplus U_1^{2d}$ as $(A_n,0) \oplus (0, 0^{\oplus d} \oplus U_1^{\oplus d})$.
+
+It is not yet clear why $X_n(d) \rightarrow X_{n+1}(d)$ is increasingly connected; I've not thought it through.
+
+
+\section{To do next}
+
+
+Is $X_n(d) \rightarrow X_{n+1}(d)$ incrasingly connected?
 
 \bpoint{Describe the map to the Lagrangian Grassmannian}
 
