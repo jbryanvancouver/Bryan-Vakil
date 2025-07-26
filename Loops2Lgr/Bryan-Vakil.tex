@@ -120,6 +120,7 @@ Palo Alto, California, USA
 \newcommand{\Tot}{\operatorname{Tot}}
 \newcommand{\UL}[1]{\underline{#1}}
 \newcommand{\alg}{\mathsf{alg}}
+\newcommand{\open}{\mathsf{o}}
 \newcommand{\stable}{\mathsf{s}}
 \newcommand{\costable}{\mathsf{cs}}
 \renewcommand{\top}{\mathsf{top}}
@@ -159,7 +160,6 @@ of the homotopy equivalences in real Bott periodicity.
 \section{Introduction}\label{sec: intro}
 
 
-test
 
 \subsection{Algebraic and Topological double loop spaces and Bott periodicity.}
 
@@ -285,17 +285,12 @@ spaces of dimension $n$ and $N$ respectively. Let
 \[
 V=V_{n,N,d} =\Hom (A,A)\oplus \Hom (W,A)\oplus \Hom (A,U).
 \]
-Then $GL(A)$ acts naturally on $V$ and let $V^{\stable,\costable
-}\subset V$ be the locus of points which are stable and
-co-stable\footnote{In this context, a point $(\alpha ,\gamma ,j)\in
-\Hom (A,A)\oplus \Hom (W,A)\oplus \Hom (A,U)$ is \emph{co-stable} if
-$(\alpha^{\vee} ,\gamma^{\vee} ,j^{\vee})\in \Hom
-(A^{\vee},A^{\vee})\oplus \Hom (A^{\vee},W^{\vee})\oplus \Hom
-(U^{\vee},A^{\vee})$ is stable for the action of $GL(A^{\vee})$.} in
-the sense of Geometric Invariant Theory (GIT).  Then there exists a
-natural isomorphism:
+Then $GL(A)$ acts naturally on $V$ and let $V^{\stable}\subset V$ be
+the locus of points which are stable in the sense of Geometric
+Invariant Theory (with respect to the trivial linearization). Then
+there exists a natural isomorphism:
 \[
-\LoopTwo (\Gr (n,n+N))\cong V^{\stable,\costable}/GL(A).
+\LoopTwo (\Gr (n,n+N))\cong V^{\stable}/GL(A).
 \]
 \end{theorem}
 
@@ -729,7 +724,7 @@ of $\alpha$ which is exactly condition (2) of Proposition~\ref{prop:
 quiver description of Loop2(Gr(n,n+N)) with explicit stability
 condition}.
 
-{\color{red} The following might arguably use more details?}  
+
 We've shown that a point
 \[
 \begin{tikzcd}[column sep={8em,between origins}]
@@ -749,23 +744,36 @@ given map on sections $\gamma$.
 
 To finish the proof of Theorem~\ref{thm: quiver description of
 Loop2alg(Gr(n,n+N))}, it remains to show that $V^{o}_{n,N,d} =
-V^{\stable,\costable}_{n,N,d}$.  Here $V^{\stable}_{n,N,d}$ is the
-locus of points $(\alpha ,\gamma ,j)$ which are stable for the action
-of $GL(A)$ on $V_{n,N,d}$, $V^{\costable}$ is the locus of points
-$(\alpha ,\gamma ,j)$ so that $(\alpha^{\vee},\gamma^{\vee},j^{\vee})$
-is stable for the action of $GL(A^{\vee})$ on $V^{\vee}_{n,N,d}$, and
-$V^{\stable,\costable}_{n,N,d} = V^{\stable}_{n,N,d}\cap
-V^{\costable}_{n,N,d}$. Using the Jordan decomposition of $\alpha$, it
-is easy to see that condition (2) is equivalent to the condition that
-there does not exist a non-trivial proper subspace $A'\subset A$ which
-is invariant under $\alpha$ and contained in the image of
-$\gamma$. This is known to be equivalent to GIT stability for quivers
-of this kind \cite[Def.~2.2]{Nakajima-Handsaw}. As we observed in
+V^{\stable}_{n,N,d}$. Stability for quivers is well understood going
+back to work of King \cite{King-quivers} and continuing with the work
+of Nakajima \cite{Nakajima-Duke88,Nakajima-Handsaw}. For the general
+theory, stability depends on a choice of a linearization which is
+determined in our case by a character $\chi : GL(A)\to \CC^{*}$ which
+we may write $\chi (g) = \operatorname{det}(g)^{k}$. The three
+different cases are $k<0$, $k=0$, $k>0$ and we are interested in the
+trivial trivialization, namely $k=0$.
+
+Using the Jordan decomposition of $\alpha$, it is easy to see that
+condition (2) is equivalent to the condition that there does not exist
+a non-trivial proper subspace $A'\subset A$ which is invariant under
+$\alpha$ and contains the image of $\gamma$. Similarly, condition (1)
+is equivalent to the condition that there does not exist a non-trivial
+proper subspace $A'\subset A$ which is invariant under $\alpha$ and
+contained in the kernel of $j$.
+
+
+Condition (2) to be equivalent to GIT stability for the $k=1$
+linearization \cite[Def.~2.2]{Nakajima-Handsaw}. As we observed in
 Remark~\ref{rem: duality induced by Gr(n,n+N)=Gr(N,n+N)}, condition
 (1) is dual to condition (2) and thus condition (1) is equivalent to
-co-stability. 
+stability for the $k=-1$ linearization. For both $k=1$ and $k=-1$,
+there are no strictly semi-stable points.
 
-
+We are interested in the trivial linearization, $k=0$. In this case,
+there are stictly semi-stable points, but the stable points are simple
+representations: these are exactly those points satisfying both
+conditions (1) and (2). {\color{red} I would like to improve the above
+discussion.}
 
 
 
@@ -1472,8 +1480,29 @@ remains to show that $V^{o}_{\mp ,n,d} = V^{\stable }_{\mp ,n,d}$
 where $V^{\stable }_{\mp ,n,d}$ is the locus of GIT stable points for
 the action of $G(A,\phi )$ on $V_{\mp ,n,d}$.
 
+\begin{lemma}\label{lem: Vo =Vs for the Lgr quiver}
+Let $(\alpha ,j)\in V_{\mp ,n,d}$. Then the following two conditions
+are equivalent.\begin{enumerate}
+\item [($\open$)] There does not exist a non-trivial, proper subspace
+$A'\subset A$ such that $j(A')=0$ and $\alpha (A')\subset A'$.
+\item [($\stable$)] For all 1-parameter subgroups $\CC^{*}\to G(A,\pi )$,
+$(\alpha ,j)$ has both positive and negative weights. 
+\end{enumerate}
+\end{lemma}
 
+Using Jordan normal form on $\alpha$, we see that condition $(\open )$
+is equivalent to $(\alpha ,j)\in V^{\open}_{\mp ,n,d}$. By the
+Hilbert-Mumford criterion, we see that condition $(\stable )$ is
+equivalent to $(\alpha ,j)\in V^{\stable}_{\mp ,n,d}$.
 
+\begin{proof}
+First suppose that $(\open )$ is false. Then there exists $0\neq A'
+\subsetneq A $ with $j(A')=0$ and $\alpha (A')\subset A'$. Let
+$A'=A_{0}$ and let $A_{1}$ 
+be a complimentary subspace so that $A=A_{0}\oplus A_{1}$ and let
+$\alpha^{i}_{j}:A_{i}\to A_{j} $ and $j^{n}:A_{n}\to U$ be the
+components of $(\alpha ,j)$. By hypothesis, 
+\end{proof}
 
 
 
