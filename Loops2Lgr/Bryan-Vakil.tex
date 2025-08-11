@@ -84,6 +84,7 @@ Palo Alto, California, USA
 \newcommand{\FF} {{\mathbb F}}
 \newcommand{\DD} {{\mathbb D}}
 \newcommand{\JJ} {{\mathbb J}}
+\renewcommand{\AA} {{\mathbb A}}
 \newcommand{\evir}{e_{\mathsf{vir}}}
 \newcommand{\reg}{\mathsf{reg}}
 \newcommand{\calE}{\mathcal{E}}
@@ -235,7 +236,7 @@ and so forth.
 
 One version of Bott periodicity is then given as follows.
 
-\begin{theorem}[{\color{red}some reasonable citation}]\label{thm: classical Bott periodicity as homotopy equivalences}
+\begin{theorem}[\cite{Bott-Periodicity-1959}]\label{thm: classical Bott periodicity as homotopy equivalences}
 There exist the following homotopy equivalences:
 \begin{align}
 \LoopTwoTop (BU)&\homotopyeq BU \label{eqn: Omega2BU=BU}\\
@@ -438,13 +439,16 @@ applications to Bott perioditicy}
 details of the proof of Bott periodicity here. 
 
 
-\section{Proof of Theorem~\ref{thm: quiver description of
-Loop2alg(Gr(n,n+N))}}\label{sec: proof of Gr(n,n+N) thm}
+\section{Zariski Framed Sheaves, Quivers, and the Proof of
+Theorem~\ref{thm: quiver description of
+Loop2alg(Gr(n,n+N))}}\label{sec: Zariski framed sheaves, quivers, and
+proof of Loop2(Gr) theorem}
+
 
 The material in this section has previously appeared in other various
-guises ({\color{red}cite Vakil-Larson, handsaw quiver literature}), but we include
-it to fix our notation and and our point of view which will be integral to
-subsequent sections. 
+guises (e.g \cite[\S~5]{Larson-Vakil-BottPeriodicity}, \cite[\S~3]{Nakajima-Handsaw}),
+but we include it to fix our notation and orient the reader to our
+point of view which will be integral to subsequent sections.
 
 
 
@@ -489,52 +493,109 @@ and so we may write
 =({\UL{\theta}},\UL{x}_{1}\UL{\gamma })
 \]
 
+By definition, the map $\UL{\theta}:\UL{U}\to E$ induces the framing
+at $p_{\infty}$: $E|_{p_{\infty}}\cong U$ and moreover, it induces a
+trivialization of $E$ on some (unspecified) Zariski open neighborhood
+of $p_{\infty}$. We call such a structure a \emph{Zariski framing} of $E$.
 
-
-Since $E$ is a quotient of a trivial bundle, it is non-negative in the
-following sense:
-\begin{definition}
-A vector bundle $E$ on $\PP^{1}$ is non-negative (respectively
-positive, less than $k$, etc.) if its splitting type $E\cong
-\oplus_{i}\OO (a_{i})$ satisfies $a_{i} \geq 0$ (respectively
-$a_{i}>0$, $a_{i}<k$, etc.) for all $i$. 
+\begin{definition}\label{defn: Zariski framing}
+Let $E$ be a rank $n$ sheaf on $\PP^{1}$ and let $U$ be an $n$
+dimensional vector space. A sheaf map
+\[
+\UL{\theta}: \UL{U}\to E
+\]
+is called a \emph{Zariski framing} if $\UL{\theta}|_{p_{\infty}}:U \to
+E|_{p_{\infty}}$ is an isomorphism.
 \end{definition}
 
+The following theorem identifies the stack of Zariski framed sheaves
+with the stack of representations of the following quiver:
 
-Because $E$ is non-negative, the sheaf map $\UL{\theta}$ is
-determined by its map on global sections which we denote without the
-underline:
+\begin{center}
+\begin{tikzpicture}
+
+\tikzset{myarrow/.style={-Latex, thick,line width=1pt,shorten >=2pt, shorten <=2pt}}
+
+% Node positioning
+\def\yDist{1.0} % Vertical distance between nodes
+\def\loopRadius{0.6} % Radius of the loop circles
+
+% Centered quiver
+\node[draw, circle, fill, inner sep=1.5pt, label=below right:{\small $A$}] (R1) at (0,\yDist) {}; 
+\node[draw, circle, fill, inner sep=1.5pt, label={right:{\small $U$}}] (R2) at (0,-\yDist) {}; 
+\draw[myarrow] (R1) -- node[right] {\small $j$} (R2);
+
+% Loop for top node
+\draw[-Latex,thick] (0.17,\yDist) arc (-75:255:\loopRadius) node[midway, above] {\small $\alpha$}; 
+
+\end{tikzpicture}
+\end{center}
+
+\begin{theorem}\label{thm: stack of Zariski framed sheaves is
+equivalent to stack of quiver representation}
+The stack of degree $d$ sheaves $E$ equipped with a Zariski framing
+$\UL{\theta}: \UL{U}\to E$ is equivalent to the stack quotient
 \[
-\theta:U \longrightarrow H^{0}(E).
+[\,\,\Hom (A,A)\oplus \Hom (A,U) \,/\, GL(A)\,\, ]
 \]
-Then the exact sequence
+where $A$ is a vector space of dimension $d$. Moreover, the open
+substack where $E$ is locally free is a scheme and is given by the
+open condition where 
+\[
+(\alpha ,j)\in \Hom (A,A)\oplus \Hom (A,U) 
+\]
+satisfy 
+\begin{equation}\label{eqn: open condition involving ker j}
+\Ker (\alpha -\lambda \cdot \Id_{A})\cap \Ker (j) = 0\text{ for all }\lambda \in \CC 
+\end{equation}
+\end{theorem}
+
+\proof Since $\UL{U}$ is torsion free and $\UL{\theta}$ is generically
+an isomorphism,
+\[
+\Ker \UL{\theta}=0\text{ and } \Coker \UL{\theta}=Q ,
+\]
+a zero dimensional length $d$ sheaf supported on $\AA=\PP^{1}-p_{\infty}$.
+
+The sequence
+\[
+\begin{tikzcd}
+0\arrow[r]& \UL{U} \arrow{r}{\UL{\theta}} & E\arrow[r]&Q\arrow[r]&0
+\end{tikzcd}
+\]
+then induces the sequence
+\[
+\begin{tikzcd}
+0\arrow[r]& {U} \arrow{r}{{\theta}} &H^{0}(E)\arrow[r]&H^{0}(Q)\arrow[r]&0.
+\end{tikzcd}
+\]
+Using $\UL{\theta}|_{p_{\infty}}$ to identify $E|_{p_{\infty}}$ with
+$U\otimes \OO_{p_{\infty}}$ we may write
 \[
 \begin{tikzcd}
 0\arrow[r]&E(-p_{\infty})\arrow{r}{\cdot \UL{x}_{1}}
-&E\arrow[r]&E|_{p_{\infty}} \arrow[r] &0
+&E\arrow[r]&U\otimes \OO_{p_{\infty}} \arrow[r] &0
 \end{tikzcd}
 \]
-induces a sequence
+and hence
 \[
 \begin{tikzcd}
 0\arrow[r]&H^{0}(E(-p_{\infty}))\arrow{r}{\cdot {x}_{1}}
-&H^{0}(E)\arrow[r]&U \arrow[r] &0
+&H^{0}(E)\arrow[r]&U \arrow[r] &0.
 \end{tikzcd}
 \]
-which is split by $\theta:U\to H^{0}(E)$ inducing the isomorphism
-\[
-H^{0}(E) = A\oplus U
-\]
-where 
-\[
-A=H^{0}(E(-p_{\infty}))
-\]
-is a vector space of dimension $d$.
-
+The above sequence is split by $\theta$ so writing
+$A=H^{0}(E(-p_{\infty}))$, we've identified
+\begin{align*}
+H^{0}(E) &= A\oplus U,\\
+H^{0}(E(-1))&= A,\\
+H^{0}(Q)&= A.
+\end{align*}
 Then the sheaf map
 \[
 \begin{tikzcd}
- E(-p_{\infty})\arrow{r}{\cdot \UL{x}_{0}} &E
+E(-1)\arrow{r}{\cdot \UL{x}_{0}}
+&E
 \end{tikzcd}
 \]
 induces a map in cohomology
@@ -547,67 +608,17 @@ whose components we denote by $\alpha$ and $j$:
 \[
 \alpha :A\to A, \quad j: A\to U.
 \]
-Finally, the sheaf map
+The above construction induces a map 
 \[
-\begin{tikzcd}
-\UL{W}\arrow{r}{\UL{\gamma}} & E(-p_{\infty})
-\end{tikzcd}
+[\UL{\theta}:\UL{U}\to E]\mapsto (\alpha ,j)
 \]
-is determined by its map in cohomology
-\[
-\gamma :W\to A.
-\]
-
-
-We will first prove a version of Theorem~\ref{thm: quiver description
-of Loop2alg(Gr(n,n+N))} which has a more explicit version of the open
-condition. 
-
-\begin{proposition}\label{prop: quiver description of Loop2(Gr(n,n+N))
-with explicit stability condition}
-Let $U$, $W$, and $A$ be vector spaces of dimension $n$, $N$, and
-$d$. Let $V_{n,N,d} = \Hom (A,A)\oplus \Hom (A,U)\oplus \Hom (W,A)$ and let
-$V^{o}_{n,N,d}\subset V_{n,N,d}$ be the open set of $(\alpha ,j,\gamma )\in V$
-satisfying
-\begin{enumerate}
-\item $\Ker (\alpha -\lambda \cdot \Id_{A})\cap \Ker (j) = 0$ for all
-$\lambda\in \CC $.
-\item  $\im (\alpha -\lambda \cdot \Id_{A})\oplus  \im (\gamma )=A$ for
-all $\lambda\in \CC $.
-\end{enumerate}
-Then the constructions of the previous subsection induce an
-isomorphism of affine varieties:
-\[
-\LoopTwo (\Gr (n,n+N))\cong V^{o}_{n,N,d}/GL(A) .
-\]
-\end{proposition}
-
-\begin{comment}
-\begin{remark}\label{rem: Gr(n,n+N) is a model for BGL(n) and Vo/GL(A) is a model for BGL(d)}
-The Grassmannian on the left is an approximate model for $BGL(n)$ and
-the quotient on the right is an approximate model for $BGL(d)$. We can
-thus regard our theorem as saying, in a sense that we will make
-precise in the next subsection, that there is an approximate
-equivalence $\Omega^{2}(BGL(n))\sim BGL(d)$.
-\end{remark}
-\end{comment}
-
-
-\begin{remark}\label{rem: duality induced by Gr(n,n+N)=Gr(N,n+N)}
-The isomorphism $\Gr (n,U\oplus W)\cong \Gr (N,U^{\vee}\oplus
-W^{\vee})$ given by dualizing exact sequences induces an isomorphism
-on the quiver side given by $(A,U,W)\mapsto
-(A^{\vee},W^{\vee},U^{\vee})$ and $(\alpha ,j,\gamma )\mapsto
-(\alpha^{\vee},\gamma^{\vee},j^{\vee})$. Note that the two open
-conditions (1) and (2) are dual to each other under this equivalence. 
-\end{remark}
-
-
-
-To prove the proposition we begin with the following {\color{red} more
-citations, use the word Stromme} 
+from the moduli stack of Zariski framed sheaves to the moduli stack of
+quiver representations. To show this is an equivalence, we need a
+reverse construction. The is proved via the following Lemma which can
+be attributed to Str\o mme \cite[Prop~1.1]{Stromme} (although it is a
+special case of the Beilinson spectral sequence).
 \begin{lemma}\label{lem: Stromme}
-Let $E$ be a non-negative bundle on $\PP^{1}$. Then the following
+Let $E$ be a sheaf on $\PP^{1}$ with $H^{1}(E(-1))=0$. Then the following
 sequence is exact:
 \[
 \begin{tikzcd}
@@ -616,7 +627,7 @@ sequence is exact:
 \UL{H^{0}(E)} \arrow{r} & E\arrow[r] & 0
 \end{tikzcd}
 \]
-where as in the previous section, sheaf maps are denoted with
+where recalling our notation, sheaf maps are denoted with
 underlines and their induced maps on cohomology are denoted without,
 so in particular $\UL{x}_{i}:\OO (-1)\to \OO$ and
 $x_{i}:H^{0}(E(-1))\to H^{0}(E)$ in the above.
@@ -660,15 +671,12 @@ which can be written as
 which proves the lemma.
 \end{proof}
 
-Now let 
+We now use the identifications coming from the Zariski framing to
+rewrite the two maps
 \[
-\UL{U} \oplus \UL{W} \to E \to 0
+x_{0},x_{1}: H^{0}(E(-1)) \to H^{0}(E)
 \]
-be a point in $\LoopTwo (\Gr (n,n+N))$ and recall that 
-\[
-x_{0},x_{1}: H^{0}(E(-p_{\infty})) \to H^{0}(E)
-\]
-are given by
+as
 \[
 \begin{tikzcd}
 A \arrow{r}{\begin{pmatrix} \alpha \\ j  \end{pmatrix}} &A\oplus U,
@@ -692,54 +700,83 @@ reads
     \arrow[r,"{(\UL{\beta},\UL{\theta})}"]
   & E
     \arrow[r]
-  & 0.
+  & 0
 \end{tikzcd}
 \end{equation}
+and we see that $E$ can be reconstructed from $(\alpha ,j)$ as
+the cokernal of $ \left(\begin{smallmatrix} \UL{x}_{1} \alpha -\UL{x}_{0}\\ 
+\UL{x}_{1}j \end{smallmatrix} \right)$ and $\UL{\theta}:\UL{U}\to E$
+can be reconstructed by restricting the quotient map to $\UL{U}$.
 
-The condition that $\UL{A}(-1)$ is a subbundle of $\UL{A}\oplus
-\UL{U}$ requires that for any point $\lambda =\frac{x_{0}}{x_{1}}\in
-\PP^{1}-p_{\infty}$, the vector space map ${\tiny \begin{pmatrix} \alpha -\lambda \Id_{A}\\
+This proves the first part of the theorem. To prove the second part,
+we observe that  $E$ is locally free if and only if
+$ \left(\begin{smallmatrix} \UL{x}_{1} \alpha -\UL{x}_{0}\\ 
+\UL{x}_{1}j \end{smallmatrix} \right)$ is bundle injective, namely for
+each point $\lambda =\frac{x_{0}}{x_{1}}\in \PP^{1}-p_{\infty}$,
+the vector space map ${\tiny \begin{pmatrix} \alpha -\lambda \Id_{A}\\
 j \end{pmatrix}} : A\to A\oplus U $ is injective. This is equivalent
-to condition (1) of Proposition~\ref{prop: quiver description of
-Loop2(Gr(n,n+N)) with explicit stability condition}.
+to condition \eqref{eqn: open condition involving ker j}.
+\qed 
 
-The condition that $\UL{f} :\UL{U}\oplus \UL{W} \to E$ is surjective
-means that the map 
-\[
-\UL{W} \to Q
-\]
-is surjective where $Q$ is the rank zero sheaf given by the cokernal
-of $\UL{\theta}$:
-\[
-\begin{tikzcd}
-0\arrow[r]& \UL{U} \arrow{r}{\UL{\theta}} & E\arrow[r]&Q\arrow[r]&0.
-\end{tikzcd}
-\]
-The cohomology exact sequence of the above canonically identifies
-$A\cong H^{0}(Q)$ and under this identification, the map in cohomology
-induced by $\UL{W}\to Q$ is just $\gamma :W\to A$. The support of $Q$
-is given by the eigenvalues of $\alpha$ so $\UL{W}\to Q$ being
-surjective is equivalent to $\gamma$ surjecting onto the eigenspaces
-of $\alpha$ which is exactly condition (2) of Proposition~\ref{prop:
-quiver description of Loop2(Gr(n,n+N)) with explicit stability
-condition}.
-
-
-We've shown that a point
+As discussed in the beginning of this section, points in $\LoopTwo
+(\Gr (n,U\oplus W))$ are determined by the bundle $E$ and the
+surjective map
 \[
 \begin{tikzcd}[column sep={8em,between origins}]
-\UL{U}\oplus \UL{W} \arrow{r}{(\UL{\theta },\UL{x}_{1}\UL{\gamma})} &E 
+\UL{U}\oplus \UL{W} \arrow{r}{(\UL{\theta },\UL{x}_{1}\UL{\gamma})} &E .
 \end{tikzcd}
 \]
-in $\LoopTwo (\Gr (n,n+N))$ corresponds to a point in
-$V^{o}/GL(A)$. Conversely, given quiver data $(\alpha ,\gamma ,j)\in
-V^{o}/GL(A)$ we may reconstruct $E$ as the cokernel of the map
-$\begin{pmatrix}\UL{x}_{1}\alpha -\UL{x}_{0}\\
-\UL{x_{1}}j   \end{pmatrix} $ occuring in the exact
-sequence~\eqref{eqn: A(-1)->A+U->E} and this also reconstructs
-$\UL{\theta}$. Then the map $\UL{\gamma}$ is reconstructed from its
-given map on sections $\gamma$.
+This is equivalent to the data of a Zariski framed bundle
+$\UL{\theta}:\UL{U}\to E$ and a sheaf map $\UL{\gamma}:\UL{W}\to
+E(-1)$ such that $\UL{x}_{1}\UL{\gamma}$ surjects onto $Q$, the
+cokernel of $\UL{\theta}$. Since $E$ is the quotient of a trivial
+bundle, it has no negative summands and hence
+$H^{1}(E(-1))=0$. Consequently $\UL{\gamma}$ determines and is
+determined by its map on global sections:
+\[
+\gamma :W \to A.
+\]
+The support of $Q$ occurs where $x_{0}/x_{1}=\lambda $ is an
+eigenvalue of $\alpha$ and so the condition that $\UL{W}\to Q$ is
+surjective is equivalent to
+\begin{equation}\label{eqn: open condition with gamma}
+\im (\alpha -\lambda \cdot \Id_{A})\oplus \im (\gamma )=A \text{ for
+all }\lambda\in \CC.
+\end{equation}
 
+This discussion yields a version of Theorem~\ref{thm: quiver description
+of Loop2alg(Gr(n,n+N))} which has a more explicit version of the open
+condition:
+
+\begin{proposition}\label{prop: quiver description of Loop2(Gr(n,n+N))
+with explicit stability condition}
+Let $U$, $W$, and $A$ be vector spaces of dimension $n$, $N$, and
+$d$. Let $V_{n,N,d} = \Hom (A,A)\oplus \Hom (A,U)\oplus \Hom (W,A)$ and let
+$V^{o}_{n,N,d}\subset V_{n,N,d}$ be the open set of $(\alpha ,j,\gamma )\in V$
+satisfying Equations~\eqref{eqn: open condition involving ker j} and
+\eqref{eqn: open condition with gamma}, namely:
+\begin{enumerate}
+\item $\Ker (\alpha -\lambda \cdot \Id_{A})\cap \Ker (j) = 0$ for all
+$\lambda\in \CC $.
+\item  $\im (\alpha -\lambda \cdot \Id_{A})\oplus  \im (\gamma )=A$ for
+all $\lambda\in \CC $.
+\end{enumerate}
+Then the constructions of this section induce an isomorphism of affine
+varieties:
+\[
+\LoopTwo (\Gr (n,n+N))\cong V^{o}_{n,N,d}/GL(A) .
+\]
+\end{proposition}
+
+
+\begin{remark}\label{rem: duality induced by Gr(n,n+N)=Gr(N,n+N)}
+The isomorphism $\Gr (n,U\oplus W)\cong \Gr (N,U^{\vee}\oplus
+W^{\vee})$ given by dualizing exact sequences induces an isomorphism
+on the quiver side given by $(A,U,W)\mapsto
+(A^{\vee},W^{\vee},U^{\vee})$ and $(\alpha ,j,\gamma )\mapsto
+(\alpha^{\vee},\gamma^{\vee},j^{\vee})$. Note that the two open
+conditions (1) and (2) are dual to each other under this equivalence. 
+\end{remark}
 
 
 To finish the proof of Theorem~\ref{thm: quiver description of
@@ -772,11 +809,7 @@ there are no strictly semi-stable points.
 We are interested in the trivial linearization, $k=0$. In this case,
 there are stictly semi-stable points, but the stable points are simple
 representations: these are exactly those points satisfying both
-conditions (1) and (2). {\color{red} I would like to improve the above
-discussion.}
-
-
-
+conditions (1) and (2).
 
 \section{Proof of Theorems~\ref{thm: quiver description of
 Loop2Alg(LGr)} and \ref{thm: quiver description of
@@ -815,7 +848,7 @@ Associated to the form $\omega$ is an isomorphism
 J : V\to V^{\vee } 
 \]
 satisfying $J^{\vee} = J$ respectively $J^{\vee}=-J$. The following
-lemma is well known
+lemma is fairly well known (e.g. \cite[\S~2]{Hitching-2007}):
 \begin{lemma}\label{lem: lagrangian quotient condition as a ses}
 A linear map $f:V\to L$ is a maximal isotropic or Lagrangian quotient if
 and only if the following sequence is short exact:
@@ -829,9 +862,6 @@ L \arrow[r] &
 \end{tikzcd}
 \]
 \end{lemma}
-\begin{proof}
- \cite[]{} {\color{red}(find a good citation in the literature)}.
-\end{proof}
 
 
 Let $U$ be an $n$ dimensional vector space and let 
