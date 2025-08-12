@@ -736,8 +736,11 @@ determined by its map on global sections:
 \[
 \gamma :W \to A.
 \]
-The support of $Q$ occurs where $x_{0}/x_{1}=\lambda $ is an
-eigenvalue of $\alpha$ and so the condition that $\UL{W}\to Q$ is
+
+From the exact sequence \eqref{eqn: A(-1)->A+U->E}, we see that the
+support of $Q$ occurs at points where $\UL{x}_{1}\alpha
+-\UL{x}_{0}=0$, in other words where $x_{0}/x_{1}=\lambda $ is an
+eigenvalue of $\alpha$. Thus the condition that $\UL{W}\to Q$ is
 surjective is equivalent to
 \begin{equation}\label{eqn: open condition with gamma}
 \im (\alpha -\lambda \cdot \Id_{A})\oplus \im (\gamma )=A \text{ for
@@ -745,14 +748,14 @@ all }\lambda\in \CC.
 \end{equation}
 
 This discussion yields a version of Theorem~\ref{thm: quiver description
-of Loop2alg(Gr(n,n+N))} which has a more explicit version of the open
+of Loop2alg(Gr(n,n+N))} which has a more explicit description of the open
 condition:
 
 \begin{proposition}\label{prop: quiver description of Loop2(Gr(n,n+N))
 with explicit stability condition}
 Let $U$, $W$, and $A$ be vector spaces of dimension $n$, $N$, and
 $d$. Let $V_{n,N,d} = \Hom (A,A)\oplus \Hom (A,U)\oplus \Hom (W,A)$ and let
-$V^{o}_{n,N,d}\subset V_{n,N,d}$ be the open set of $(\alpha ,j,\gamma )\in V$
+$V^{\open}_{n,N,d}\subset V_{n,N,d}$ be the open set of $(\alpha ,j,\gamma )\in V$
 satisfying Equations~\eqref{eqn: open condition involving ker j} and
 \eqref{eqn: open condition with gamma}, namely:
 \begin{enumerate}
@@ -764,7 +767,7 @@ all $\lambda\in \CC $.
 Then the constructions of this section induce an isomorphism of affine
 varieties:
 \[
-\LoopTwo (\Gr (n,n+N))\cong V^{o}_{n,N,d}/GL(A) .
+\LoopTwo (\Gr (n,n+N))\cong V^{\open}_{n,N,d}/GL(A) .
 \]
 \end{proposition}
 
@@ -780,7 +783,7 @@ conditions (1) and (2) are dual to each other under this equivalence.
 
 
 To finish the proof of Theorem~\ref{thm: quiver description of
-Loop2alg(Gr(n,n+N))}, it remains to show that $V^{o}_{n,N,d} =
+Loop2alg(Gr(n,n+N))}, it remains to show that $V^{\open}_{n,N,d} =
 V^{\stable}_{n,N,d}$. Stability for quivers is well understood going
 back to work of King \cite{King-quivers} and continuing with the work
 of Nakajima \cite{Nakajima-Duke88,Nakajima-Handsaw}. For the general
@@ -932,7 +935,7 @@ The above discussion has then proved the following intermediate result:
 \begin{proposition}\label{prop: Loop2(Xpm) is a closed set in
 Loop(Gr(n,2n)) satisfying condition involving theta and gamma}
 $\LoopTwo (\Xpm )$ is the closed subset of $\LoopTwo (\Gr(2n,n))\cong
-V^{o}_{n,n,d}/GL(A)$ given by Equation~\eqref{eqn: theta gammadual x1
+V^{\open}_{n,n,d}/GL(A)$ given by Equation~\eqref{eqn: theta gammadual x1
 = mp x1 gamma thetadual}. 
 \end{proposition}
 
@@ -1413,14 +1416,14 @@ conditions} which were proved in Lemmas~\ref{lem: phivee = mp phi} ,
 \ref{lem: phi.alpha=alphavee.phi} , and \ref{lem: phi.gamma = -jvee},
 we see that 
 \[
-\LoopTwo (\Xpm ) = W^{o}_{\mp,n,d} / GL(A)
+\LoopTwo (\Xpm ) = W^{\open}_{\mp,n,d} / GL(A)
 \]
 where $W_{\mp ,n,d}$ is the set of
 \[
 (\alpha ,\gamma ,j,\phi )\in \Hom (A,A)\oplus \Hom
 (U^{\vee},A)\oplus  \Hom (A,U)\times \operatorname{Isom}(A,A^{\vee})
 \]
-where Equations~\eqref{eqns: closed conditions} hold and $W^{o}_{\mp
+where Equations~\eqref{eqns: closed conditions} hold and $W^{\open}_{\mp
 ,n,d}\subset W_{\mp ,n,d}$ is the open set given by the conditions
 
 \bigskip
@@ -1444,7 +1447,7 @@ G(A,\phi ) = \{g\in GL(A)\,:\, g^{\vee}\phi g=\phi \}.
 Since $\phi$ is invertible, we may eliminate $\gamma$ using the
 equation $\gamma =-\phi^{-1} j^{\vee}$. Thus we get
 \[
-\LoopTwo (\Xpm ) = V_{\mp ,n,d}^{o}/G(A,\phi )
+\LoopTwo (\Xpm ) = V_{\mp ,n,d}^{\open}/G(A,\phi )
 \]
 where $(A,\phi )$ is a $d$ dimensional vector space equipped with a
 non-degenerate form $\phi :A\to A^{\vee}$, $\phi^{\vee}=\mp \phi$,
@@ -1452,7 +1455,7 @@ non-degenerate form $\phi :A\to A^{\vee}$, $\phi^{\vee}=\mp \phi$,
 V_{\mp ,n,d} = \{(\alpha ,j)\in \Hom (A,A)\oplus \Hom (A,U),\quad \phi
 \alpha =\alpha^{\vee}\phi \}, 
 \]
-and $V^{o}_{\mp, n,d}\subset V_{\mp, n,d}$ is the open set satifying
+and $V^{\open}_{\mp, n,d}\subset V_{\mp, n,d}$ is the open set satifying
 
 \bigskip
 
@@ -1482,7 +1485,9 @@ The first equivalence uses the isomorphism $\phi$, the second
 equivalence uses the equation $\phi \alpha  = \alpha^{\vee}\phi$, and
 the third and four conditions are equivalent by duality.
 
-Thus we have proved the following
+Thus we have proved the following version of Theorems \ref{thm: quiver
+description of Loop2Alg(LGr)} and \ref{thm: quiver description of
+Loop2Alg(OGr)} with a more explicit description of the open condition:
 \begin{proposition}\label{prop: quiver description of Loop2Alg(Xpm)
 with explicit open condition}
 Let $U$ be a vector space of dimension $n$ and let $(A,\phi )$ be a
@@ -1492,48 +1497,23 @@ $d$ dimensional vector space equipped with a non-degenerate form $\phi
 V_{\mp ,n,d} = \{(\alpha ,j)\in \Hom (A,A)\oplus \Hom (A,U):\quad \phi
 \alpha =\alpha^{\vee}\phi \}
 \]
-and let $V^{o}_{\mp ,n,d}\subset V_{\mp ,n,d}$ be the open set given
+and let $V^{\open}_{\mp ,n,d}\subset V_{\mp ,n,d}$ be the open set given
 by the condition
 \[
 \Ker (\alpha -\lambda \cdot 1_{A})\cap \Ker (j) = 0\text{ for all } \lambda \in \CC .
 \]
 Then there is a natural isomorphism
 \[
-\LoopTwo (\Xpm ) = V^{o}_{\mp ,n,d}/G(A,\phi )
+\LoopTwo (\Xpm ) = V^{\open}_{\mp ,n,d}/G(A,\phi )
 \]
 where $G(A,\phi ) = \{g\in GL(A): g^{\vee}\phi g = \phi \}$. 
 \end{proposition}
 
 To complete the proof of Theorems \ref{thm: quiver description of
 Loop2Alg(LGr)} and \ref{thm: quiver description of Loop2Alg(OGr)}, it
-remains to show that $V^{o}_{\mp ,n,d} = V^{\stable }_{\mp ,n,d}$
+remains to show that $V^{\open}_{\mp ,n,d} = V^{\stable }_{\mp ,n,d}$
 where $V^{\stable }_{\mp ,n,d}$ is the locus of GIT stable points for
 the action of $G(A,\phi )$ on $V_{\mp ,n,d}$.
-
-\begin{lemma}\label{lem: Vo =Vs for the Lgr quiver}
-Let $(\alpha ,j)\in V_{\mp ,n,d}$. Then the following two conditions
-are equivalent.\begin{enumerate}
-\item [($\open$)] There does not exist a non-trivial, proper subspace
-$A'\subset A$ such that $j(A')=0$ and $\alpha (A')\subset A'$.
-\item [($\stable$)] For all 1-parameter subgroups $\CC^{*}\to G(A,\pi )$,
-$(\alpha ,j)$ has both positive and negative weights. 
-\end{enumerate}
-\end{lemma}
-
-Using Jordan normal form on $\alpha$, we see that condition $(\open )$
-is equivalent to $(\alpha ,j)\in V^{\open}_{\mp ,n,d}$. By the
-Hilbert-Mumford criterion, we see that condition $(\stable )$ is
-equivalent to $(\alpha ,j)\in V^{\stable}_{\mp ,n,d}$.
-
-\begin{proof}
-First suppose that $(\open )$ is false. Then there exists $0\neq A'
-\subsetneq A $ with $j(A')=0$ and $\alpha (A')\subset A'$. Let
-$A'=A_{0}$ and let $A_{1}$ 
-be a complimentary subspace so that $A=A_{0}\oplus A_{1}$ and let
-$\alpha^{i}_{j}:A_{i}\to A_{j} $ and $j^{n}:A_{n}\to U$ be the
-components of $(\alpha ,j)$. By hypothesis, 
-\end{proof}
-
 
 
 
@@ -1589,20 +1569,20 @@ Combining the above we have
 
 
 On the other hand, we may analyze the homotopy groups of the quiver
-variety $V^{o}/GL(A)$ using the long exact homotopy sequence of the
+variety $V^{\open}/GL(A)$ using the long exact homotopy sequence of the
 fibration
 \[
-GL(A)\hookrightarrow V^{o} \to V^{o}/GL(A). 
+GL(A)\hookrightarrow V^{\open} \to V^{\open}/GL(A). 
 \]
-Now $V^{o} = V-Z$ and the inclusion $V^{o} \hookrightarrow V$ induces
+Now $V^{\open} = V-Z$ and the inclusion $V^{\open} \hookrightarrow V$ induces
 isomorphisms on $\pi_{k}$ for all $k< 2\codim(Z)-1$
 \cite[Prop~7.1]{Anderson-Fulton} and so the long exact sequence
 \[
-\pi_{k}(V^{o})\to \pi_{k}(V^{o}/GL(A)) \to \pi_{k-1}(GL(A)) \to \pi_{k-1}(V^{o})
+\pi_{k}(V^{\open})\to \pi_{k}(V^{\open}/GL(A)) \to \pi_{k-1}(GL(A)) \to \pi_{k-1}(V^{\open})
 \]
 gives isomorphisms
 \begin{equation}\label{eqn: pik(Vo/GL(A)) = pik-1(GL(A))}
-\pi_{k}(V^{o}/GL(A))\cong \pi_{k-1}(GL(A)) \text{  for all $k<2\codim Z
+\pi_{k}(V^{\open}/GL(A))\cong \pi_{k-1}(GL(A)) \text{  for all $k<2\codim Z
 -1$}.
 \end{equation}
 Then since $GL(A)$ is homotopy equivalent to $U(d)$,
