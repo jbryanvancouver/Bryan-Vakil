@@ -89,7 +89,7 @@ Palo Alto, California, USA
 \newcommand{\reg}{\mathsf{reg}}
 \newcommand{\calE}{\mathcal{E}}
 
-
+\newcommand{\HoG}{\mathcal{H}o\mathcal{G}}    % Larson-Vakil homotopy category
 
 
 
@@ -381,62 +381,84 @@ The quivers associated to our theorems are given in the following figure:
 \end{tikzpicture}
 \end{center}
 
+
+
 \subsection{Topological Consequences}\label{subsec: topological consequences}
 
 In this section we explain how our quiver descriptions of $\LoopTwo
-(\OGr(n,2n))$ and $\LoopTwo (\LGr(n,2n))$  lead to proofs of the Bott
-periodicity equivalences given by eqns~\eqref{eqn: Omega2O/U=BSp} and
+(\Gr (n,n+N)$, $\LoopTwo (\OGr(n,2n))$, and $\LoopTwo (\LGr(n,2n))$
+lead to proofs of the Bott periodicity equivalences given by
+eqns~\eqref{eqn: Omega2BU=BU}, \eqref{eqn: Omega2O/U=BSp}, and
 \eqref{eqn: Omega2Sp/U=BO} respectively.
 
+In \cite{Larson-Vakil-BottPeriodicity}, Larson and Vakil define,
+$\HoG$ the ``homotopy category of algebraic spaces'' who objects can
+be given sequences of highly connected maps of algebraic spaces or
+stacks. Objects in their category have a topological realization which
+is a well-defined homotopy type that one can think of as the
+topological realization of the limit of the sequnce of spaces. The
+category $\HoG$ provides an algebro-geometric arena where isomorphisms
+induce homotopy equivalences on the complex analytic counter parts. It
+is particularly well adapted for the algebraic loop spaces and the
+quiver descriptions given in this paper.
 
-\begin{definition}\label{defn: homotopy approximation}
-We say a collection of topological spaces $\{X_{d} \}_{d\in \NN }$ is
-a \emph{homotopy approximation} for a topological space $Y$ if there
-are bounds $B_{d}\in \NN $ and maps $f_{d}:X_{d}\to Y$ which induce
-isomorphisms 
+To illustrate this we first discuss how the isomorphism in
+Theorem~\ref{thm: quiver description of Loop2alg(Gr(n,n+N))} leads to
+a proof of the complex Bott periodicity homotopy equivelance given by
+Equation~\eqref{eqn: Omega2BU=BU} (this case was already done in
+\cite{Larson-Vakil-BottPeriodicity}). There are inclusions
 \[
-(f_{d})_{*}:\pi_{k}(X_{d})\to \pi_{k}(Y)
+\LoopTwo (\Gr (n, n+N) \hookrightarrow \Omega^{2}_{d+1,\alg}(\Gr (n+1,n+N+2))
 \]
-for all $k<B_{d}$ and $\lim_{d\to \infty}B_{d} = \infty$. Moreover we
-assume there are maps $i_{d}:X_{d}\to X_{d+1}$ which commute with the
-$f_{d}$'s and that $X_{d}$ has the homotopy type of a CW complex. We
-denote homotopy approximation as follows:
+obtained by fixing a degree 1 map $f_{0}:\PP^{1} \to \Gr (1,2)$ and
+then for any given map $f:\PP^{1}\to \Gr (n,n+N)$ we get a composition
 \[
-\{X_{d} \}\homotopyeq_{d} Y.
+\begin{tikzcd}
+\PP^{1} \arrow[r, "{(f,f_{0})}"] & \Gr (n,n+N)\times \Gr (1,2)
+\arrow[r, hook, ""] & \Gr (n+1,n+N+2)
+\end{tikzcd}
 \]
-\end{definition}
+which defines a point in $\Omega^{2}_{d+1,\alg}(\Gr (n+1,n+N+2))$. The
+corresponding infinite sequence of inclusions defines an object in
+$\HoG$ which we call $\Omega^{2}_{\infty,\alg }(\Gr (\infty ,\infty +\infty
+))$.
 
-The definitions, along with the Whitehead theorem imply that if
-$\{X_{d} \}\homotopyeq_{d} Y$, then $Y\homotopyeq \lim_{d\to
-\infty}X_{d}$.
-
-The two examples of homotopy approximation relavant to the paper are
-the following.
-\subsubsection{Mann-Milgram Homotopy approximation}\label{subsubsec:
-Mann-Milgram homot approx}
-We note that unlike the algebraic double loop spaces, the topological
-double loop spaces of each degree are all homotopic:
+The above inclusions correspond to compatible inclusions of quiver
+representations
 \[
-\LoopTwoTop (X)\homotopyeq \Omega^{2}_{0,\top}(X).
+V^{\stable}_{n,N,d}/GL(d) \hookrightarrow
+V^{\stable}_{n+1,N+1,d+1}/GL(d+1) 
 \]
-Then Theorem \ref{thm: Mann-Milgram algebraic loop approximation
-holds for generalized flag varieties} says that 
+given by $(\alpha ,\gamma ,j)\mapsto (\alpha \oplus \alpha_{0},\gamma
+\oplus \gamma_{0},j\oplus j_{0})$ where
+$(\alpha_{0},\gamma_{0},j_{0})\in V^{\stable}_{1,1,1}$ is a fixed
+representation corresponding to $f_{0}$. 
+
+This sequence of inclusions gives rise to an object in $\HoG$ which we
+call $V^{\stable}_{\infty} / GL(\infty )$ and the isomorphisms of
+Theorem~\ref{thm: quiver description of Loop2alg(Gr(n,n+N))} give rise
+to an isomorphism in $\HoG$:
 \[
-\{\LoopTwo (X) \}\homotopyeq_{d}  \Omega^{2}_{0,\top}(X).
+\Omega^{2}_{\infty ,\alg}(Gr(\infty ,\infty +\infty ))\cong
+V^{\stable}_{\infty} / GL(\infty ) 
 \]
-if $X$ is a generalized flag variety, in particular, if $X$ is
-$Gr(n,n+N)$, $\LGr(n,2n)$, or $\OGr(n,2n)$.
+Taking the homotopy realization of the above isomorphism we recover
+\[
+\LoopTwoTop (BU)\homotopyeq BU
+\]
+the complex Bott periodicity equivalence. This is because
+$V^{\stable}_{\infty} / GL(\infty )$ is easily seen to be isomorphic
+in $\HoG$ to the object given by the sequence
+\[
+[pt/GL(d)]\hookrightarrow [pt/GL(d+1)]\hookrightarrow \dotsb 
+\]
+which has the homotopy type of $\lim_{d\to \infty}BU(d) =
+BU$. Moreover,  by
+the Mann-Milgram result (Theorem~\ref{thm: Mann-Milgram algebraic loop
+approximation holds for generalized flag varieties}), the object
+$\Omega^{2}_{\infty ,\alg}(\Gr (\infty ,\infty +\infty ))$ has the
+homotopy type of $\LoopTwoTop (BU)$ (for any $d$).
 
-\subsubsection{GIT homotopy approximation}\label{subsubsec: GIT
-homotopy approx}
-
-Formulate the general idea that GIT quotients of vector spaces are homotopy
-approximate to BG
-
-\subsubsection{Applications to Bott periodicity}\label{subsubsec:
-applications to Bott perioditicy}
-
-details of the proof of Bott periodicity here. 
 
 
 \section{Zariski Framed Sheaves, Quivers, and the Proof of
@@ -1524,18 +1546,56 @@ To complete the proof of Theorems \ref{thm: quiver description of
 Loop2Alg(LGr)} and \ref{thm: quiver description of Loop2Alg(OGr)}, it
 remains to show that $V^{\open}_{\mp ,n,d} = V^{\stable }_{\mp ,n,d}$
 where $V^{\stable }_{\mp ,n,d}$ is the locus of GIT stable points for
-the action of $G(A,\phi )$ on $V_{\mp ,n,d}$.
+the action of $G(A,\phi )$ on $V_{\mp ,n,d}$. To do this it will be
+convenient to geometrically identify the full stack quotient $[V_{\mp
+,n,d} / G(A,\phi )]$.
+
+Revisiting the proof of Proposition~\ref{prop: quiver description of
+Loop2Alg(Xpm) with explicit open condition} in the absence of the open
+condition, we find that the stack $[V_{\mp ,n,d} / G(A,\phi )]$ is
+equivalent to the stack of complexes on $\PP^{1}$ of the form
+\[
+\begin{tikzcd}[column sep={6em,between origins}]
+E^{\vee } \arrow[r, "J_{\pm }^{-1}\circ \UL{f}^{\vee}"] &
+\UL{U}\oplus \UL{U}^{\vee } \arrow[r, "\UL{f}"] & E,
+\end{tikzcd}
+\]
+(standard over $p_{\infty}$), exact in the middle, but where $E$ is no
+longer necessarily locally free and $\UL{f}$ is no longer necessarily
+surjective. Note that for self-dual sequences of the above form,
+$\UL{f}$ is surjective if and only if $E$ is locally free (indeed,
+this is the equivalence of conditions (1) and (2) proven above). It
+follows that $E$ is locally free if and only if the sequence has no
+non-trivial automorphisms. Moreover, the automorphism group of the
+sequence is trivial if and only if it is finite. Thus the open set
+$V^{\open}_{\mp ,n,d}$ is precisely the locus where $G(A,\phi )$ acts
+freely (or equivalently with finite automorphisms).
+
+Now a point $(\alpha ,j)\in V_{\mp ,n,d}$ is GIT stable for the
+$G(A,\phi )$ action if and only if the orbit $G(A,\phi )\cdot (\alpha
+,j)$ is closed and $(\alpha ,j)$ has finite stabilizer. Thus in
+particular, $V^{\stable}_{\mp ,n,d}\subset V^{\open}_{\mp
+,n,d}$. Conversely, if $(\alpha ,j)\in V^{\open}_{\mp ,n,d}$, then the
+corresponding point $(\alpha ,j,-\phi^{-1}j^{\vee})\in V_{n,n,d}$ is in
+$V^{\open}_{n,n,d}=V^{\stable}_{n,n,d}$ and hence the $GL(A)$ orbit is
+closed in $V_{n,n,d}$. Since $G(A,\phi )\subset GL(A)$ is a closed
+subgroup, it follows that the orbit $G(A,\phi )\cdot (\alpha
+,j,-\phi^{-1}j^{\vee})$ is closed in $V_{n,n,d}$ and hence $G(a,\phi
+)\cdot (\alpha ,j)$ is closed in $V_{\mp ,n,d}$. Since we know points
+in $V^{\open}_{\mp ,n,d}$ have finite stabilizers, it follows that
+$(\alpha ,j)$ is $G(A,\phi )$ stable and thus $V^{\open}_{\mp
+,n,d}\subset V^{\stable }_{\mp ,n,d}$ which proves $V^{\open}_{\mp
+,n,d}=V^{\stable }_{\mp ,n,d}$ and completes the proofs of Theorems
+\ref{thm: quiver description of Loop2Alg(LGr)} and \ref{thm: quiver
+description of Loop2Alg(OGr)}. \qed 
+
+\section{Details of the topological argument.}\label{sec: topological details}
 
 
+\begin{comment}
+~~~~OLD TOPOLOGICAL ARGUMENT:
 
-\vfill
-
-
-
-
-\pagebreak
-
-~~This stuff might eventually get moved :
+This stuff might eventually get moved :
 
 \section{Topological consequences of the theorem}\label{sec:
 topological consequences}
@@ -1641,6 +1701,8 @@ $\pi_{k+1}(U)\cong \pi_{k-1}(U)$ for all $k$ and moreover,
 $\pi_{k}(U(n))\cong \pi_{k}(U) $ for all $k\leq 2n$.
 \end{corollary}
 
+
+\end{comment}
 
 
 
