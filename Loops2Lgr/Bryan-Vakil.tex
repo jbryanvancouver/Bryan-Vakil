@@ -268,16 +268,28 @@ periodicity. The study of the remaining equivalences in the Bott
 periodicity theorem from the perspective of this paper will be pursued
 in future work.
 
-To state our results more explicitly, let $\Gr(n,n+N)$ be the
-Grassmanian of $n$ dimensional quotients of a fixed $n+N$ dimensional
-vector space.  Let $\LGr (n,2n)$ (respectively $\OGr (n,2n)$) be the
-Lagrangian (respectively isotropic orthogonal) Grassmanian which
-parameterizes $n$ dimensional isotropic  quotients of a fixed $2n$
-dimensional vector space equipped with a symplectic (respectively
-orthogonal) bilinear form. For $X$ given by $\Gr (n,n+N)$, $\LGr
-(n,2n)$, or $\OGr (n,2n)$, $H_{2}(X)\cong \ZZ$ as so the class of a
-map $f:\PP^{1}\to X$ may be regarded as a positive integer (the
+To state our results more explicitly, let 
+\[
+\Gr(n,n+N) = U(n+N)/U(n)\times U(N)
+\]
+be the Grassmanian of $n$ dimensional quotients of a fixed $n+N$
+dimensional vector space,  let
+\[
+\LGr (n,2n)= Sp(2n) /U(n)
+\]
+be the Lagrangian Grassmanian
+which parameterizes $n$ dimensional Lagrangian quotients of a fixed
+$2n$ dimensional symplectic vector space, and let
+\[
+\OGr (n,2n) = O(2n)/U(n)
+\]
+be the Isotropic Orthogonal Grassmanian which parameterizes $n$
+dimensional isotropic quotients of a fixed $2n$ dimensional orthogonal
+vector space. Let $X$ be any of the above homogeneous spaces. Then $X$
+is a projective variety of Picard number 1 and so the class of a based
+map $f:\PP^{1}\to X$ may be regarded as a non-negative integer (the
 degree).
+
 
 
 \begin{theorem}\label{thm: quiver description of Loop2alg(Gr(n,n+N))}
@@ -385,79 +397,118 @@ The quivers associated to our theorems are given in the following figure:
 
 \subsection{Topological Consequences}\label{subsec: topological consequences}
 
-In this section we explain how our quiver descriptions of $\LoopTwo
-(\Gr (n,n+N)$, $\LoopTwo (\OGr(n,2n))$, and $\LoopTwo (\LGr(n,2n))$
+We now explain how our quiver descriptions of the algebraic loops
+spaces of  $\Gr (n,n+N)$, $\OGr(n,2n)$, and $\LGr(n,2n)$
 lead to proofs of the Bott periodicity equivalences given by
 eqns~\eqref{eqn: Omega2BU=BU}, \eqref{eqn: Omega2O/U=BSp}, and
-\eqref{eqn: Omega2Sp/U=BO} respectively.
+\eqref{eqn: Omega2Sp/U=BO} respectively. Full details of the argument
+will be supplied in \S~\ref{sec: topological details}. 
 
 In \cite{Larson-Vakil-BottPeriodicity}, Larson and Vakil define,
-$\HoG$ the ``homotopy category of algebraic spaces'' who objects can
-be given sequences of highly connected maps of algebraic spaces or
-stacks. Objects in their category have a topological realization which
-is a well-defined homotopy type that one can think of as the
-topological realization of the limit of the sequnce of spaces. The
-category $\HoG$ provides an algebro-geometric arena where isomorphisms
-induce homotopy equivalences on the complex analytic counter parts. It
-is particularly well adapted for the algebraic loop spaces and the
-quiver descriptions given in this paper.
+$\HoG$ the ``homotopy category of algebraic spaces'' whose objects can
+be given sequences 
+\[
+\dotsb \to  X_{i} \to  X_{i+1}\to \dotsb 
+\]
+of highly connected maps of algebraic spaces or stacks. Objects in
+their category have a topological realization which is a well-defined
+homotopy type that one can think of as the topological realization of
+the $\lim_{i\to \infty} X_{i}$ in the complex analytic
+topology. Isomorphisms in the category include compatible systems of
+maps $X_{i} \to Y_{i}$ which are affine bundles, or which are more and
+more highly connected as $i\to \infty$. The category $\HoG$ provides
+an algebro-geometric arena where isomorphisms induce homotopy
+equivalences on the complex analytic counter parts. It is particularly
+well adapted for the algebraic loop spaces and the quiver descriptions
+given in this paper.
 
-To illustrate this we first discuss how the isomorphism in
-Theorem~\ref{thm: quiver description of Loop2alg(Gr(n,n+N))} leads to
-a proof of the complex Bott periodicity homotopy equivelance given by
-Equation~\eqref{eqn: Omega2BU=BU} (this case was already done in
-\cite{Larson-Vakil-BottPeriodicity}). There are inclusions
+The natural sequence
 \[
-\LoopTwo (\Gr (n, n+N) \hookrightarrow \Omega^{2}_{d+1,\alg}(\Gr (n+1,n+N+2))
+\dotsb \to \Gr (n,n+N)\to \Gr (n+1,n+N+2)\to \dotsb 
 \]
-obtained by fixing a degree 1 map $f_{0}:\PP^{1} \to \Gr (1,2)$ and
-then for any given map $f:\PP^{1}\to \Gr (n,n+N)$ we get a composition
+is an example of an object in $\HoG$. The topological realization of
+this object has homotopy type
 \[
-\begin{tikzcd}
-\PP^{1} \arrow[r, "{(f,f_{0})}"] & \Gr (n,n+N)\times \Gr (1,2)
-\arrow[r, hook, ""] & \Gr (n+1,n+N+2)
-\end{tikzcd}
+\lim_{n,N\to \infty} U(n+N)/U(n)\times U(N) = BU.
 \]
-which defines a point in $\Omega^{2}_{d+1,\alg}(\Gr (n+1,n+N+2))$. The
-corresponding infinite sequence of inclusions defines an object in
-$\HoG$ which we call $\Omega^{2}_{\infty,\alg }(\Gr (\infty ,\infty +\infty
-))$.
+Applying $\LoopTwo (-)$ to the above sequence we get an object in
+$\HoG$ 
+\[
+\dotsb \to \LoopTwo (\Gr (n,n+N))\to \LoopTwo (\Gr (n+1,n+N+2))\to \dotsb 
+\]
+which we call $\LoopTwo (BU)$
 
-The above inclusions correspond to compatible inclusions of quiver
-representations
+There is a corresponding sequence of quiver moduli spaces
 \[
-V^{\stable}_{n,N,d}/GL(d) \hookrightarrow
-V^{\stable}_{n+1,N+1,d+1}/GL(d+1) 
+\dotsb \to V^{\stable}_{n,N,d}/GL_{d} \to V^{\stable}_{n+1,N+1,d}/GL_{d} \to \dotsb 
 \]
-given by $(\alpha ,\gamma ,j)\mapsto (\alpha \oplus \alpha_{0},\gamma
-\oplus \gamma_{0},j\oplus j_{0})$ where
-$(\alpha_{0},\gamma_{0},j_{0})\in V^{\stable}_{1,1,1}$ is a fixed
-representation corresponding to $f_{0}$. 
+which we call $V^{\stable}_{\infty ,d}/GL_{d}$ and is isomorphic to
+$\LoopTwo (BU)$ via the isomorphisms in Theorem~\ref{thm: quiver
+description of Loop2alg(Gr(n,n+N))}. As we will show, the
+maps $V^{\stable}_{n,N,d}\hookrightarrow V_{n,N,d}$ are more and more
+connected as $n,N\to \infty$ and hence induce an isomorphism with the
+corresponding sequence of stack quotients and give an isomorphism 
+\[
+V^{\stable}_{\infty ,d}/GL_{d} \cong [V_{\infty ,d} / GL_{d}]
+\]
+in $\HoG$. Then since
+the map $V_{n,N,d}\to pt$ is an
+affine bundle, it follows that this object is isomorphic to
+$[pt/GL_{d}] =BGL_{d}$. Thus Theorem~\ref{thm: quiver description of
+Loop2alg(Gr(n,n+N))} gives rise to an isomorphism in $\HoG$ 
+\[
+\LoopTwo (BU)\cong BGL_{d}. 
+\]
 
-This sequence of inclusions gives rise to an object in $\HoG$ which we
-call $V^{\stable}_{\infty} / GL(\infty )$ and the isomorphisms of
-Theorem~\ref{thm: quiver description of Loop2alg(Gr(n,n+N))} give rise
-to an isomorphism in $\HoG$:
+It is not hard to define a sequence of maps that increase $d$ as well as $n$ and
+$N$:
 \[
-\Omega^{2}_{\infty ,\alg}(Gr(\infty ,\infty +\infty ))\cong
-V^{\stable}_{\infty} / GL(\infty ) 
+\dotsb \to \LoopTwo (\Gr (n,n+N))\to \Omega^{2}_{d+1,\alg} (\Gr (n+1,n+N+2))\to \dotsb 
 \]
-Taking the homotopy realization of the above isomorphism we recover
+which we denote $\Omega^{2}_{\infty ,\alg}(BU)$. It is a consequence
+of the Boyer-Mann-Hurtubise-Milgram theorem (Theorem~\ref{thm:
+Mann-Milgram algebraic loop approximation holds for generalized flag
+varieties}) that the topological realization of $\Omega^{2}_{\infty
+,\alg}(BU)$ has the homotopy type of $\LoopTwoTop (BU)$ (for any fixed
+$d$ since they are all homotopic to each other). Thus taking the
+topological realization of the isomorphism
+in $\HoG$ 
 \[
-\LoopTwoTop (BU)\homotopyeq BU
+\Omega^{2}_{\infty ,\alg } (BU)\cong BGL. 
 \]
-the complex Bott periodicity equivalence. This is because
-$V^{\stable}_{\infty} / GL(\infty )$ is easily seen to be isomorphic
-in $\HoG$ to the object given by the sequence
+proves the homotopy equivalence
 \[
-[pt/GL(d)]\hookrightarrow [pt/GL(d+1)]\hookrightarrow \dotsb 
+\LoopTwoTop (BU)\homotopyeq BU .
 \]
-which has the homotopy type of $\lim_{d\to \infty}BU(d) =
-BU$. Moreover,  by
-the Mann-Milgram result (Theorem~\ref{thm: Mann-Milgram algebraic loop
-approximation holds for generalized flag varieties}), the object
-$\Omega^{2}_{\infty ,\alg}(\Gr (\infty ,\infty +\infty ))$ has the
-homotopy type of $\LoopTwoTop (BU)$ (for any $d$).
+
+The identical argument may be applied to the isomorphisms in
+Theorems~\ref{thm: quiver description of Loop2Alg(LGr)} and \ref{thm:
+quiver description of Loop2Alg(OGr)}. Briefly, applying $\LoopTwo (-)$
+to the sequence
+\[
+\dotsb \to Sp(2n)/U(n) \to Sp(2n+2)/U(n+1) \to \dotsb 
+\]
+we get an object $\LoopTwo (Sp/U)$ in $\HoG$ which by applying
+Theorem~\ref{thm: quiver description of Loop2Alg(LGr)} and applying a
+similar argument to above yields an isomorphism in $\HoG$:
+\[
+\LoopTwo (Sp/U) \cong BO(d) . 
+\]
+Similary, Theorem~\ref{thm: quiver description of Loop2Alg(OGr)}
+yields an isomorphism
+\[
+\LoopTwo (O/U) \cong BSp(d) . 
+\]
+Finally, by constructing stabilization maps that increase $d$ as well
+as $n$, we get isomorphisms
+\[
+\Omega^{2}_{\infty ,\alg } (Sp/U) \cong BO, \quad \Omega^{2}_{\infty ,\alg } (O/U) \cong BSp 
+\]
+whose topological realizations give the homotopy equivalences
+\[
+\LoopTwoTop (Sp/U)\homotopyeq BO, \quad \LoopTwoTop (O/U)\homotopyeq
+BSp. 
+\]
 
 
 
