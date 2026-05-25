@@ -31,7 +31,7 @@ Palo Alto, California, USA
 %\usepackage{pict2e,keyval,calc,fp}
 %\usepackage{etex}
 \usepackage{verbatim}
-\usepackage{amsmath,amsthm,amsfonts}
+\usepackage{amsmath,amsthm,amsfonts,bbm}
 \usepackage{amssymb}
 \usepackage{times}
 \usepackage{longtable}
@@ -84,6 +84,7 @@ Palo Alto, California, USA
 \newcommand{\FF} {{\mathbb F}}
 \newcommand{\DD} {{\mathbb D}}
 \newcommand{\JJ} {{\mathbb J}}
+\newcommand{\kk} {{\mathbbm k}}
 \renewcommand{\AA} {{\mathbb A}}
 \newcommand{\evir}{e_{\mathsf{vir}}}
 \newcommand{\reg}{\mathsf{reg}}
@@ -181,7 +182,8 @@ $\Omega^{2}(O/U)\homotopyeq BSp\times \ZZ$.
 \subsection{Algebraic and Topological double loop spaces and Bott periodicity.}
 
 In this paper, we study the \emph{algebraic double loop space} of
-Lagrangian Grassmannians and the orthogonal counterpart. We define the
+Lagrangian Grassmannians and the orthogonal counterpart. We work over
+a field $\kk $ with $\operatorname{char}(\kk)\neq 2$. We define the
 algebraic double loop space as follows.
 
 \begin{definition}\label{defn: Omega2alg(X)}
@@ -195,7 +197,7 @@ $f(p_{\infty})=*$ and $f_{*}([\PP^{1}])=d\in H_{2}(X,\ZZ )$ } \right\} .
 \]
 \end{definition}
 
-In the analytic topology over $\CC$, $\PP^{1}$ is homeomorphic to
+In the analytic topology when $\kk =\CC$, $\PP^{1}$ is homeomorphic to
 $S^{2}$ and so there is an inclusion of the algebraic double loop
 space into the usual double loop space studied in topology:
 \[
@@ -564,6 +566,10 @@ BSp
 \]
 which are equations~\eqref{eqn: Omega2Sp/U=BO} and \eqref{eqn:
 Omega2O/U=BSp} of the real Bott periodicity equivalences.
+
+See Section~\ref{sec: topological details} for precise statements of
+the above results and their proofs.
+
 
 
 \section{Zariski Framed Sheaves, Quivers, and the Proof of
@@ -1575,9 +1581,10 @@ all $\lambda$.
 
 \bigskip
 
-Since $GL(A)$ acts transitively on the space of symplectic/orthogonal
-forms on $A$, we may \emph{fix} a form $\phi$ on $A$ and then quotient
-instead by the stabilizer of $\phi$, namely
+Since $GL(A)$ acts scheme-theoretically transitively on the scheme of
+symplectic/orthogonal forms on $A$, we may \emph{fix} any
+non-degenerate form $\phi$ on $A$ and then quotient instead by the
+stabilizer of $\phi$, namely
 \[
 G(A,\phi ) = \{g\in GL(A)\,:\, g^{\vee}\phi g=\phi \}.
 \]
@@ -1829,7 +1836,7 @@ in $\HoG$.
 
 Again by Theorem~\ref{thm: Mann-Milgram algebraic loop approximation
 holds for generalized flag varieties} in the limit as $d\to \infty$
-the algebraic double loop spaces of $X_{\pm,n}$ are homotopty
+the algebraic double loop spaces of $X_{\pm,n}$ are homotopy
 equivalent to the topological double loop spaces. Then since 
 \[
 \lim_{n\to \infty}X_{+,n} = O/U, \quad \lim_{n\to \infty}X_{-,n} = Sp/U, 
@@ -2011,12 +2018,12 @@ former follows from Lemma~\ref{lem: codimension of unstable locus for
 the Gr quiver} and the later follows from
 \cite[Prop~2.2]{Larson-Vakil-BottPeriodicity} and the fact that
 $\left[V_{n,N,d/GL_{d}} \right] \to BGL_{d}$ is
-$\infty$-connected. {\color{red} Ravi, is this said correctly?}
+$\infty$-connected.
 
 
 This then shows that the object $\Omega^{2}_{\infty ,\alg}(BU)$ is
 isomorphic to $BGL$ in $\HoG$ since the bottom row of the diagram may
-be replaced  {\color{red} Ravi, is this said correctly?} with 
+be replaced with 
 \[
 \dotsb \hookrightarrow BGL_{d}\hookrightarrow BGL_{d+1}\hookrightarrow \dotsb .
 \]
@@ -2025,7 +2032,7 @@ be replaced  {\color{red} Ravi, is this said correctly?} with
 for X-}.}
 
 The inclusions in the proposition arise from applying $\LoopTwo (-)$
-to the natural inclusions $X_{\mp ,n}\hookrightarrow X_{+,n+1}$. In
+to the natural inclusions $X_{\mp ,n}\hookrightarrow X_{\mp ,n+1}$. In
 terms of sequences on $\PP^{1}$, this corresponds to 
 \[
 \left\{\UL{U}\oplus \UL{U}^{\vee}\xrightarrow{(f_{U},f_{U^{\vee}})}E
@@ -2038,7 +2045,7 @@ In terms of quivers, this is given by
 ),U\oplus \CC ,(\alpha ,(j,0)) \right\}.
 \]
 Thus we get a diagram
-\[
+\begin{equation}\label{diag: diagram defining Loop(X+infty) in HoG}
 \begin{tikzcd}
     \cdots \arrow[r, hook]
     & V^{\stable}_{\mp ,n,d}/G(A,\phi ) \arrow[r, hook] \arrow[d, hook]
@@ -2048,7 +2055,7 @@ Thus we get a diagram
     & \left[V_{\mp, n+1,d}/G(A,\phi ) \right] 
 \arrow[r, hook] & \cdots
 \end{tikzcd}
-\]
+\end{equation}
 As in the proof of Proposition~\ref{prop: Loop2(BU)=BGLd in HoG}, we
 need only show the vertical inclusions are open embeddings of
 increasing connectivity. This follows from the following
@@ -2061,8 +2068,6 @@ V_{- ,n,d}$ has codimension $n-1$.
 Consequently, the open embeddings  $V^{\stable}_{\mp  ,n,d}\hookrightarrow
 V_{\mp  ,n,d}$ are $(n-2)$-connected. 
 \end{lemma}
-{\color{red} Check this lemma carefully. I'd like to see the
-codimension computation geometrically from the full moduli stack.}
 \begin{proof}
 We denote the compliment of $V^{\stable}_{\mp ,n,d}\subset V_{\mp
 ,n,d}$ by $Z$. It is given by the negation of the open condition in
@@ -2165,11 +2170,16 @@ n-1&\text{for $V_{-}$}
 \]
 which proves the lemma.
 \end{proof}
-With the lemma proving that $\LoopTwo (X_{\pm,\infty })$ is
-well-defined in $\HoG$, the isomorphisms in Proposition~\ref{prop:
-Loop2(X+,inrty)=BSp(d) in HoG and same for X-} then follow from
-observing that $G(A,\phi )\cong Sp(d)$ in the $X_{+}$ case and
-$G(A,\phi )\cong O(d)$ in the $X_{-}$ case. 
+Now that we have proved that $\LoopTwo (X_{\pm,\infty })$ is
+well-defined in $\HoG$ via Diagram~\eqref{diag: diagram defining
+Loop(X+infty) in HoG}, it remains to prove the isomorphisms in
+Proposition~\ref{prop: Loop2(X+,inrty)=BSp(d) in HoG and same for
+X-}. This
+then follows from observing that $G(A,\phi )\cong Sp(d)$ in the $X_{+}$
+case and $G(A,\phi )\cong O(d)$ in the $X_{-}$ case and that the
+bottom row of Diagram~\eqref{diag: diagram defining Loop(X+infty) in
+HoG} maps to $BG(A,\phi )$ with affine fibers and thus defines an
+isomorphism in $\HoG$. 
 
 
 \subsection{Proof of Proposition~\ref{prop: Loop2inftyX+=BSp in HoG and similar for X-}}
@@ -2220,7 +2230,7 @@ prove the vertical open inclusions are of increasing connectivity and
 also that the morphisms on the bottom row have increasing
 connectivity. The former follows from Lemma~\ref{lem: the compliment
 of Vstable in V in the Sp/O case has codim n} and the later follows
-from the claim in the following:
+from the following:
 \begin{lemma}
 The morphism $BG_{\mp }(d)\to BG_{\mp }(d+2)$ is $d$-connected.
 \end{lemma}
@@ -2245,10 +2255,11 @@ A-\{0 \}$. In particular, $X^{\open} \hookrightarrow X$ is
 $d$-connected in either case.
 
 We note that $G_{\mp}(d+2)$ acts transitively on $X^{\open}$ with
-stabilizers given by the group of (blinear form preserving)
-automorphisms of the orthogonal compliment of the space of $\left\{e,f
-\right\}$. These stabilizers are all isomorphic to $G_{\mp}(d)$. By
-the orbit-stabililer theorem we get an equivalence of stacks
+stabilizers given by the group of (bilinear form preserving)
+automorphisms of the orthogonal compliment of the space spanned by
+$\left\{e,f \right\}$. These stabilizers are all isomorphic to
+$G_{\mp}(d)$. By the orbit-stabilizler theorem we get an equivalence
+of stacks
 \[
 BG_{\mp}(d)\cong [X^{\open}/G_{\mp}(d+2)]
 \]
@@ -2277,11 +2288,27 @@ isomorphisms
 \[
 \Omega^{2}_{\infty ,\alg }(X_{\pm,\infty}) \cong BG_{\mp} 
 \]
-which are the desired isomorphism from Proposition~\ref{prop:
+where $BG_{\mp}$ is the object in $\HoG$ given by the sequence
+\begin{equation}\label{eqn: sequence defining BGmp in HoG}
+\dotsb \to BG_{\mp}(d)\to BG_{\mp}(d+2) \to \dotsb 
+\end{equation}
+and the isomorphiss are via the maps $\left[V_{\mp ,n,d}/G_{\mp}(d)
+\right]\to BG_{\mp}(d)$ which have affine fibers. These isomorphisms
+are the desired isomorphism from Proposition~\ref{prop:
 Loop2inftyX+=BSp in HoG and similar for X-} since
 \[
 BG_{+}=BO \quad  BG_{-}=BSp.
 \]
+
+We remark that while the algebraic group $O(A,\phi )$ depends on the
+isomorphism class of the quadratic form $\phi$, the stack $BO(A,\phi
+)$ only depends on the dimension of $A$ up to equivalence (this is
+where we have used $\operatorname{char}(\kk )\neq 2$). Moreover, even
+though our representation of $BO$ in $\HoG$ is given by the
+sequence~\eqref{eqn: sequence defining BGmp in HoG} which increases
+dimension by 2, one can easily construct highly connected maps
+$BO(n)\to BO(n+1)$ so that $BO$ is unique up to isomorphism in $\HoG$.
+
 This completes the proof of Proposition~\ref{prop: Loop2inftyX+=BSp in
 HoG and similar for X-}. \qed 
 
