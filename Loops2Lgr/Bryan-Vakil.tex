@@ -192,8 +192,8 @@ coordinates $(x_{0}:x_{1})$ on $\PP^{1}$ with point at infinity
 $p_{\infty}=(1:0)$. Let $\LoopTwo(X)$ be the space of algebraic based
 maps of degree $d$, that is
 \[
-\LoopTwo (X) = \left\{f:\PP^{1}\to X\text{ such that
-$f(p_{\infty})=*$ and $f_{*}([\PP^{1}])=d\in H_{2}(X,\ZZ )$ } \right\} .
+\LoopTwo (X) = \left\{f:\PP^{1}\to X\text{ such that $f(p_{\infty})=*$
+and $f_{*}([\PP^{1}])=d\in \operatorname{CH}_{1}(X)$ } \right\} .
 \]
 \end{definition}
 
@@ -204,7 +204,8 @@ space into the usual double loop space studied in topology:
 i:\LoopTwo (X) \hookrightarrow \LoopTwoTop (X)
 \]
 where $\LoopTwoTop (X)$ is the space of continuous based maps of
-degree $d$ (we will drop the $d$ from the notation when $H_{2}(X)=0$).
+degree $d\in H_{2}(X,\ZZ )$ (we will drop the $d$ from the notation
+when $H_{2}(X,\ZZ )=0$).
 
 In the same spirit as using high degree polynomial functions to
 approximate continuous functions, we may hope that for certain
@@ -785,8 +786,8 @@ $x_{i}=y_{i}$.  We then tensor the exact sequence
 \arrow[r]& \OO_{\Delta} \arrow[r]& 0
 \end{tikzcd}
 \]
-by $p^{*}E$ and apply the functor $q_{*}(-)$. Since the non-negativity
-of $E$ implies that $R^{1}q_{*}(p^{*}E(-1,-1))=0$, we get
+by $p^{*}E$ and apply the functor $q_{*}(-)$. By hypothesis, we have
+$R^{1}q_{*}(p^{*}E(-1,-1))=0$, and so we get
 \[
 \begin{tikzcd}
 0\arrow[r] &q_{*}(p^{*}E(-1,-1)) \arrow[r] & q_{*}(p^{*}E) \arrow[r] &
@@ -946,7 +947,7 @@ proper subspace $A'\subset A$ which is invariant under $\alpha$ and
 contained in the kernel of $j$.
 
 
-Condition (2) to be equivalent to GIT stability for the $k=1$
+Condition (2) is equivalent to GIT stability for the $k=1$
 linearization \cite[Def.~2.2]{Nakajima-Handsaw}. As we observed in
 Remark~\ref{rem: duality induced by Gr(n,n+N)=Gr(N,n+N)}, condition
 (1) is dual to condition (2) and thus condition (1) is equivalent to
@@ -968,7 +969,7 @@ Let
 \]
 be the Maximal Isotropic Orthogonal Grassmannian and the Lagrangian
 Grassmannian respectively. These parameterize $n$ dimensional isotropic
-quotients of a $2n$ dimensional complex vector space equipped with an
+quotients of a $2n$ dimensional vector space equipped with an
 orthogonal and a symplectic form respectively. Although we've written
 these spaces as quotients of a compact Lie group by a subgroup, they
 are also given by quotients of an algebraic group by a parabolic
@@ -2017,7 +2018,7 @@ the inclusions on the bottom row have increasing connectivity. The
 former follows from Lemma~\ref{lem: codimension of unstable locus for
 the Gr quiver} and the later follows from
 \cite[Prop~2.2]{Larson-Vakil-BottPeriodicity} and the fact that
-$\left[V_{n,N,d/GL_{d}} \right] \to BGL_{d}$ is
+$\left[V_{n,N,d}/GL_{d} \right] \to BGL_{d}$ is
 $\infty$-connected.
 
 
@@ -2077,7 +2078,7 @@ explicit open condition}:
 Z=\left\{(\alpha ,j)\in V_{\mp ,n,d}: \exists \lambda \in \CC ,v\in A\text{ such that
 }j(v)=0\text{ and } \alpha v=\lambda v \right\}.
 \]
-Let us abbreviate $V_{\mp ,n,d}$ to $V_{\pm}$ and we 
+Let us abbreviate $V_{\mp ,n,d}$ to $V_{\mp}$ and we 
 identify it as follows:
 \begin{align*}
 V_{+}&=\Sym^{2}A^{\vee}\oplus \Hom (A,U),\\
