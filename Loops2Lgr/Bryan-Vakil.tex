@@ -1,7 +1,7 @@
 \documentclass{amsart}
 
 \title{Based maps to Lagrangian Grassmannians, Quivers, and Bott Periodicity}
-\date{Last compiled:  \today.  Last edited: May 24th 2026}
+\date{Last compiled:  \today.  Last edited: July 3rd 2026}
 
 
 \author{Jim Bryan}
@@ -179,7 +179,7 @@ $\Omega^{2}(O/U)\homotopyeq BSp\times \ZZ$.
 
 
 
-\subsection{Algebraic and Topological double loop spaces and Bott periodicity.}
+\subsection{Algebraic and topological double loop spaces and Bott periodicity.}
 
 In this paper, we study the \emph{algebraic double loop space} of
 Lagrangian Grassmannians and the orthogonal counterpart. We work over
@@ -227,7 +227,7 @@ is an isomorphism for all $k<B(d,X)$ and that $B\to \infty $ as $d\to
 \infty$. 
 \end{expectation}
 
-In the 1980's and 1990's the above expectation was shown to hold for
+In the 1980s and 1990s the above expectation was shown to hold for
 generalized flag varieties in a series of papers by Segal, Kirwan,
 Mann-Milgram, and Boyer-Mann-Hurtubise-Milgram,
 \cite{Segal-1979,Kirwan-1986,Mann-Milgram-93,Boyer-Mann-Hurtubise-Milgram}.
@@ -243,8 +243,8 @@ The (topological) double loop space $\LoopTwoTop (X)$ plays an
 important role in homotopy theory, for example in Bott periodicity. To
 state the version of Bott periodicity we want, we recall that $U(n)$,
 $Sp(2n)$, and $O(2n)$ are the classical compact Lie groups of unitary,
-symplectic, and orthogonal transformations. We also have the infinite
-dimensional versions of these groups (defined by direct limits of
+symplectic, and orthogonal transformations. We also have the
+infinite-dimensional versions of these groups (defined by direct limits of
 inclusions) and their associated classifying spaces and homogeneous
 spaces. For example:
 \begin{align*}
@@ -269,7 +269,7 @@ There exist the following homotopy equivalences:
 
 Equation~\eqref{eqn: Omega2BU=BU} is referred to as \emph{complex Bott
 periodicity} and it implies that the homotopy groups of $U$ are
-2-periodic. Equations~\eqref{eqn: Omega2Sp/U=BO}-\eqref{eqn: Omega2BSp=Sp/U} 
+2-periodic. Equations~\eqref{eqn: Omega2Sp/U=BO}--\eqref{eqn: Omega2BSp=Sp/U} 
 are referred to as \emph{real Bott periodicity} and they imply that
 the homotopy groups of $O$ are 8-periodic.
 
@@ -283,38 +283,39 @@ with Theorem~\ref{thm: Mann-Milgram algebraic loop approximation
 holds for generalized flag varieties} to give new proofs of the
 homotopy equivalences \eqref{eqn: Omega2BU=BU}, \eqref{eqn:
 Omega2Sp/U=BO}, and \eqref{eqn: Omega2O/U=BSp} and so we may regard
-our theorems as finite dimensional, algebraic refinements of Bott
+our theorems as finite-dimensional, algebro-geometric refinements of Bott
 periodicity. The study of the remaining equivalences in the Bott
 periodicity theorem from the perspective of this paper will be pursued
 in future work.
 
-To state our results more explicitly, let 
-\[
-\Gr(n,n+N) = U(n+N)/U(n)\times U(N)
-\]
-be the Grassmannian of $n$ dimensional quotients of a fixed $n+N$
-dimensional vector space,  let
-\[
-\LGr (n,2n)= Sp(2n) /U(n)
-\]
-be the Lagrangian Grassmannian
-which parameterizes $n$ dimensional Lagrangian quotients of a fixed
-$2n$ dimensional symplectic vector space, and let
-\[
-\OGr (n,2n) = O(2n)/U(n)
-\]
-be the Isotropic Orthogonal Grassmannian which parameterizes $n$
-dimensional isotropic quotients of a fixed $2n$ dimensional orthogonal
-vector space. Let $X$ be any of the above homogeneous spaces. Then $X$
-is in fact a projective variety (which is defined over any field) of
+To state our results more explicitly, let $ \Gr(n,n+N) $ be the
+Grassmannian of $n$-dimensional quotients of a fixed $(n+N)$-dimensional
+vector space, let $ \LGr (n,2n) $ be the Lagrangian Grassmannian which
+parameterizes $n$-dimensional Lagrangian quotients of a fixed
+$2n$-dimensional symplectic vector space, and let $ \OGr (n,2n) $ be
+the isotropic orthogonal Grassmannian which parameterizes
+$n$-dimensional isotropic quotients of a fixed split $2n$-dimensional
+orthogonal vector space. We note that over the complex numbers with
+the analytic topology, these varieties are also given by homogeneous
+spaces:
+\begin{align*}
+\Gr (n,n+N)&=U(n+N)/U(n)\times U(N),\\
+\LGr (n,2n)&= Sp(2n)/U(n),\\
+\OGr (n,2n)&= O(2n)/U(n) .
+\end{align*}
+
+Let $X$ be any of the above homogeneous spaces. Then $X$
+is a projective variety (which is defined over any field) of
 Picard number 1 and so the class of a based map $f:\PP^{1}\to X$ may
-be regarded as a non-negative integer (the degree).
+be regarded as a non-negative integer (the degree)\footnote{For $\OGr
+(n,2n)$ we take the connected component containing the chosen base
+point; equivalently, the based mapping space only sees this component.}.
 
 
 
 \begin{theorem}\label{thm: quiver description of Loop2alg(Gr(n,n+N))}
 Let $A$ be a vector space of dimension $d$ and let $U,W$ be vector
-spaces of dimension $n$ and $N$ respectively. Let
+spaces of dimension $n$ and $N$, respectively. Let
 \[
 V=V_{n,N,d} =\Hom (A,A)\oplus \Hom (W,A)\oplus \Hom (A,U).
 \]
@@ -335,7 +336,7 @@ variety of dimension
 For the Lagrangian and isotropic orthogonal Grassmannians we have the following.
 
 \begin{theorem}\label{thm: quiver description of Loop2Alg(LGr)}
-Let $A$ be a vector space of dimension $d$ equipped with a
+Let $A$ be a vector space of dimension $d$ equipped with a split
 non-degenerate orthogonal form $\phi :A\to A^{\vee}$ (so
 $\phi^{\vee}=\phi$) and let $U$ be a vector space of dimension
 $n$. Let
@@ -389,6 +390,14 @@ variety of dimension
 \]
 \end{theorem}
 
+\begin{remark}
+In the case of the isotropic orthogonal Grassmannian,
+Theorem~\ref{thm: quiver description of Loop2Alg(OGr)} 
+implies that $d$ is even, since $A$ is equipped with a
+non-degenerate symplectic form. In particular, the theorem implies
+that $\LoopTwo(\OGr(n,2n))$ is empty for odd $d$.
+\end{remark}
+
 The quivers associated to our theorems are given in the following figure:
 
 \begin{center}
@@ -430,12 +439,12 @@ The quivers associated to our theorems are given in the following figure:
 
 
 
-\subsection{Topological Consequences}\label{subsec: topological consequences}
+\subsection{Topological consequences}\label{subsec: topological consequences}
 
 We now explain how our quiver descriptions of the algebraic loops
 spaces of  $\Gr (n,n+N)$, $\OGr(n,2n)$, and $\LGr(n,2n)$
 lead to proofs of the Bott periodicity equivalences given by
-eqns~\eqref{eqn: Omega2BU=BU}, \eqref{eqn: Omega2O/U=BSp}, and
+Equations~\eqref{eqn: Omega2BU=BU}, \eqref{eqn: Omega2O/U=BSp}, and
 \eqref{eqn: Omega2Sp/U=BO} respectively. Full details of the argument
 will be supplied in \S~\ref{sec: topological details}. 
 
@@ -465,14 +474,14 @@ The natural sequence
 is an example of an object in $\HoG$. The topological realization of
 this object has homotopy type
 \[
-\lim_{n,N\to \infty} U(n+N)/U(n)\times U(N) = BU.
+\lim_{n,N\to \infty} U(n+N)/(U(n)\times U(N)) = BU.
 \]
 Applying $\LoopTwo (-)$ to the above sequence we get an object in
 $\HoG$ 
 \[
 \dotsb \hookrightarrow \LoopTwo (\Gr (n,n+N))\hookrightarrow \LoopTwo (\Gr (n+1,n+N+2))\hookrightarrow \dotsb 
 \]
-which we call $\LoopTwo (BU)$
+which we call $\LoopTwo (BU)$.
 
 There is a corresponding sequence of quiver moduli spaces
 \[
@@ -535,7 +544,7 @@ to the sequence
 \]
 we get an object $\LoopTwo (Sp/U)$ in $\HoG$ which by applying
 Theorem~\ref{thm: quiver description of Loop2Alg(LGr)} and applying a
-similar argument to above yields an isomorphism in $\HoG$:
+argument similar to the one above yields an isomorphism in $\HoG$:
 \[
 \LoopTwo (Sp/U) \cong BO(d) . 
 \]
@@ -545,7 +554,7 @@ yields an isomorphism in $\HoG $:
 \LoopTwo (O/U) \cong BSp(d) . 
 \]
 
-Taking topological realizations of the above two isomorphism yields
+Taking topological realizations of the above two isomorphisms yields
 homotopy equivalences for the direct limits of the algebraic double
 loop varieties:
 \[
@@ -574,16 +583,17 @@ the above results and their proofs.
 
 
 
-\section{Zariski Framed Sheaves, Quivers, and the Proof of
+\section{Zariski framed sheaves, quivers, and the proof of
 Theorem~\ref{thm: quiver description of
 Loop2alg(Gr(n,n+N))}}\label{sec: Zariski framed sheaves, quivers, and
 proof of Loop2(Gr) theorem}
 
 
-The material in this section has previously appeared in other various
-guises (e.g \cite[\S~5]{Larson-Vakil-BottPeriodicity}, \cite[\S~3]{Nakajima-Handsaw}),
-but we include it to fix our notation and orient the reader to our
-point of view which will be integral to subsequent sections.
+The material in this section has previously appeared in various guises
+(e.g. \cite[\S~5]{Larson-Vakil-BottPeriodicity},
+\cite[\S~3]{Nakajima-Handsaw}), but we include it to fix our notation
+and orient the reader to our point of view which will be integral to
+subsequent sections.
 
 
 
@@ -596,12 +606,12 @@ and in general, we use underlines to denote sheaves and maps of
 sheaves and we drop the underline to denote the induced map on cohomology.
 
 
-Let $U$ and $W$ be vector spaces of dimension $n$ and $N$ respectively
+Let $U$ and $W$ be vector spaces of dimension $n$ and $N$, respectively
 and let
 \[
 \Gr (n,n+N) = \Gr (n,U\oplus W)
 \]
-be the Grassmannian of $n$ dimensional quotients of $U\oplus W$ with
+be the Grassmannian of $n$-dimensional quotients of $U\oplus W$ with
 basepoint given by the projection $U\oplus W\to U$. By pulling back
 the universal quotient, we see that $\LoopTwo (\Gr (n,n+N))$
 parameterizes exact sequences:
@@ -634,8 +644,8 @@ trivialization of $E$ on some (unspecified) Zariski open neighborhood
 of $p_{\infty}$. We call such a structure a \emph{Zariski framing} of $E$.
 
 \begin{definition}\label{defn: Zariski framing}
-Let $E$ be a rank $n$ sheaf on $\PP^{1}$ and let $U$ be an $n$
-dimensional vector space. A sheaf map
+Let $E$ be a rank $n$ sheaf on $\PP^{1}$ and let $U$ be an
+$n$-dimensional vector space. A sheaf map 
 \[
 \UL{\theta}: \UL{U}\to E
 \]
@@ -681,7 +691,7 @@ open condition where
 \]
 satisfy 
 \begin{equation}\label{eqn: open condition involving ker j}
-\Ker (\alpha -\lambda \cdot \Id_{A})\cap \Ker (j) = 0\text{ for all }\lambda \in \CC 
+\Ker (\alpha -\lambda \cdot \Id_{A})\cap \Ker (j) = 0\text{ for all }\lambda \in \overline{\kk }
 \end{equation}
 \end{theorem}
 
@@ -690,7 +700,7 @@ an isomorphism,
 \[
 \Ker \UL{\theta}=0\text{ and } \Coker \UL{\theta}=Q ,
 \]
-a zero dimensional length $d$ sheaf supported on $\AA=\PP^{1}-p_{\infty}$.
+a zero-dimensional length $d$ sheaf supported on $\AA=\PP^{1}-p_{\infty}$.
 
 The sequence
 \[
@@ -720,7 +730,7 @@ and hence
 \end{tikzcd}
 \]
 The above sequence is split by $\theta$ so writing
-$A=H^{0}(E(-p_{\infty}))$, we've identified
+$A=H^{0}(E(-p_{\infty}))$, we have identified
 \begin{align*}
 H^{0}(E) &= A\oplus U,\\
 H^{0}(E(-1))&= A,\\
@@ -770,7 +780,7 @@ $x_{i}:H^{0}(E(-1))\to H^{0}(E)$ in the above.
 \begin{proof}
 Let $\PP^{1}\times \PP^{1}$ have coordinates
 $((y_{0}:y_{1}),(x_{0}:x_{1}))$ with $p,q:\PP^{1}\times \PP^{1}\to
-\PP^{1}$ projection onto the first and second factor respectively. Let 
+\PP^{1}$ projections onto the first and second factor respectively. Let 
 \[
 \Delta =\{y_{1}x_{0}-y_{0}x_{1} =0 \}\subset \PP^{1}\times \PP^{1}
 \]
@@ -792,7 +802,7 @@ $R^{1}q_{*}(p^{*}E(-1,-1))=0$, and so we get
 \[
 \begin{tikzcd}
 0\arrow[r] &q_{*}(p^{*}E(-1,-1)) \arrow[r] & q_{*}(p^{*}E) \arrow[r] &
-q_{*}(p^{*}(E))\otimes \OO_{\Delta} \arrow[r] & 0 
+q_{*}(p^{*}E)\otimes \OO_{\Delta} \arrow[r] & 0 
 \end{tikzcd}
 \]
 which can be written as 
@@ -890,7 +900,7 @@ eigenvalue of $\alpha$. Thus the condition that $\UL{W}\to Q$ is
 surjective is equivalent to
 \begin{equation}\label{eqn: open condition with gamma}
 \im (\alpha -\lambda \cdot \Id_{A})+ \im (\gamma )=A \text{ for
-all }\lambda\in \CC.
+all }\lambda\in \overline{\kk}.
 \end{equation}
 
 This discussion yields a version of Theorem~\ref{thm: quiver description
@@ -906,9 +916,9 @@ satisfying Equations~\eqref{eqn: open condition involving ker j} and
 \eqref{eqn: open condition with gamma}, namely:
 \begin{enumerate}
 \item $\Ker (\alpha -\lambda \cdot \Id_{A})\cap \Ker (j) = 0$ for all
-$\lambda\in \CC $.
+$\lambda\in \overline{\kk} $.
 \item  $\im (\alpha -\lambda \cdot \Id_{A})+  \im (\gamma )=A$ for
-all $\lambda\in \CC $.
+all $\lambda\in \overline{\kk} $.
 \end{enumerate}
 Then the constructions of this section induce an isomorphism of affine
 varieties:
@@ -934,10 +944,10 @@ V^{\stable}_{n,N,d}$. Stability for quivers is well understood going
 back to work of King \cite{King-quivers} and continuing with the work
 of Nakajima \cite{Nakajima-Duke88,Nakajima-Handsaw}. For the general
 theory, stability depends on a choice of a linearization which is
-determined in our case by a character $\chi : GL(A)\to \CC^{*}$ which
+determined in our case by a character $\chi : GL(A)\to \mathbb{G}_{m}$ which
 we may write $\chi (g) = \operatorname{det}(g)^{k}$. The three
 different cases are $k<0$, $k=0$, $k>0$ and we are interested in the
-trivial trivialization, namely $k=0$.
+trivial linearization, namely $k=0$.
 
 Using the Jordan decomposition of $\alpha$, it is easy to see that
 condition (2) is equivalent to the condition that there does not exist
@@ -968,35 +978,35 @@ Let
 \[
  \OGr (n,2n) = O(2n)/U(n), \quad \LGr (n,2n) = Sp(2n)/U(n)
 \]
-be the Maximal Isotropic Orthogonal Grassmannian and the Lagrangian
-Grassmannian respectively. These parameterize $n$ dimensional isotropic
-quotients of a $2n$ dimensional vector space equipped with an
-orthogonal and a symplectic form respectively. Although we've written
-these spaces as quotients of a compact Lie group by a subgroup, they
-are also given by quotients of an algebraic group by a parabolic
-subgroup and are therefore projective algebraic varieties. We will
-handle these two cases simultaneously and so it will be convenient to
-introduce the following notations:
+be the maximal isotropic orthogonal Grassmannian and the Lagrangian
+Grassmannian respectively. These parameterize $n$-dimensional
+isotropic quotients of a $2n$-dimensional vector space equipped with
+an orthogonal and a symplectic form respectively. Although we have
+written these spaces as quotients of a compact Lie group by a
+subgroup, they are also given by quotients of an algebraic group by a
+parabolic subgroup and are therefore projective algebraic varieties
+defined over $\kk$. We will handle these two cases simultaneously and
+so it will be convenient to introduce the following notations:
 \[
 X_{+,n} = O(2n)/U(n), \quad X_{-,n} = Sp(2n)/U(n).
 \]
 
-If $V$ is a $2n$ dimensional vector space equipped with a
-non-degenerate orthogonal respectively symplectic form $\omega$, then a
+If $V$ is a $2n$-dimensional vector space equipped with a
+non-degenerate orthogonal, respectively symplectic form $\omega$, then a
 quotient
 \[
 \begin{tikzcd}
 V \arrow[r,  two heads, "f"] & L
 \end{tikzcd}
 \]
-is by definition \emph{maximal isotropic} respectively \emph{Lagrangian} if $L$ is
-$n$ dimensional and $\omega |_{\Ker f} = 0$. 
+is by definition \emph{maximal isotropic}, respectively \emph{Lagrangian} if $L$ is
+$n$-dimensional and $\omega |_{\Ker f} = 0$. 
 
 Associated to the form $\omega$ is an isomorphism
 \[
 J : V\to V^{\vee } 
 \]
-satisfying $J^{\vee} = J$ respectively $J^{\vee}=-J$. The following
+satisfying $J^{\vee} = J$, respectively $J^{\vee}=-J$. The following
 lemma is fairly well known (e.g. \cite[\S~2]{Hitching-2007}):
 \begin{lemma}\label{lem: lagrangian quotient condition as a ses}
 A linear map $f:V\to L$ is a maximal isotropic or Lagrangian quotient if
@@ -1013,7 +1023,7 @@ L \arrow[r] &
 \end{lemma}
 
 
-Let $U$ be an $n$ dimensional vector space and let 
+Let $U$ be an $n$-dimensional vector space and let 
 \[
 J_{\pm}: U\oplus U^{\vee} \to U^{\vee}\oplus U
 \]
@@ -1080,7 +1090,7 @@ The above discussion has then proved the following intermediate result:
 
 \begin{proposition}\label{prop: Loop2(Xpm) is a closed set in
 Loop(Gr(n,2n)) satisfying condition involving theta and gamma}
-$\LoopTwo (\Xpm )$ is the closed subset of $\LoopTwo (\Gr(2n,n))\cong
+$\LoopTwo (\Xpm )$ is the closed subset of $\LoopTwo (\Gr(n,2n))\cong
 V^{\open}_{n,n,d}/GL(A)$ given by Equation~\eqref{eqn: theta gammadual x1
 = mp x1 gamma thetadual}. 
 \end{proposition}
@@ -1203,7 +1213,7 @@ in the derived category whose inverse we denote $\Phi$.
 
 We remark that going from a short exact sequence to a map of two term
 complexes introduces a sign which in the above is manifested by the
-$\mp$ appearing on the left vertical arrow (as oppose to the $\pm$
+$\mp$ appearing on the left vertical arrow (as opposed to the $\pm$
 appearing on the $\UL{\theta}^{\vee}$ in the sequence). This crucial
 sign change is the origin of the form $\phi$ having the opposite sign
 as $J_{\pm}$.
@@ -1304,7 +1314,7 @@ isomorphisms $\Phi$ and $\DD \JJ$ to get an isomorphism
 \[
 \DD \JJ \circ \Phi \circ \JJ :A^{\bullet}\longrightarrow \DD A^{\bullet }
 \]
-which is realized by the following diagram of quasi-isomorphism:
+which is realized by the following diagram of quasi-isomorphisms:
 
 \begin{equation}\label{eqn: big diagram}
 \begin{tikzcd}[column sep=6em,row sep=4em]
@@ -1341,8 +1351,8 @@ Recall that
 \[
 \coker \UL{\theta} = Q
 \]
-is a zero dimensional sheaf supported on
-$\PP^{1}-p_{\infty}=\operatorname{Spec}\CC [z]$ where
+is a zero-dimensional sheaf supported on
+$\PP^{1}-p_{\infty}=\operatorname{Spec}\kk [z]$ where
 $z=x_{0}/x_{1}$. Considering the sheaf $Q$ as an object in
 $D^{b}(\PP^{1})$ (concentrated in degree 0), we see that 
 \[
@@ -1360,11 +1370,11 @@ we see
 is an isomorphism. As the notation suggests, $\Rpistar \UL{\phi}=\phi$
 (since $\Rpistar \JJ =1_{A}$).
 
-Now since $Q$ and $Q^{\vee}$ are sheaves on $\operatorname{Spec}\CC
-[z]$, we may regard the isomorphism $\UL{\phi }$ as a $\CC [z]$-module
+Now since $Q$ and $Q^{\vee}$ are sheaves on $\operatorname{Spec}\kk
+[z]$, we may regard the isomorphism $\UL{\phi }$ as a $\kk [z]$-module
 isomorphism.
 
-We note that the underlying vector space of the $\CC [z]$-module $Q$ is
+We note that the underlying vector space of the $\kk [z]$-module $Q$ is
 $A$ and since $\UL{x}_{1}\alpha -\UL{x}_{0}=0$ on $\coker
 \UL{\sigma}=Q$, we see that multiplication by $z=x_{0}/x_{1}$ is given
 by $\alpha :A\to A$. Similarly, the underlying vector space of the
@@ -1412,12 +1422,12 @@ spaces $\phi :A\to A^{\vee}$.
 Now by adding the cokernels to the complexes in the diagram
 \eqref{eqn: big diagram}, we get a commutative diagram where the rows
 are short exact sequences. Then tensoring this big diagram by $\OO
-(1)$ and adding the bottom the above complex (and cokernel) we get the
+(1)$ and adding at the bottom the above complex (and cokernel) we get the
 following:
 
 \begin{equation*}
 \begin{tikzcd}[column sep=6em,row sep=4em]
-  \UL{A}^{\vee }(-1)
+  \UL{A}(-1)
     \arrow[d,"-\UL{x}_{1}j"]
     \arrow[r,"\UL{\sigma  }"]
   & \UL{A}
@@ -1450,7 +1460,7 @@ following:
     \arrow[r]
   & \coker \UL{\sigma}^{\vee}
   \\
-  \UL{A}^{\vee }(-1)
+  \UL{A}(-1)
     \arrow[u,"\phi \UL{x}_{1}"]
     \arrow[r,"\UL{\sigma  }"]
   & \UL{A}
@@ -1541,14 +1551,14 @@ row to get the following commutative diagram:
 
 By commutativity of the square (1) and exactness of row 2, we see that
 $B_{1}$ must be $(1_{A},0)$. Similarly, we see from commutativity of
-square (4) and exactness of the 4th row, $B_{3}$ must be
+square (4) and exactness of the fourth row, $B_{3}$ must be
 $(\alpha^{\vee},1_{A^{\vee}})$. Then we can compute $B_{2}$ in two
 different ways: by the composition around the sides and bottom of
 square (3) and by the composition around the sides and top of square
 (2). The result is
 
 \[
-B_{2} = \phi^{-1}\gamma  = -j^{\vee}.
+B_{2} = \phi\gamma  = -j^{\vee}.
 \]
 and the second equality is equivalent to the desired equality in the lemma.
 \qed 
@@ -1583,21 +1593,24 @@ all $\lambda$.
 
 \bigskip
 
-Since $GL(A)$ acts scheme-theoretically transitively on the scheme of
-symplectic/orthogonal forms on $A$, we may \emph{fix} any
-non-degenerate form $\phi$ on $A$ and then quotient instead by the
-stabilizer of $\phi$, namely
+In the symplectic case, all non-degenerate alternating forms on $A$
+are isomorphic. In the orthogonal case, we restrict to split
+non-degenerate symmetric forms, which form a single $GL(A)$-orbit.
+Thus in either case we may fix such a form $\phi $ on $A$ and quotient
+by its stabilizer
 \[
-G(A,\phi ) = \{g\in GL(A)\,:\, g^{\vee}\phi g=\phi \}.
+G(A,\phi)=\{g\in GL(A):g^\vee \phi g=\phi\}.
 \]
+
 
 Since $\phi$ is invertible, we may eliminate $\gamma$ using the
 equation $\gamma =-\phi^{-1} j^{\vee}$. Thus we get
 \[
 \LoopTwo (\Xpm ) = V_{\mp ,n,d}^{\open}/G(A,\phi )
 \]
-where $(A,\phi )$ is a $d$ dimensional vector space equipped with a
-non-degenerate form $\phi :A\to A^{\vee}$, $\phi^{\vee}=\mp \phi$,
+where $(A,\phi )$ is a $d$-dimensional vector space equipped with a 
+non-degenerate form $\phi :A\to A^{\vee}$ satisfying $\phi^{\vee}=\mp
+\phi$, assumed split in the symmetric case, 
 \[
 V_{\mp ,n,d} = \{(\alpha ,j)\in \Hom (A,A)\oplus \Hom (A,U),\quad \phi
 \alpha =\alpha^{\vee}\phi \}, 
@@ -1630,7 +1643,7 @@ the following equivalences of conditions
 \end{align*}
 The first equivalence uses the isomorphism $\phi$, the second
 equivalence uses the equation $\phi \alpha  = \alpha^{\vee}\phi$, and
-the third and four conditions are equivalent by duality.
+the final equivalence follows by duality.
 
 Thus we have proved the following version of Theorems \ref{thm: quiver
 description of Loop2Alg(LGr)} and \ref{thm: quiver description of
@@ -1638,8 +1651,9 @@ Loop2Alg(OGr)} with a more explicit description of the open condition:
 \begin{proposition}\label{prop: quiver description of Loop2Alg(Xpm)
 with explicit open condition}
 Let $U$ be a vector space of dimension $n$ and let $(A,\phi )$ be a
-$d$ dimensional vector space equipped with a non-degenerate form $\phi
-:A\to A^{\vee}$ satisfying $\phi^{\vee}=\mp \phi$. Let
+$d$-dimensional vector space equipped with a non-degenerate form $\phi
+:A\to A^{\vee}$ satisfying $\phi^{\vee}=\mp \phi$, where in the
+symmetric case $\phi$ is assumed split. Let
 \[
 V_{\mp ,n,d} = \{(\alpha ,j)\in \Hom (A,A)\oplus \Hom (A,U):\quad \phi
 \alpha =\alpha^{\vee}\phi \}
@@ -1647,7 +1661,7 @@ V_{\mp ,n,d} = \{(\alpha ,j)\in \Hom (A,A)\oplus \Hom (A,U):\quad \phi
 and let $V^{\open}_{\mp ,n,d}\subset V_{\mp ,n,d}$ be the open set given
 by the condition
 \[
-\Ker (\alpha -\lambda \cdot 1_{A})\cap \Ker (j) = 0\text{ for all } \lambda \in \CC .
+\Ker (\alpha -\lambda \cdot 1_{A})\cap \Ker (j) = 0\text{ for all } \lambda \in \overline{\kk}.
 \]
 Then there is a natural isomorphism
 \[
@@ -1690,20 +1704,21 @@ $G(A,\phi )$ action if and only if the orbit $G(A,\phi )\cdot (\alpha
 ,j)$ is closed and $(\alpha ,j)$ has finite stabilizer. Thus in
 particular, $V^{\stable}_{\mp ,n,d}\subset V^{\open}_{\mp
 ,n,d}$. Conversely, if $(\alpha ,j)\in V^{\open}_{\mp ,n,d}$, then the
-corresponding point $(\alpha ,j,-\phi^{-1}j^{\vee})\in V_{n,n,d}$ is in
-$V^{\open}_{n,n,d}=V^{\stable}_{n,n,d}$ and hence the $GL(A)$ orbit is
-closed in $V_{n,n,d}$. Since $G(A,\phi )\subset GL(A)$ is a closed
-subgroup, it follows that the orbit $G(A,\phi )\cdot (\alpha
-,j,-\phi^{-1}j^{\vee})$ is closed in $V_{n,n,d}$ and hence $G(a,\phi
-)\cdot (\alpha ,j)$ is closed in $V_{\mp ,n,d}$. Since we know points
-in $V^{\open}_{\mp ,n,d}$ have finite stabilizers, it follows that
-$(\alpha ,j)$ is $G(A,\phi )$ stable and thus $V^{\open}_{\mp
-,n,d}\subset V^{\stable }_{\mp ,n,d}$ which proves $V^{\open}_{\mp
-,n,d}=V^{\stable }_{\mp ,n,d}$ and completes the proofs of Theorems
-\ref{thm: quiver description of Loop2Alg(LGr)} and \ref{thm: quiver
-description of Loop2Alg(OGr)}. \qed 
+corresponding point $(\alpha ,j,-\phi^{-1}j^{\vee})\in V_{n,n,d}$ is
+in $V^{\open}_{n,n,d}=V^{\stable}_{n,n,d}$ and hence the $GL(A)$ orbit
+is a closed embedding of $GL(A)$ in $V_{n,n,d}$. Since $G(A,\phi
+)\subset GL(A)$ is a closed subgroup, it follows that the orbit
+$G(A,\phi )\cdot (\alpha ,j,-\phi^{-1}j^{\vee})$ is closed in
+$V_{n,n,d}$ and hence $G(A,\phi )\cdot (\alpha ,j)$ is closed in
+$V_{\mp ,n,d}$. Since we know points in $V^{\open}_{\mp ,n,d}$ have
+finite stabilizers, it follows that $(\alpha ,j)$ is $G(A,\phi )$
+stable and thus $V^{\open}_{\mp ,n,d}\subset V^{\stable }_{\mp ,n,d}$
+which proves $V^{\open}_{\mp ,n,d}=V^{\stable }_{\mp ,n,d}$ and
+completes the proofs of Theorems \ref{thm: quiver description of
+Loop2Alg(LGr)} and \ref{thm: quiver description of
+Loop2Alg(OGr)}. \qed
 
-\section{Details of the topological argument.}\label{sec: topological details}
+\section{Details of the topological argument}\label{sec: topological details}
 
 In this section we provide the details for the topological
 consequences of our work which we outlined in subsection~\ref{subsec:
@@ -1712,10 +1727,11 @@ objects and isomorphisms in $\HoG$, the homotopy category of algebraic
 spaces defined in \cite{Larson-Vakil-BottPeriodicity}. There is a
 \emph{topological realization functor} 
 \[
-\HoG \xrightarrow{\top } \HoTop
+\HoG_{\CC } \xrightarrow{\top } \HoTop
 \] 
-from $\HoG$ to the homotopy category of topological spaces and so any
-isomorphism in $\HoG$ yields a homotopy equivalence between the
+from $\HoG_{\CC }\subset \HoG$, the subcategory of objects of $\HoG$ defined
+over $\CC$,  to the homotopy category of topological spaces and so any
+isomorphism in $\HoG_{\CC}$ yields a homotopy equivalence between the
 corresponding topological spaces.
 
 We list the results first and supply proofs afterward.
@@ -1749,7 +1765,7 @@ homotopy type of $BU(d)$:
 There is a sequence of inclusions 
 \[
 \dotsb \hookrightarrow \LoopTwo (\Gr (n,n+N))
-\hookrightarrow \Omega^{2}_{d+1,\alg} (\Gr (n+1,n+N+2) \hookrightarrow \dotsb 
+\hookrightarrow \Omega^{2}_{d+1,\alg} (\Gr (n+1,n+N+2)) \hookrightarrow \dotsb 
 \]
 which gives a well-defined object in $\HoG$ which we denote
 $\Omega^{2}_{\infty ,\alg}(BU)$. Moreover, there is an isomorphism
@@ -1772,7 +1788,7 @@ we have
 \[
 \lim_{d,n,N\to \infty} \LoopTwo (\Gr (n,n+N)) \homotopyeq \LoopTwoTop (BU), 
 \]
-where on the right hand side $d$ is any fixed value (they are all
+where on the right-hand side $d$ is any fixed value (they are all
 homotopy equivalent). 
 
 Consequently, after taking the topological realization of the
@@ -1848,7 +1864,7 @@ we have
 \lim_{d,n\to \infty} \LoopTwo (X_{+,n}) & \homotopyeq \LoopTwoTop (O/U),\\
 \lim_{d,n\to \infty} \LoopTwo (X_{-,n}) & \homotopyeq \LoopTwoTop (Sp/U)
 \end{align*}
-where on the right hand side, $d$ is any fixed value (they are all
+where on the right-hand side, $d$ is any fixed value (they are all
 homotopy equivalent).
 
 Consequently, after taking the topological realizations of the
@@ -1861,7 +1877,7 @@ periodicity homotopy equivalences:
 \end{align*}
 \end{corollary}
 
-\subsection{Proof of Proposition~\ref{prop: Loop2(BU)=BGLd in HoG}.}
+\subsection{Proof of Proposition~\ref{prop: Loop2(BU)=BGLd in HoG}}
 
 The inclusions 
 %\[
@@ -1870,7 +1886,7 @@ The inclusions
 of the proposition arise from applying $\LoopTwo (-)$ to
 the natural inclusion
 \[
-\Gr (n,n+N))\hookrightarrow \Gr (n+1,n+N+2). 
+\Gr (n,n+N)\hookrightarrow \Gr (n+1,n+N+2). 
 \]
 On the level of bundles on $\PP^{1}$, this corresponds to 
 \[
@@ -1879,9 +1895,9 @@ On the level of bundles on $\PP^{1}$, this corresponds to
 \xrightarrow{(f_{U}\oplus \Id ,f_{W}\oplus 0)}E\oplus \OO
 \right\}
 \]
-and which on the level of quivers is given by
+and on the level of quivers is given by
 \[
-(A,U,W,(\alpha ,j,\gamma ))\mapsto (A,U\oplus \CC ,W\oplus \CC ,(\alpha ,(j,0),(\gamma ,0)).
+(A,U,W,(\alpha ,j,\gamma ))\mapsto (A,U\oplus \kk ,W\oplus \kk ,(\alpha ,(j,0),(\gamma ,0))).
 \]
 We thus get a diagram
 
@@ -1940,7 +1956,7 @@ sequences
 \left\{\UL{U}\oplus \UL{W}\xrightarrow{f}E \right\}
 \]
 where $f$ fails to be surjective. Since $f|_{p_{\infty}}$ is
-surjective, the cokernel of $f$ is a 0 dimensional sheaf and so
+surjective, the cokernel of $f$ is a 0-dimensional sheaf and so
 generically, this locus parameterizes such maps where $E$ is locally
 free and $\coker f \cong \OO_{p}$ for some $p\in \PP^{1}-p_{\infty}$.
 
@@ -1972,7 +1988,7 @@ Then by duality, the locus where condition (1) fails has codimension
 $n$. The lemma follows.
 \end{proof}
 
-We've thus proven that $\LoopTwo (BU)$ is a well-defined object in
+We have thus proven that $\LoopTwo (BU)$ is a well-defined object in
 $\HoG$. The isomorphism $\LoopTwo (BU)\cong BGL_{d}$ follows
 immediately since the bottom row of Equation~\eqref{eqn: HoG diagram
 for Loop2(d,BU)} is isomorphic to $BGL_{d}$ via the affine bundle maps
@@ -1998,8 +2014,8 @@ Loop2inft(BU)=BGL in HoG} are defined geometrically by
 \]
 which in terms of quivers is given by
 \[
-(A,U,W,(\alpha ,\gamma ,j))\mapsto (A,U,W,(\alpha ,\gamma ,j))\oplus
-(\CC ,\CC ,\CC ,(0,1,1)). 
+(A,U,W,(\alpha ,j,\gamma))\mapsto (A,U,W,(\alpha ,j, \gamma ))\oplus
+(\kk ,\kk ,\kk ,(0,1,1)). 
 \]
 Thus we get a diagram
 \[
@@ -2017,7 +2033,7 @@ To show this gives a well-defined object in $\HoG$ we need to show the
 vertical open inclusions have increasing connectivity and also that
 the inclusions on the bottom row have increasing connectivity. The
 former follows from Lemma~\ref{lem: codimension of unstable locus for
-the Gr quiver} and the later follows from
+the Gr quiver} and the latter follows from
 \cite[Prop~2.2]{Larson-Vakil-BottPeriodicity} and the fact that
 $\left[V_{n,N,d}/GL_{d} \right] \to BGL_{d}$ is
 $\infty$-connected.
@@ -2031,7 +2047,7 @@ be replaced with
 \]
 
 \subsection{Proof of Proposition~\ref{prop: Loop2(X+,inrty)=BSp(d) in HoG and same
-for X-}.}
+for X-}}
 
 The inclusions in the proposition arise from applying $\LoopTwo (-)$
 to the natural inclusions $X_{\mp ,n}\hookrightarrow X_{\mp ,n+1}$. In
@@ -2044,7 +2060,7 @@ terms of sequences on $\PP^{1}$, this corresponds to
 In terms of quivers, this is given by
 \[
 \left\{(A,\phi ),U,(\alpha ,j) \right\}\mapsto \left\{(A,\phi
-),U\oplus \CC ,(\alpha ,(j,0)) \right\}.
+),U\oplus \kk ,(\alpha ,(j,0)) \right\}.
 \]
 Thus we get a diagram
 \begin{equation}\label{diag: diagram defining Loop(X+infty) in HoG}
@@ -2076,7 +2092,7 @@ We denote the complement of $V^{\stable}_{\mp ,n,d}\subset V_{\mp
 Proposition~\ref{prop: quiver description of Loop2Alg(Xpm) with
 explicit open condition}:
 \[
-Z=\left\{(\alpha ,j)\in V_{\mp ,n,d}: \exists \lambda \in \CC ,v\in A\text{ such that
+Z=\left\{(\alpha ,j)\in V_{\mp ,n,d}: \exists \lambda \in \overline{\kk} ,v\in A\text{ such that
 }j(v)=0\text{ and } \alpha v=\lambda v \right\}.
 \]
 Let us abbreviate $V_{\mp ,n,d}$ to $V_{\mp}$ and we 
@@ -2106,7 +2122,7 @@ B_{\alpha}(-,v) = \lambda \left\langle -,v \right\rangle
 \]
 so $Z$ may be rewritten as
 \[
-Z=\left\{(B_{\alpha } ,j)\in V_{\mp}: \exists \lambda \in \CC ,v\in A\text{ such that
+Z=\left\{(B_{\alpha } ,j)\in V_{\mp}: \exists \lambda \in \overline{\kk} ,v\in A\text{ such that
 }j(v)=0\text{ and }  B_{\alpha}(-,v) = \lambda \left\langle -,v \right\rangle\right\}.
 \]
 
@@ -2114,11 +2130,11 @@ To compute the dimension of $Z$ we first compute the dimension of the
 incidence variety
 \[
 \tilde{Z} =\left\{([v],(B_{\alpha},j),\lambda )\in \PP (A)\times
-V_{\mp}\times \CC\quad :\quad jv=0, B_{\alpha}(-,v) = \lambda
+V_{\mp}\times \AA^{1} \quad :\quad jv=0, B_{\alpha}(-,v) = \lambda
 \left\langle -,v \right\rangle   \right\}.
 \]
 We see that $\tilde{Z}\to \PP (A)$ is a subbundle of the trivial
-bundle $\PP (A)\times V_{\mp}\times \CC$ since the conditions are
+bundle $\PP (A)\times V_{\mp}\times \AA^{1}$ since the conditions are
 linear for fixed $[v]$.
 
 The condition $jv=0$ imposes $n$ linear conditions on $V_{\mp}$,
@@ -2126,7 +2142,7 @@ however the condition $B_{\alpha}(-,v) = \lambda \left\langle -,v
 \right\rangle$ imposes a different number of conditions in the two
 cases $V_{\mp}$. Let 
 \[
-L_{v}: A^{\vee}\otimes A^{\vee}\oplus \CC \to A^{\vee}
+L_{v}: A^{\vee}\otimes A^{\vee}\oplus \AA^{1} \to A^{\vee}
 \]
 denote the map given by 
 \[
@@ -2137,13 +2153,13 @@ Since $B_{\alpha}$ lies in $\Sym^{2}A^{\vee}$ in the $V_{+}$ case and
 $\Lambda^{2}A^{\vee}$ in the $V_{-}$ case, we consider each case
 separately: 
 \begin{align*}
-\Sym^{2}A^{\vee} \oplus \CC &\xrightarrow{L_{v}}A^{\vee}\\
-\Lambda ^{2}A^{\vee} \oplus \CC &\xrightarrow{L_{v}}A^{\vee}.
+\Sym^{2}A^{\vee} \oplus \AA^{1} &\xrightarrow{L_{v}}A^{\vee}\\
+\Lambda ^{2}A^{\vee} \oplus \AA^{1} &\xrightarrow{L_{v}}A^{\vee}.
 \end{align*}
-The former case is surjective, but the later has image given by the
+The former case is surjective, but the latter has image given by the
 kernel of the map
 \begin{align*}
-A^{\vee}&\xrightarrow{ev_{v}} \CC \\
+A^{\vee}&\xrightarrow{ev_{v}} \AA^{1} \\
 f(-) &\mapsto f(v)
 \end{align*}
 since 
@@ -2161,7 +2177,7 @@ Returning to $\tilde{Z}$, we see it is a subbundle of corank $n+d$ in
 the $V_{+}$ case and $n+d-1$ in the $V_{-}$ case. Then since $Z\subset
 V_{\mp}$ is the image of $\tilde{Z}$ under the projection 
 \[
-\PP (A)\times V_{\mp}\times \CC \to V_{\mp }
+\PP (A)\times V_{\mp}\times \AA^{1} \to V_{\mp }
 \]
 we see that $Z$ has codimension given by 
 \[
@@ -2193,7 +2209,7 @@ The inclusion
 is given in terms of quivers by
 \[
 \left\{(A,\phi ),U,(\alpha ,j) \right\} \mapsto \left\{(A\oplus
-\CC^{2},\phi\oplus \phi_{0} ),U\oplus \CC^{2},(\alpha\oplus \alpha_{0}
+\AA^{2},\phi\oplus \phi_{0} ),U\oplus \AA^{2},(\alpha\oplus \alpha_{0}
 ,j\oplus j_{0}) \right\} 
 \]
 where
@@ -2231,55 +2247,66 @@ The diagram gives a well-defined object in $\HoG$ provided that we can
 prove the vertical open inclusions are of increasing connectivity and
 also that the morphisms on the bottom row have increasing
 connectivity. The former follows from Lemma~\ref{lem: the complement
-of Vstable in V in the Sp/O case has codim n} and the later follows
+of Vstable in V in the Sp/O case has codim n} and the latter follows
 from the following:
 \begin{lemma}
 The morphism $BG_{\mp }(d)\to BG_{\mp }(d+2)$ is $d$-connected.
 \end{lemma}
 \begin{proof}
+We treat the skew and symmetric cases separately. First suppose that
+$\left\langle -,- \right\rangle$ is skew, so that $G_{-}$ is symplectic.
 Let
 \[
-X=\left\{(e,f)\in A^{2}: \quad \left\langle e,f \right\rangle = 1 \right\}.
+Y_{-}=\left\{(e,f)\in A^{2}: \quad \left\langle e,f \right\rangle = 1 \right\}.
 \]
-There is a surjective map $X\to A-\{0 \}$ given by $(e,f)\mapsto e$
+There is a surjective map $Y_{-}\to A-\{0 \}$ given by $(e,f)\mapsto e$
 whose fibers are affine linear hyperplanes in $A$ (since $\left\langle
--,- \right\rangle$ is non-degenerate).
-
-Let $X^{\open}\subset X$ be given by 
+-,- \right\rangle$ is non-degenerate). The group $G_{-}(d+2)$ acts
+transitively on $Y_{-}$, and the stabilizer of a pair $(e,f)$ is the
+symplectic group of the orthogonal complement of the span of $e$ and
+$f$, which is isomorphic to $G_{-}(d)$. Thus
 \[
-X^{\open}= \left\{(e,f)\in A^{2}: \quad \left\langle e,f \right\rangle
-= 1,\quad f\neq \lambda e \right\}. 
+BG_{-}(d)\cong [Y_{-}/G_{-}(d+2)].
 \]
-In the case where $\left\langle -,- \right\rangle$ is skew
-$X^{\open}=X$, and in the case where $\left\langle -,- \right\rangle$
-is symmetric, the condition removes 1 point from each fiber of $X\to
-A-\{0 \}$. In particular, $X^{\open} \hookrightarrow X$ is
-$d$-connected in either case.
-
-We note that $G_{\mp}(d+2)$ acts transitively on $X^{\open}$ with
-stabilizers given by the group of (bilinear form preserving)
-automorphisms of the orthogonal complement of the space spanned by
-$\left\{e,f \right\}$. These stabilizers are all isomorphic to
-$G_{\mp}(d)$. By the orbit-stabilizer theorem we get an equivalence
-of stacks
-\[
-BG_{\mp}(d)\cong [X^{\open}/G_{\mp}(d+2)]
-\]
-which we can then compose with the following sequence of maps of stacks:
+We therefore have a sequence of maps
 \begin{align*}
-BG_{\mp}(d)\xrightarrow{\quad \cong\quad  }&
-\left[X^{\open}/G_{\mp}(d+2)
-\right]\\
-\xhookrightarrow{\text{$d$-connected}}&
-\left[X/G_{\mp}(d+2) \right]\\ 
+BG_{-}(d)\xrightarrow{\quad \cong\quad  }&
+\left[Y_{-}/G_{-}(d+2)\right]\\
 \xrightarrow{\text{affine bundle}}&
-\left[A-\{0 \} / G_{\mp}(d+2) \right]\\
+\left[A-\{0 \} / G_{-}(d+2) \right]\\
 \xhookrightarrow{\text{$(d+1)$-connected}}&
-\left[A / G_{\mp}(d+2) \right]\\
+\left[A / G_{-}(d+2) \right]\\
 \xrightarrow{\text{affine bundle}}&
-BG_{\mp}(d+2)\\
+BG_{-}(d+2).
 \end{align*}
-The lemma is then proved by successively applying the two out of three rule.
+It follows from the two-out-of-three rule that $BG_{-}(d)\to
+BG_{-}(d+2)$ is $d$-connected.
+
+Now suppose that $\left\langle -,- \right\rangle$ is symmetric, so that
+$G_{+}$ is orthogonal. In this case the correct analogue of $Y_{-}$ is
+the space of hyperbolic pairs
+\[
+Y_{+}=\left\{(e,f)\in A^{2}: \quad
+\left\langle e,e \right\rangle=0,\quad
+\left\langle f,f \right\rangle=0,\quad
+\left\langle e,f \right\rangle=1 \right\}.
+\]
+By Witt extension, $G_{+}(d+2)$ acts transitively on $Y_{+}$, and the
+stabilizer of a hyperbolic pair $(e,f)$ is the orthogonal group of the
+orthogonal complement of the hyperbolic plane spanned by $e$ and $f$.
+This stabilizer is isomorphic to $G_{+}(d)$. Hence
+\[
+BG_{+}(d)\cong [Y_{+}/G_{+}(d+2)].
+\]
+The morphism
+\[
+[Y_{+}/G_{+}(d+2)]\to BG_{+}(d+2)
+\]
+is the standard orthogonal Stiefel stabilization morphism obtained by
+adjoining a hyperbolic plane, and is $d$-connected. Equivalently, this
+is the usual $d$-connected stabilization map $BO(d)\to BO(d+2)$ modeled
+by the homogeneous space of hyperbolic pairs $G_{+}(d+2)/G_{+}(d)$.
+Thus $BG_{+}(d)\to BG_{+}(d+2)$ is $d$-connected as well.
 \end{proof}
 
 
@@ -2294,7 +2321,7 @@ where $BG_{\mp}$ is the object in $\HoG$ given by the sequence
 \begin{equation}\label{eqn: sequence defining BGmp in HoG}
 \dotsb \to BG_{\mp}(d)\to BG_{\mp}(d+2) \to \dotsb 
 \end{equation}
-and the isomorphiss are via the maps $\left[V_{\mp ,n,d}/G_{\mp}(d)
+and the isomorphisms are via the maps $\left[V_{\mp ,n,d}/G_{\mp}(d)
 \right]\to BG_{\mp}(d)$ which have affine fibers. These isomorphisms
 are the desired isomorphism from Proposition~\ref{prop:
 Loop2inftyX+=BSp in HoG and similar for X-} since
@@ -2302,6 +2329,7 @@ Loop2inftyX+=BSp in HoG and similar for X-} since
 BG_{+}=BO \quad  BG_{-}=BSp.
 \]
 
+\begin{comment}
 We remark that while the algebraic group $O(A,\phi )$ depends on the
 isomorphism class of the quadratic form $\phi$, the stack $BO(A,\phi
 )$ only depends on the dimension of $A$ up to equivalence (this is
@@ -2310,6 +2338,28 @@ though our representation of $BO$ in $\HoG$ is given by the
 sequence~\eqref{eqn: sequence defining BGmp in HoG} which increases
 dimension by 2, one can easily construct highly connected maps
 $BO(n)\to BO(n+1)$ so that $BO$ is unique up to isomorphism in $\HoG$.
+\end{comment}
+
+We remark that although the group scheme $O(A,\phi)$ depends on the
+isometry class of the quadratic form $\phi$, the unpointed
+classifying stack $BO(A,\phi)$ is, up to non-canonical equivalence,
+determined only by the dimension of $A$.\footnote{If $\phi$ and $\psi$ are two
+non-degenerate quadratic forms of the same rank, then the sheaf
+\[
+\Isom((A,\phi),(A,\psi))
+\]
+is an $O(A,\psi)$-$O(A,\phi)$-bitorsor, and hence induces an
+equivalence
+\[
+BO(A,\phi)\simeq BO(A,\psi).
+\]
+Equivalently, $O(A,\phi)$-torsors classify non-degenerate quadratic
+bundles of rank $\dim A$.}
+Moreover, even though our representation of $BO$ in $\HoG$ is given
+by the sequence~\eqref{eqn: sequence defining BGmp in HoG}, which
+increases dimension by $2$, one can also construct highly connected
+maps $BO(n)\to BO(n+1)$. Thus $BO$ is well-defined up to isomorphism
+in $\HoG$.
 
 This completes the proof of Proposition~\ref{prop: Loop2inftyX+=BSp in
 HoG and similar for X-}. \qed 
