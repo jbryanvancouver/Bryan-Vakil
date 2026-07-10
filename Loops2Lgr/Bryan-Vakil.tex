@@ -476,29 +476,42 @@ this object has homotopy type
 \[
 \lim_{n,N\to \infty} U(n+N)/(U(n)\times U(N)) = BU.
 \]
-Applying $\LoopTwo (-)$ to the above sequence we get an object in
+Applying $\LoopTwo (-)$ to the above sequence we get a sequence
 $\HoG$ 
-\[
+\begin{equation}\label{eq:vancouver}
 \dotsb \hookrightarrow \LoopTwo (\Gr (n,n+N))\hookrightarrow \LoopTwo (\Gr (n+1,n+N+2))\hookrightarrow \dotsb 
-\]
-which we call $\LoopTwo (BU)$.
+\end{equation}
+which we call $\LoopTwo (BU)$.  In order to interpret \eqref{eq:vancouver} as an object of $\HoG$, we need to verify that the maps are increasingly connected in the sense of \cite{Larson-Vakil-BottPeriodicity}, which will fall out of what we are about to do.
 
-There is a corresponding sequence of quiver moduli spaces
-\[
-\dotsb \hookrightarrow V^{\stable}_{n,N,d}/GL_{d} \hookrightarrow
-V^{\stable}_{n+1,N+1,d}/GL_{d} \hookrightarrow\dotsb
-\]
-which we call $V^{\stable}_{\infty ,d}/GL_{d}$ and is isomorphic to
-$\LoopTwo (BU)$ via the isomorphisms in Theorem~\ref{thm: quiver
-description of Loop2alg(Gr(n,n+N))}. As we will show, the
-maps $V^{\stable}_{n,N,d}\hookrightarrow V_{n,N,d}$ are more and more
-connected as $n,N\to \infty$ and hence induce an isomorphism in $\HoG $ with the
-corresponding sequence of stack quotients:
-\[
-V^{\stable}_{\infty ,d}/GL_{d} \cong [V_{\infty ,d} / GL_{d}] .
-\]
-Then since the map $V_{n,N,d}\to pt$ is an affine bundle, it follows
-that this object is isomorphic to $[pt/GL_{d}] =BGL_{d}$. Thus
+Consider
+$$\xymatrix{
+\dotsb  \ar@{^(->}[r] &  V^{\stable}_{n,N,d}/GL_{d} \ar@{^(->}[d]  \ar@{^(->}[r] &
+V^{\stable}_{n+1,N+1,d}/GL_{d} \ar@{^(->}[r] \ar@{^(->}[d]  & \dotsb \\
+\dotsb   \ar@{^(->}[r]&  V_{n,N,d}/GL_{d} \ar[d]  \ar@{^(->}[r] &
+V_{n+1,N+1,d}/GL_{d} \ar@{^(->}[r] \ar[d]  & \dotsb \\
+\dotsb  \ar[r]^=  &  pt/GL_{d}  \ar[r]^= &
+pt/GL_{d}  \ar[r]^=   & \dotsb \\
+}
+$$
+The top row is just \eqref{eq:vancouver}, by Theorem~\ref{thm: quiver description of Loop2alg(Gr(n,n+N))}.  The inclusions from the first row into the second row are increasingly connected (they involve removing loci of increasingly higher codimension).  The morphisms for the second row to the third row are affine bundles, and hence infinitely connected in the sense of \cite{Larson-Vakil-BottPeriodicity}.  The horizontal morphisms in the third row are all equalities and the third row is $BGL(d)$ (as an element of $\HoG$).  The seocnd and first rows are tus isomorphic to $BGL(d)$ (in $\HoG$).  In particular, \eqref{eq:vancouver} is an element of $\HoG$, and is isomorphic to $BGL(d)$.  We explain this in detail in \S \ref{sec: topological details}.
+
+%There is a corresponding sequence of quiver moduli spaces
+%\[
+%\dotsb \hookrightarrow V^{\stable}_{n,N,d}/GL_{d} \hookrightarrow
+%V^{\stable}_{n+1,N+1,d}/GL_{d} \hookrightarrow\dotsb
+%\]
+%which we call $V^{\stable}_{\infty ,d}/GL_{d}$ and is isomorphic to
+%$\LoopTwo (BU)$ via the isomorphisms in Theorem~\ref{thm: quiver
+%description of Loop2alg(Gr(n,n+N))}. As we will show, the
+%maps $V^{\stable}_{n,N,d}\hookrightarrow V_{n,N,d}$ are more and more
+%connected as $n,N\to \infty$ and hence induce an isomorphism in $\HoG $ with the
+%corresponding sequence of stack quotients:
+%\[
+%V^{\stable}_{\infty ,d}/GL_{d} \cong [V_{\infty ,d} / GL_{d}] .
+%\]
+%Then since the map $V_{n,N,d}\to pt$ is an affine bundle, it follows
+%that this object is isomorphic to $[pt/GL_{d}] =BGL_{d}$.
+Thus
 Theorem~\ref{thm: quiver description of Loop2alg(Gr(n,n+N))} gives
 rise to an isomorphism in $\HoG$
 \[
