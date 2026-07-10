@@ -1,4 +1,4 @@
-\documentclass{amsart}
+\message{ !name(Bryan-Vakil.tex)}\documentclass{amsart}
 
 \title{Based maps to Lagrangian Grassmannians, Quivers, and Bott Periodicity}
 \date{Last compiled:  \today.  Last edited: July 9, 2026.}
@@ -21,7 +21,7 @@ Palo Alto, California, USA
 \email{rvakil@math.stanford.edu}
 
 
-\usepackage[all]{xy}
+
 \usepackage{diagbox}
 \usepackage{float}
 \usepackage{graphicx}
@@ -145,13 +145,16 @@ Palo Alto, California, USA
 \newcommand{\NoDLoopTwoTop}{\Omega^{2}_{\top}}
 \newcommand{\Id}{\operatorname{Id}}
 \newcommand{\codim}{\operatorname{codim}}
-\newcommand{\homotopyeq}{\overset \sim \longleftrightarrow}
+\newcommand{\homotopyeq}{\simeq}
 \newcommand{\Xpm}{X_{\pm,n}}
 \newcommand{\Rpistar}{R\pi_{*}}
 
 
 
 \begin{document}
+
+\message{ !name(Bryan-Vakil.tex) !offset(-3) }
+
 
 \begin{abstract}
 We give a quiver description of the space of based algebraic maps from
@@ -230,7 +233,7 @@ is an isomorphism for all $k<B(d,X)$ and that $B\to \infty $ as $d\to
 
 In the 1980s and 1990s the above expectation was shown to hold for
 generalized flag varieties in a series of papers by Segal \cite{Segal-1979}, Kirwan \cite{Kirwan-1986},
-Mann-Milgram \cite{Mann-Milgram-93}, and Boyer-Mann-Hurtubise-Milgram \cite{Boyer-Mann-Hurtubise-Milgram}.
+Mann-Milgram \cite{Mann-Millgram-93}, and Boyer-Mann-Hurtubise-Milgram \cite{Boyer-Mann-Hurtubise-Milgram}.
 
 \begin{theorem}\label{thm: Mann-Milgram algebraic loop approximation
 holds for generalized flag varieties}
@@ -270,8 +273,8 @@ There exist the following homotopy equivalences:
 Equation~\eqref{eqn: Omega2BU=BU} is referred to as \emph{complex Bott
 periodicity} and it implies that the homotopy groups of $U$ are
 2-periodic. Equations~\eqref{eqn: Omega2Sp/U=BO}--\eqref{eqn: Omega2BSp=Sp/U} 
-are referred to as \emph{real Bott periodicity} and they imply for example that
-the homotopy groups of $O$ are 8-periodic under $\Omega^1$.
+are referred to as \emph{real Bott periodicity} and they imply that
+the homotopy groups of $O$ are 8-periodic.
 
 \subsection{Summary of main results}
 
@@ -307,9 +310,9 @@ spaces:
 Let $X$ be any of the above homogeneous spaces. Then $X$
 is a projective variety (which is defined over any field) of
 Picard number 1 and so the class of a based map $f:\PP^{1}\to X$ may
-be regarded as a non-negative integer (the degree).  (For $\OGr
+be regarded as a non-negative integer (the degree)\footnote{For $\OGr
 (n,2n)$ we take the connected component containing the chosen base
-point; equivalently, the based mapping space only sees this component.)
+point; equivalently, the based mapping space only sees this component.}.
 
 
 
@@ -348,8 +351,8 @@ and let
 \[
 O(A,\phi ) = \left\{g\in GL(A):g^{\vee}\phi g=\phi  \right\}
 \]
-be the group of orthogonal automorphisms of $A$. Then $O(A,\phi )$ acts
-naturally on $V$.  Let $V^{\stable}\subset V$ be the stable
+be the group of orthogonal isomorphisms of $A$. Then $O(A,\phi )$ acts
+naturally on $V$ and let $V^{\stable}\subset V$ be the stable
 locus (in the sense of GIT). Then
 \[
 \LoopTwo (\LGr(n,2n))\cong V^{\stable}/O(A,\phi ). 
@@ -377,8 +380,8 @@ and let
 \[
 Sp(A,\phi ) = \left\{g\in GL(A):g^{\vee}\phi g=\phi  \right\}
 \]
-be the group of symplectic automorphisms of $A$. Then $Sp(A,\phi )$ acts
-naturally on $V$.  Let $V^{\stable}\subset V$ be the stable
+be the group of symplectic isomorphisms of $A$. Then $Sp(A,\phi )$ acts
+naturally on $V$ and let $V^{\stable}\subset V$ be the stable
 locus (in the sense of GIT). Then
 \[
 \LoopTwo (\OGr(n,2n))\cong V^{\stable}/Sp(A,\phi ). 
@@ -446,7 +449,7 @@ spaces of  $\Gr (n,n+N)$, $\OGr(n,2n)$, and $\LGr(n,2n)$
 lead to proofs of the Bott periodicity equivalences given by
 Equations~\eqref{eqn: Omega2BU=BU}, \eqref{eqn: Omega2O/U=BSp}, and
 \eqref{eqn: Omega2Sp/U=BO} respectively. Full details of the argument
-will be supplied in \S \ref{sec: topological details}. 
+will be supplied in \S~\ref{sec: topological details}. 
 
 In \cite{Larson-Vakil-BottPeriodicity}, Larson and Vakil define a
 homotopy category of algebraic spaces $\HoG $, whose objects can be
@@ -454,7 +457,7 @@ given sequences
 \[
 \dotsb \to  X_{i} \to  X_{i+1}\to \dotsb 
 \]
-of increasingly highly connected maps of algebraic spaces or stacks. Objects in
+of highly connected maps of algebraic spaces or stacks. Objects in
 their category have a topological realization which is a well-defined
 homotopy type that one can think of as $\lim_{i\to \infty} X_{i}$ in
 the complex analytic topology with the direct limit
@@ -590,8 +593,8 @@ proof of Loop2(Gr) theorem}
 
 
 The material in this section has previously appeared in various guises
-(e.g. \cite[\S 5]{Larson-Vakil-BottPeriodicity},
-\cite[\S 3]{Nakajima-Handsaw}), but we include it to fix our notation
+(e.g. \cite[\S~5]{Larson-Vakil-BottPeriodicity},
+\cite[\S~3]{Nakajima-Handsaw}), but we include it to fix our notation
 and orient the reader to our point of view which will be integral to
 subsequent sections.
 
@@ -600,10 +603,10 @@ subsequent sections.
 We fix homogeneous coordinates $(x_{0}:x_{1})$ on $\PP^{1}$ and we let
 $p_{\infty }=(1:0)$. Let $V$ be a vector space. We use the notation
 \[
-\UL{V}(i) = \OO_{\PP^{1}}(i)\otimes V
+\UL{V}(k) = \OO_{\PP^{1}}(k)\otimes V
 \]
 and in general, we use underlines to denote sheaves and maps of
-sheaves, and we drop the underline to denote the induced map on cohomology.
+sheaves and we drop the underline to denote the induced map on cohomology.
 
 
 Let $U$ and $W$ be vector spaces of dimension $n$ and $N$, respectively
@@ -641,8 +644,7 @@ and so we may write
 By definition, the map $\UL{\theta}:\UL{U}\to E$ induces the framing
 at $p_{\infty}$: $E|_{p_{\infty}}\cong U$ and moreover, it induces a
 trivialization of $E$ on some (unspecified) Zariski open neighborhood
-of $p_{\infty}$. We call such a structure a \emph{Zariski framing} of $E$.  Precisely, we come to
-a central definition:  
+of $p_{\infty}$. We call such a structure a \emph{Zariski framing} of $E$.
 
 \begin{definition}\label{defn: Zariski framing}
 Let $E$ be a rank $n$ sheaf on $\PP^{1}$ and let $U$ be an
@@ -701,7 +703,7 @@ an isomorphism,
 \[
 \Ker \UL{\theta}=0\text{ and } \Coker \UL{\theta}=Q ,
 \]
-a zero-dimensional length $d$ sheaf supported on $\AA^1=\PP^{1}-p_{\infty}$.
+a zero-dimensional length $d$ sheaf supported on $\AA=\PP^{1}-p_{\infty}$.
 
 The sequence
 \[
@@ -924,13 +926,13 @@ all $\lambda\in \overline{\kk} $.
 Then the constructions of this section induce an isomorphism of affine
 varieties:
 \[
-\LoopTwo (\Gr (n,n+N))\overset \sim \longleftrightarrow V^{\open}_{n,N,d}/GL(A) .
+\LoopTwo (\Gr (n,n+N))\cong V^{\open}_{n,N,d}/GL(A) .
 \]
 \end{proposition}
 
 
 \begin{remark}\label{rem: duality induced by Gr(n,n+N)=Gr(N,n+N)}
-The isomorphism $\Gr (n,U\oplus W)\overset \sim \longleftrightarrow \Gr (N,U^{\vee}\oplus
+The isomorphism $\Gr (n,U\oplus W)\cong \Gr (N,U^{\vee}\oplus
 W^{\vee})$ given by dualizing exact sequences induces an isomorphism
 on the quiver side given by $(A,U,W)\mapsto
 (A^{\vee},W^{\vee},U^{\vee})$ and $(\alpha ,j,\gamma )\mapsto
@@ -989,7 +991,7 @@ parabolic subgroup and are therefore projective algebraic varieties
 defined over $\kk$. We will handle these two cases simultaneously and
 so it will be convenient to introduce the following notations:
 \[
-X_{+,n} = OGr(n,2n), \quad X_{-,n} = LGr(n,2n).
+X_{+,n} = O(2n)/U(n), \quad X_{-,n} = Sp(2n)/U(n).
 \]
 
 If $V$ is a $2n$-dimensional vector space equipped with a
@@ -1008,7 +1010,7 @@ Associated to the form $\omega$ is an isomorphism
 J : V\to V^{\vee } 
 \]
 satisfying $J^{\vee} = J$, respectively $J^{\vee}=-J$. The following
-lemma is fairly well known (e.g. \cite[\S 2]{Hitching-2007}):
+lemma is fairly well known (e.g. \cite[\S~2]{Hitching-2007}):
 \begin{lemma}\label{lem: lagrangian quotient condition as a ses}
 A linear map $f:V\to L$ is a maximal isotropic or Lagrangian quotient if
 and only if the following sequence is short exact:
@@ -1066,7 +1068,7 @@ E \arrow[r] &
 0
 \end{tikzcd}
 \end{equation}
-where the bundle $E$ has rank $n$ and degree $d$, and the map $\UL{f}$
+where the bundle $E$ has rank $n$ and degree $d$ and the map $\UL{f}$,
 restricted to $p_{\infty} = (1:0)$ is 0 on the $U^{\vee}$ factor. In
 keeping with the notation of Section~\ref{sec: Zariski framed sheaves,
 quivers, and proof of Loop2(Gr) theorem} we may then write
@@ -1096,7 +1098,7 @@ V^{\open}_{n,n,d}/GL(A)$ given by Equation~\eqref{eqn: theta gammadual x1
 = mp x1 gamma thetadual}. 
 \end{proposition}
 
-Our strategy to prove Theorems \ref{thm: quiver description of
+Our strategy to prove theorems \ref{thm: quiver description of
 Loop2Alg(LGr)} and \ref{thm: quiver description of Loop2Alg(OGr)} is
 to translate the sheaf theoretic condition given by
 Equation~\eqref{eqn: theta gammadual x1 = mp x1 gamma thetadual} into
@@ -1118,19 +1120,17 @@ Evee-->U+Uvee-->E} by $\OO (-1)$ we get
 \[
 0\to E^{\vee}(-1)\to (\UL{U}\oplus \UL{U}^{\vee})(-1)\to E(-1)\to 0.
 \]
-Since $\OO (-1)$ and hence $(\UL{U}\oplus \UL{U}^{\vee})(-1)$ has $H^0=H^1=0$, the long exact
-sequence associated to the above short exact sequence gives an
- isomorphism $H^{0}(E(-1))\overset \sim \longrightarrow H^{1}(E^{\vee}(-1))$. We define
+Since $\OO (-1)$ has no non-trivial cohomology, the long exact
+sequence associated to the above short exact sequence consists of a
+single isomorphism $H^{0}(E(-1))\to H^{1}(E^{\vee}(-1))$. We define
 $\phi$ to be the composition of this isomorphism with the Serre
 duality isomorphism: 
 \[
 \phi : A = H^{0}(E(-1))\to H^{1}(E^{\vee}(-1)) \to H^{0}(E(-1))^{\vee}=A^{\vee}.
 \]
 
-The following seems almost a miracle.
-
 \begin{lemma}\label{lem: phivee = mp phi}
-The  isomorphism $\phi: A \rightarrow A^\vee$ satisfies $\phi^{\vee} = \mp \phi$. 
+The above isomorphism satisfies $\phi^{\vee} = \mp \phi$. 
 \end{lemma}
 \begin{proof}
 Grothendieck-Verdier duality \cite[Eq~3.20]{Huybrechts-FMbook} states
@@ -1163,11 +1163,11 @@ algebra:
 
 \begin{quote}
 \emph{A short exact sequence with a split middle term is equivalent to
-a quasi-isomorphism of a pair of two term complexes.}  (A short
+a quasi-isomorphism of a pair of two term complexes}\footnote{A short
 exact sequence with a split middle term is the total complex of a 2x2
 double complex and since the total complex is acyclic, the spectral
 sequence of the double complex implies the vertical maps induce a
-quasi-isomorphism of the rows.)
+quasi-isomorphism of the rows.}.
 \end{quote}
 \bigskip
 
@@ -1679,7 +1679,7 @@ remains to show that $V^{\open}_{\mp ,n,d} = V^{\stable }_{\mp ,n,d}$
 where $V^{\stable }_{\mp ,n,d}$ is the locus of GIT stable points for
 the action of $G(A,\phi )$ on $V_{\mp ,n,d}$. To do this it will be
 convenient to geometrically identify the full stack quotient $[V_{\mp
-,n,d} / G(A,\phi )]$, i.e., to give it a useful moduli interpretation.
+,n,d} / G(A,\phi )]$.
 
 Revisiting the proof of Proposition~\ref{prop: quiver description of
 Loop2Alg(Xpm) with explicit open condition} in the absence of the open
@@ -1691,9 +1691,9 @@ E^{\vee } \arrow[r, "J_{\pm }^{-1}\circ \UL{f}^{\vee}"] &
 \UL{U}\oplus \UL{U}^{\vee } \arrow[r, "\UL{f}"] & E,
 \end{tikzcd}
 \]
-(``standard'' over $p_{\infty}$), exact in the middle, but where {\em $E$ is no
+(standard over $p_{\infty}$), exact in the middle, but where $E$ is no
 longer necessarily locally free and $\UL{f}$ is no longer necessarily
-surjective}. Note that for self-dual sequences of the above form,
+surjective. Note that for self-dual sequences of the above form,
 $\UL{f}$ is surjective if and only if $E$ is locally free (indeed,
 this is the equivalence of conditions (1) and (2) proven above). It
 follows that $E$ is locally free if and only if the sequence has no
@@ -1714,7 +1714,8 @@ is a closed embedding of $GL(A)$ in $V_{n,n,d}$. Since $G(A,\phi
 $G(A,\phi )\cdot (\alpha ,j,-\phi^{-1}j^{\vee})$ is closed in
 $V_{n,n,d}$ and hence $G(A,\phi )\cdot (\alpha ,j)$ is closed in
 $V_{\mp ,n,d}$. Since we know points in $V^{\open}_{\mp ,n,d}$ have
-finite stabilizers, it follows that $(\alpha ,j)$ is $G(A,\phi )$-stable and thus $V^{\open}_{\mp ,n,d}\subset V^{\stable }_{\mp ,n,d}$
+finite stabilizers, it follows that $(\alpha ,j)$ is $G(A,\phi )$
+stable and thus $V^{\open}_{\mp ,n,d}\subset V^{\stable }_{\mp ,n,d}$
 which proves $V^{\open}_{\mp ,n,d}=V^{\stable }_{\mp ,n,d}$ and
 completes the proofs of Theorems \ref{thm: quiver description of
 Loop2Alg(LGr)} and \ref{thm: quiver description of
@@ -1736,11 +1737,7 @@ over $\CC$,  to the homotopy category of topological spaces and so any
 isomorphism in $\HoG_{\CC}$ yields a homotopy equivalence between the
 corresponding topological spaces.
 
-We list the results first and supply proofs afterward. We repeatedly (without comment) use the
-standard homotopy equivalences between the general linear and unitary groups, since $GL$
-is the natural language of the algebro-geometric results, and $U$ is the natural language
-of the classical topological results.
-
+We list the results first and supply proofs afterward.
 
 \begin{proposition}\label{prop: Loop2(BU)=BGLd in HoG}
 There is a sequence of inclusions
@@ -2364,24 +2361,7 @@ bundles of rank $\dim A$.}
 Moreover, even though our representation of $BO$ in $\HoG$ is given
 by the sequence~\eqref{eqn: sequence defining BGmp in HoG}, which
 increases dimension by $2$, one can also construct highly connected
-maps $BO(n)\to BO(n+1)$.
-More precisely:  we have two objects $BO_{\text{odd}}$ and $BO_{\text{even}}$, elements of $\HoG$,
-given by $BO(1) \rightarrow BO(3) \rightarrow BO(5) \rightarrow \cdots$ and
-$BO(2) \rightarrow BO(4) \rightarrow BO(6) \rightarrow \cdots$ respectively, and inverse
-morphisms between then (in $\HoG$) given by
-$$
-\xymatrix{
-  BO(1) \ar[r] \ar[d] & BO(3) \ar[r] \ar[d] & BO(5) \ar[r] \ar[d] & \cdots \\
-  BO(2) \ar[r]  & BO(4) \ar[r]  & BO(6) \ar[r]  & \cdots}
-$$
-and
-$$
-\xymatrix{
-  BO(2) \ar[r] \ar[d] & BO(4) \ar[r] \ar[d] & BO(6) \ar[r] \ar[d] & \cdots \\
-  BO(3) \ar[r]  & BO(5) \ar[r]  & BO(7) \ar[r]  & \cdots}
-$$
-inducing an isomorphism $BO_{\text{odd}} \overset \sim \longleftrightarrow BO_{\text{even}}$.
-Thus $BO$ is well-defined up to isomorphism
+maps $BO(n)\to BO(n+1)$. Thus $BO$ is well-defined up to isomorphism
 in $\HoG$.
 
 This completes the proof of Proposition~\ref{prop: Loop2inftyX+=BSp in
@@ -2393,3 +2373,5 @@ HoG and similar for X-}. \qed
 
 \end{document}
 
+
+\message{ !name(Bryan-Vakil.tex) !offset(-2377) }
